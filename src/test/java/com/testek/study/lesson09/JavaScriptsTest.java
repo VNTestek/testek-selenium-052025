@@ -1,4 +1,4 @@
-package com.testek.study.lesson08;
+package com.testek.study.lesson09;
 
 import com.testek.study.common.Menu;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,6 @@ import static java.lang.Thread.sleep;
 @Slf4j
 public class JavaScriptsTest {
     private WebDriver mWebDriver;
-    private String baseURL = "https://demoqa.com/automation-practice-form";
 
     @BeforeMethod
     public void beforeTestMethod() {
@@ -66,7 +65,9 @@ public class JavaScriptsTest {
         //javaScripts.executeScript("alert('Vincent - You are an automation engineer ?');");
 
         File file = new File(System.getProperty("user.dir") + "/Images");
-        if (!file.exists()) file.mkdirs();
+        if (!file.exists()) {
+            file.mkdirs();
+        }
         takeSnapShot(mWebDriver, file.getAbsolutePath() + "/" + System.currentTimeMillis() + ".png");
     }
 

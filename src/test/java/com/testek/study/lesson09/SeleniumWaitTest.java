@@ -1,4 +1,4 @@
-package com.testek.study.lesson08;
+package com.testek.study.lesson09;
 
 import com.testek.study.common.Menu;
 import lombok.extern.slf4j.Slf4j;
@@ -103,6 +103,7 @@ public class SeleniumWaitTest {
         WebElement firstNameEle = fluentWait.until(driver -> driver.findElement(By.xpath(firstNameXPath)));
         log.info("ID :{}", firstNameEle.getAttribute("id"));
     }
+
 
     /**
      * Go to Test Website
