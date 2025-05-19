@@ -114,6 +114,9 @@ public class SolutionTest {
 
         String qrCSS = "img[test-id='about-me-coffee-img']";
         WebElement qrElement = webDriver.findElement(By.cssSelector(qrCSS));
+
+//        String openTiktokCSS = "[class$='e1v8cfre1']";
+//        WebElement cssTiktok = webDriver.findElement(By.cssSelector(openTiktokCSS));
     }
 
     @Test(description = "Find element with XPath")
@@ -187,6 +190,9 @@ public class SolutionTest {
 
         String qrXPath = "//img[@test-id='about-me-coffee-img']";
         WebElement qrElement = webDriver.findElement(By.xpath(qrXPath));
+
+//        String openTiktokXPath = "//div[@class='css-1f603so e1v8cfre1']";
+//        WebElement xpathTiktok = webDriver.findElement(By.xpath(openTiktokXPath));
     }
 
     /**
