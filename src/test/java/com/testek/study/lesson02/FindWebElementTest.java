@@ -1,6 +1,8 @@
 package com.testek.study.lesson02;
 
+import com.testek.study.common.Menu;
 import lombok.Getter;
+import org.apache.xmlbeans.impl.schema.BuiltinSchemaTypeSystem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -161,4 +163,31 @@ public class FindWebElementTest {
         String url = "https://testek.vn/lab/auto/web-elements/";
         webDriver.get(url);
     }
+    /**
+   * Go to Test Website
+     */
+    private void gotoTestWebsite(Menu parent, Menu subMenu) {
+        String url = "https://testek.vn/lab/auto/web-elements/";
+        webDriver.get(url);
+
+        String XPATH_MENU_FORMAT = "//div[@test-id='%s']";
+
+        // Access: Form > [Student Form]
+        WebElement mnuElementEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, parent.getName())));
+        mnuElementEle.click();
+
+        WebElement mnuEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, subMenu.getName())));
+        mnuEle.click();
+
+        waitForDebug(5000);
+    }
+
+
+    @Test
+    public void testInteraction() {
+        gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
+        String txtAreaXPath = "//textarea[@test-id='textarea-address']";
+    }
 }
+
+
