@@ -4,7 +4,7 @@
    Truy cập: https://testek.vn/lab/auto/web-elements/
    2. Truy cập domain
    3. Tìm kiếm toàn bộ các phần tử trong page
-   
+
    ![homepage.png](../../../../../../resources/data/study/homepage.png)
 # Hướng dẫn
 1. Sử dụng các locator sau:
