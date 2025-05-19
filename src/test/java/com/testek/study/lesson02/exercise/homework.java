@@ -17,7 +17,7 @@ import java.util.Objects;
 @Getter
 @Setter
 
-public class Lesson2Homework {
+public class homework {
     private WebDriver webDriver;
 
     @BeforeClass
@@ -67,7 +67,7 @@ public class Lesson2Homework {
 
         //String openTiktokCss = "div[class='css-1f603so e1v8cfre1']";
         //WebElement openTiktokCssEle = webDriver.findElement((By.cssSelector(openTiktokCss)));
-        //Code tren sai o dau vay a ?
+        //Code tren sai o dau vay a?
 
         String qrCodeCss = "img[test-id='about-me-coffee-img']";
         WebElement qrCodeCssEle = webDriver.findElement((By.cssSelector(qrCodeCss)));
