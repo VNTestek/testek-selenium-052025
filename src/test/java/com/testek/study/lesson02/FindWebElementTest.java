@@ -1,5 +1,6 @@
 package com.testek.study.lesson02;
 
+import com.testek.study.common.Menu;
 import lombok.Getter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -160,5 +161,119 @@ public class FindWebElementTest {
     private void gotoDemoTestWebsite() {
         String url = "https://testek.vn/lab/auto/web-elements/";
         webDriver.get(url);
+    }
+    /**
+     * Go to Test Website
+     */
+    private void gotoTestWebsite(Menu parent, Menu subMenu) {
+        String url = "https://testek.vn/lab/auto/web-elements/";
+        webDriver.get(url);
+
+        String XPATH_MENU_FORMAT = "//div[@test-id='%s']";
+
+        // Access: Form > [Student Form]
+        WebElement mnuElementEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, parent.getName())));
+        mnuElementEle.click();
+
+        WebElement mnuEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, subMenu.getName())));
+        mnuEle.click();
+
+        waitForDebug(5000);
+    }
+
+    @Test
+    public void testInteraction() {
+        gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
+        //text [@id="h2"]
+        String h2Xpath = "//h2[@test-id='about-me-title']";
+        webDriver.findElement(By.xpath(h2Xpath));
+
+        String h2CSS = "h2[test-id='about-me-title']";
+        webDriver.findElement(By.cssSelector(h2CSS));
+
+        //text [@id="h4"]
+        String h4Xpath = "//h4[@test-id='db-title']";
+        webDriver.findElement(By.xpath(h4Xpath));
+
+        String h4CSS = "h4[test-id='db-title']";
+        webDriver.findElement(By.cssSelector(h4CSS));
+
+        //text [@id="db-website"]
+        String dbWebXpath = "//h4[@test-id='db-website']";
+        webDriver.findElement(By.xpath(dbWebXpath));
+
+        String dbWebCSS = "h4[test-id='db-website']";
+        webDriver.findElement(By.cssSelector(dbWebCSS));
+
+        //text [@id="db-discord"]
+        String dbDiscordXpath = "//h4[@test-id='db-discord']";
+        webDriver.findElement(By.xpath(dbDiscordXpath));
+
+        String dbDiscordCSS = "h4[test-id='db-discord']";
+        webDriver.findElement(By.cssSelector(dbDiscordCSS));
+
+        //text [@id="db-facebook"]
+        String dbFacebookXpath = "//h4[@test-id='db-facebook']";
+        webDriver.findElement(By.xpath(dbFacebookXpath));
+
+        String dbFacebookCSS = "h4[test-id='db-facebook']";
+        webDriver.findElement(By.cssSelector(dbFacebookCSS));
+
+        //text [@id="db-contact"]
+        String dbContactXpath = "//h4[@test-id='db-contact']";
+        webDriver.findElement(By.xpath(dbContactXpath));
+
+        String dbContactCSS = "h4[test-id='db-contact']";
+        webDriver.findElement(By.cssSelector(dbContactCSS));
+
+        //text [@id="db-systems"]
+        String dbSystemXpath = "//h4[@test-id='db-systems']";
+        webDriver.findElement(By.xpath(dbContactXpath));
+
+        String dbSystemCSS = "h4[test-id='db-systems']";
+        webDriver.findElement(By.cssSelector(dbContactCSS));
+
+        //text [@id="db-api-system"]
+        String dbAPISystemXpath = "//li[@test-id='db-api-system']";
+        webDriver.findElement(By.xpath(dbAPISystemXpath));
+
+        String dbAPISystemCSS = "li[test-id='db-api-system']";
+        webDriver.findElement(By.cssSelector(dbAPISystemCSS));
+
+        //text [@id="db-automation-web"]
+        String dbAutoWebXpath = "//li[@test-id='db-automation-web']";
+        webDriver.findElement(By.xpath(dbAutoWebXpath));
+
+        String dbAutoWebCSS = "li[test-id='db-automation-web']";
+        webDriver.findElement(By.cssSelector(dbAutoWebCSS));
+
+        //text [@id="db-web-element"]
+        String dbWebElementXpath = "//li[@test-id='db-web-element']";
+        webDriver.findElement(By.xpath(dbWebElementXpath));
+
+        String dbWebElementCSS = "li[test-id='db-web-element']";
+        webDriver.findElement(By.cssSelector(dbWebElementCSS));
+
+        //text [@id="db-account"]
+        String dbAccountXpath = "//li[@test-id='db-account']";
+        webDriver.findElement(By.xpath(dbAccountXpath));
+
+        String dbAccountCSS = "li[test-id='db-account']";
+        webDriver.findElement(By.cssSelector(dbAccountCSS));
+
+        //text [@id="db-database"]
+        String dbDatabaseXpath = "//li[@test-id='db-database']";
+        webDriver.findElement(By.xpath(dbDatabaseXpath));
+
+        String dbDatabaseCSS = "li[test-id='db-database']";
+        webDriver.findElement(By.cssSelector(dbDatabaseCSS));
+
+
+//        //textarea [@id="address"]
+//        String txtAreaXPath = "//textarea[@id='address']";
+//        webDriver.findElement(By.xpath(txtAreaXPath));
+//
+//        String txtAreaCSS="textarea[test-id='textarea-address']";
+//        webDriver.findElement(By.cssSelector(txtAreaCSS));
     }
 }
