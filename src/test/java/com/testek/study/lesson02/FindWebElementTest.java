@@ -269,7 +269,7 @@ public class FindWebElementTest {
         webDriver.findElement(By.cssSelector(dbDatabaseCSS));
 
 
-//        //textarea [@id="address"]
+        //textarea [@id="address"]
 //        String txtAreaXPath = "//textarea[@id='address']";
 //        webDriver.findElement(By.xpath(txtAreaXPath));
 //
