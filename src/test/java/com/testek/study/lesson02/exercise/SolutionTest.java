@@ -88,6 +88,18 @@ public class SolutionTest {
         //li[test-id='db-account']
         String lblAccountCSS = "li[test-id='db-account']";
         WebElement lblAccount = webDriver.findElement(By.cssSelector(lblAccountCSS));
+        //li[test-id='db-account-admin']
+        String lblAccAdminCSS = "li[test-id='db-account-admin']";
+        WebElement lblAccAdmin = webDriver.findElement(By.cssSelector(lblAccAdminCSS));
+        //li[test-id='db-account-user']
+        String lblAccUserCSS = "li[test-id='db-account-user']";
+        WebElement lblAccUser = webDriver.findElement(By.cssSelector(lblAccUserCSS));
+        //li[test-id='db-account-guest']
+        String lblAccGuestCSS = "li[test-id='db-account-guest']";
+        WebElement lblAccGuest = webDriver.findElement(By.cssSelector(lblAccGuestCSS));
+        //li[test-id='db-account-password']
+        String lblAccPwdCSS = "li[test-id='db-account-password']";
+        WebElement lblAccPwd = webDriver.findElement(By.cssSelector(lblAccPwdCSS));
 
         //li[test-id='db-database']
         String lblDatabaseCSS = "li[test-id='db-database']";
@@ -152,6 +164,18 @@ public class SolutionTest {
         //li[@test-id='db-account']
         String lblDbAccountXPath = "//li[@test-id='db-account']";
         WebElement lblDbAccount = webDriver.findElement(By.xpath(lblDbAccountXPath));
+        //li[@test-id='db-account-admin']
+        String lblAccAdminXpath = "//li[@test-id='db-account-admin']";
+        WebElement lblAccAdmin = webDriver.findElement(By.xpath(lblAccAdminXpath));
+        //li[@test-id='db-account-user']
+        String lblAccUserXpath = "//li[@test-id='db-account-user']";
+        WebElement lblAccUser = webDriver.findElement(By.xpath(lblAccUserXpath));
+        //li[@test-id='db-account-guest']
+        String lblAccGuestXpath = "//li[@test-id='db-account-guest']";
+        WebElement lblAccGuest = webDriver.findElement(By.xpath(lblAccGuestXpath));
+        //li[@test-id='db-account-password']
+        String lblAccPwdXpath = "//li[@test-id='db-account-password']";
+        WebElement lblAccPwd = webDriver.findElement(By.xpath(lblAccPwdXpath));
 
         //li[@test-id='db-database']
         String lblDbDatabaseXPath = "//li[@test-id='db-database']";
@@ -164,6 +188,12 @@ public class SolutionTest {
         //h4[@test-id='about-me-web-elements']
         String lblAboutMeXPath = "//h4[@test-id='about-me-web-elements']";
         WebElement lblAboutMe = webDriver.findElement(By.xpath(lblAboutMeXPath));
+
+        //div[@id='embed-profile-container']
+//        String lblTiktokXpath = "/div[@id='embed-profile-container']";
+//        WebElement lblTiktok = webDriver.findElement(By.xpath(lblTiktokXpath));
+//        String OpenBtnXpath = "//*[@id=\"embed-profile-container\"]/div/div[2]/a/button/div";
+//        WebElement lblOpenBtn = webDriver.findElement(By.xpath(OpenBtnXpath));
 
     }
 
