@@ -4,7 +4,7 @@
 - Course's Syllabus: 16 lessons (Basic to Advance)
 - Method: Offline
 
-
+Dung
 ## Syllabus Detail
 1. Tổng quan Selenium
 2. Locator cơ bản
