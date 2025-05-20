@@ -49,6 +49,14 @@ public class SolutionTest {
         WebElement lblWebsiteEle = webDriver.findElement(By.cssSelector(lblWebsiteCSS));
 
         // Handle other elements similarly
+        String lblDiscordCSS = "h4#db-discord";
+        WebElement lblDiscordEle = webDriver.findElement(By.cssSelector(lblDiscordCSS));
+
+        String lblCoffeeCSS = "div[test-id='about-me-grid-item-coffee']";
+        WebElement lblCoffeeEle = webDriver.findElement(By.cssSelector(lblCoffeeCSS));
+
+        String lblEleCSS = "h4[test-id='about-me-web-elements']";
+        WebElement lblEleEle = webDriver.findElement(By.cssSelector(lblEleCSS));
 
     }
 
@@ -61,6 +69,29 @@ public class SolutionTest {
         WebElement lblWebsiteEle = webDriver.findElement(By.xpath(lblWebsiteXPath));
 
         // Handle other elements similarly
+        String lblFaceXPath = "//h4[@test-id='db-facebook']";
+        WebElement lblFaceEle = webDriver.findElement(By.xpath(lblFaceXPath));
+
+        String lblSysXPath = "//h4[@test-id='db-systems']";
+        WebElement lblSysEle = webDriver.findElement(By.xpath(lblSysXPath));
+
+        String lblApiXPath = "//li[@test-id='db-api-system']";
+        WebElement lblApiEle = webDriver.findElement(By.xpath(lblApiXPath));
+
+        String lblAuXPath = "//li[@test-id='db-automation-web']";
+        WebElement lblAuEle = webDriver.findElement(By.xpath(lblAuXPath));
+
+        String lblEleXPath = "//li[@test-id='db-web-element']";
+        WebElement lblEle = webDriver.findElement(By.xpath(lblEleXPath));
+
+        String lblAccXPath = "//li[@test-id='db-account']";
+        WebElement lblAccEle = webDriver.findElement(By.xpath(lblAccXPath));
+
+        String lblDataXPath = "//li[@test-id='db-database']";
+        WebElement lblDataEle = webDriver.findElement(By.xpath(lblDataXPath));
+
+        String lblContactCSS = "//h4[@test-id='db-contact']";
+        WebElement lblContactEle = webDriver.findElement(By.xpath(lblContactCSS));
 
     }
 
