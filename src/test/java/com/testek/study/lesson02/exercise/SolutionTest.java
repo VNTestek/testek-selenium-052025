@@ -50,7 +50,33 @@ public class SolutionTest {
 
         // Handle other elements similarly
 
+        //Testek-kiểm thử thực chiến
+        String titleWebCSS="h2[test-id='about-me-title']";
+        WebElement titleWebEble=webDriver.findElement(By.cssSelector(titleWebCSS));
+
+        //Website
+        String txtWebCSS="h4[test-id='db-website']";
+        WebElement txtWebEble=webDriver.findElement(By.cssSelector(txtWebCSS));
+        String linkWebCSS="h4[test-id='db-website-link']";
+        WebElement linkWebEble=webDriver.findElement(By.cssSelector(linkWebCSS));
+
+        //Discord
+        String txtDiscordCSS="h4[test-id='db-discord']";
+        WebElement txtDisEble=webDriver.findElement(By.cssSelector(txtDiscordCSS));
+        String linkDiscordCSS="a[href=\"https://discord.gg/jC7ZtmvuDX\"]";
+        WebElement linkDiscordEble=webDriver.findElement(By.cssSelector(linkDiscordCSS));
+
+        //Facebook
+        String txtFbCSS="h4[test-id='db-facebook']";
+        WebElement txtFbEble= webDriver.findElement(By.cssSelector(txtFbCSS));
+        String linkFbCSS="a[href=\"https://discord.gg/jC7ZtmvuDX\"]";
+        WebElement linkFbEble=webDriver.findElement(By.cssSelector(linkFbCSS));
+
+        //Hotline-Email
+        String txtContact="h4[test-id='db-contact']";
+        WebElement txtContactEble=webDriver.findElement(By.cssSelector(txtContact));
     }
+
 
     @Test(description = "Find element with XPath")
     public void findLocatorWithXPath() {
@@ -61,6 +87,33 @@ public class SolutionTest {
         WebElement lblWebsiteEle = webDriver.findElement(By.xpath(lblWebsiteXPath));
 
         // Handle other elements similarly
+
+        //Testek-kiểm thử thực chiến
+        String titleWebXpath="//h2[@test-id='about-me-title']";
+        WebElement titleWebEble=webDriver.findElement(By.xpath(titleWebXpath));
+
+        //Website
+        String txtWebXpath="h4[test-id='db-website']";
+        WebElement txtWebEble=webDriver.findElement(By.xpath(txtWebXpath));
+        String linkWebXpath="h4[test-id='db-website-link']";
+        WebElement linkWebEble=webDriver.findElement(By.xpath(linkWebXpath));
+
+        //Discord
+        String txtDiscordXpath="h4[test-id='db-discord']";
+        WebElement txtDisEble=webDriver.findElement(By.xpath(txtDiscordXpath));
+        String linkDiscordXpath="a[href=\"https://discord.gg/jC7ZtmvuDX\"]";
+        WebElement linkDiscordEble=webDriver.findElement(By.xpath(linkDiscordXpath));
+
+        //Facebook
+        String txtFbXpath="h4[test-id='db-facebook']";
+        WebElement txtFbEble= webDriver.findElement(By.xpath(txtFbXpath));
+        String linkFbXpath="a[href=\"https://discord.gg/jC7ZtmvuDX\"]";
+        WebElement linkFbEble=webDriver.findElement(By.xpath(linkFbXpath));
+
+        //Hotline-Email
+        String txtContactXpath="h4[test-id='db-contact']";
+        WebElement txtContactEble=webDriver.findElement(By.xpath(txtContactXpath));
+    }
 
     }
 
