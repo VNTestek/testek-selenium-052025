@@ -315,11 +315,7 @@ public class SolutionTest {
         //                        CHUNG TAY XÂY DỰNG CỘNG ĐỒNG KIỂM THỬ TỰ ĐỘNG VIỆT NAM LỚN MẠNH!!!</b></h4>
         String lblAboutMeWebElementsXPathWithTestIdAndTag = "//h4[@test-id='about-me-web-elements']";
         webDriver.findElement(By.xpath(lblAboutMeWebElementsXPathWithTestIdAndTag));
-        //<h2 style="font-size: xx-large; color: #007bff;" test-id="about-me-title" xpath="1"><b>TESTEK - KIỂM THỬ THỰC CHIẾN</b></h2>
-
-
     }
-
 
     /**
      * Go to Website
