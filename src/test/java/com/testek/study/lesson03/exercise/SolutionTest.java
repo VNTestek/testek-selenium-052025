@@ -46,8 +46,13 @@ public class SolutionTest {
     public void findAdvanceLocatorWithCSS() {
         gotoTestWebsite();
 
-        // Handle other elements similarly
+        // find element by contains CSS
+        String textHeaderCSS = "h2[test-id *= 'about-me']";
+        WebElement titleHeaderElement = webDriver.findElement(By.cssSelector(textHeaderCSS));
 
+        // find element by start-with CSS
+        String textFindOutByStartWith = "h2[test-id ^= 'about']";
+        WebElement titleFindOutByStartWithCSS = webDriver.findElement(By.cssSelector(textFindOutByStartWith));
     }
 
     /**
@@ -57,11 +62,67 @@ public class SolutionTest {
     public void findAdvanceLocatorWithXPath() {
         gotoTestWebsite();
 
-        // Full Name Component
-        String lblTitleAncestorXPath = "//h4[@test-id='db-title']/ancestor::div[@test-id='about-me-grid']";
-        WebElement lblTitleElement = webDriver.findElement(By.xpath(lblTitleAncestorXPath));
+        findTitleWithContains();
+        findTitleByStartWith();
+        findTitleByText();
+        findTitleByNormalizeSpace();
+        findTitleByAncestor();
+        findTitleByDescendant();
+        findTitleByPreceding();
+        findTitleByFollowing();
+        findTitleByFollowingSibling();
+        findTitleByPrecedingSibling();
+    }
 
-        // Handle other elements similarly
+    private void findTitleByFollowingSibling() {
+        String titleFindOutByFollowingSibling = "//h4[@test-id='db-title']/following-sibling::h4[@test-id='db-website']";
+        WebElement titleFindOutByFollowingSiblingWithXpath = webDriver.findElement(By.xpath(titleFindOutByFollowingSibling));
+    }
+
+    private void findTitleByPrecedingSibling() {
+        String titleFindOutByPrecedingSibling = "//h4[@test-id='db-website']/preceding-sibling::h4[@test-id='db-title']";
+        WebElement titleFindOutByPrecedingSiblingWithXpath = webDriver.findElement(By.xpath(titleFindOutByPrecedingSibling));
+    }
+
+    private void findTitleByFollowing() {
+        String titleFindOutByFollowing = "//h2[@test-id='about-me-title']/following::h4[@test-id='db-facebook']";
+        WebElement titleFindOutByFlowingWithXpath = webDriver.findElement(By.xpath(titleFindOutByFollowing));
+    }
+
+    private void findTitleByPreceding() {
+        String titleFindOutByPreceding = "//h4[@test-id='db-website']/preceding::h2[@test-id='about-me-title']";
+        WebElement titleFindOutByPrecedingWithXpath = webDriver.findElement(By.xpath(titleFindOutByPreceding));
+    }
+
+    private void findTitleByDescendant() {
+        String titleFindOutByDescendant = "//div[@test-id='container-root']/descendant::h4[@test-id='db-website']";
+        WebElement titleFindOutByDescendantWithXpath = webDriver.findElement(By.xpath(titleFindOutByDescendant));
+    }
+
+    private void findTitleByAncestor() {
+        String titleFindOutByAncestor = "//h4[@test-id='db-website']/ancestor::div[@test-id='container-root']";
+        WebElement titleFindOutByAncestorWithXpath = webDriver.findElement(By.xpath(titleFindOutByAncestor));
+    }
+
+    private void findTitleByNormalizeSpace() {
+        String titleFindOutByNormalizeSpace = "//h4[normalize-space()='Đào tạo API Testing, Performance Testing, Automation Testing']";
+        WebElement titleFindOutByNormalizeSpaceWithXpath = webDriver.findElement(By.xpath(titleFindOutByNormalizeSpace));
+    }
+
+    private void findTitleByText() {
+        String titleFindOutByText = "//h4[text()='Đào tạo API Testing, Performance Testing, Automation Testing']";
+        WebElement titleFindOutByTextWithXpath = webDriver.findElement(By.xpath(titleFindOutByText));
+    }
+
+
+    private void findTitleByStartWith() {
+        String textFindOutByStartWith = "//h2[starts-with(@test-id, 'about-me')]";
+        WebElement titleFindOutByStartWithCSS = webDriver.findElement(By.xpath(textFindOutByStartWith));
+    }
+
+    private void findTitleWithContains() {
+        String textHeaderXpath = "//h2[contains(@test-id,'about-me')]";
+        WebElement titleHeaderElement = webDriver.findElement(By.xpath(textHeaderXpath));
     }
 
 
@@ -71,5 +132,6 @@ public class SolutionTest {
     private void gotoTestWebsite() {
         String url = "https://testek.vn/lab/auto/web-elements/";
         webDriver.get(url);
+
     }
 }
