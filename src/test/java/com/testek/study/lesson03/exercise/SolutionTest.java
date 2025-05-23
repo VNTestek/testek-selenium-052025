@@ -105,7 +105,6 @@ public class SolutionTest {
         String lblDiscordLinkPreSibXpath = "//h4[@test-id='db-contact']/preceding-sibling::h4[@test-id='db-discord']";
         WebElement lblDiscordLinkPreSibElement = webDriver.findElement(By.xpath(lblDiscordLinkPreSibXpath));
 
-        
         // Handle other elements similarly
     }
 
