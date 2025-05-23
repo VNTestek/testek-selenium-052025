@@ -102,11 +102,10 @@ public class SolutionTest {
         String lblDbWebsiteLinkFollowingXpath = "//h4[@test-id='db-title']/following::h4[@test-id='db-website']";
         WebElement lblDbWebsiteLinkFollowingElement = webDriver.findElement(By.xpath(lblDbWebsiteLinkFollowingXpath));
 
-        String txtDiscordPreSibXpath = "//h4[@test-id='db-contact']/preceding-sibling::h4[@test-id='db-discord']";
-        WebElement txtDiscordPreSibEle = webDriver.findElement(By.xpath(txtDiscordPreSibXpath));
+        String lblDiscordLinkPreSibXpath = "//h4[@test-id='db-contact']/preceding-sibling::h4[@test-id='db-discord']";
+        WebElement lblDiscordLinkPreSibElement = webDriver.findElement(By.xpath(lblDiscordLinkPreSibXpath));
 
-
-
+        
         // Handle other elements similarly
     }
 
