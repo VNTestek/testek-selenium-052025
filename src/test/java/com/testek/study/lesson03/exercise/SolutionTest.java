@@ -47,6 +47,19 @@ public class SolutionTest {
         gotoTestWebsite();
 
         // Handle other elements similarly
+        String lblAboutMeContainsCSS = "h2[test-id*='about-me']";
+        WebElement lblTitleWebContainsElement = webDriver.findElement(By.xpath(lblAboutMeContainsCSS));
+
+        String lblAboutMeStartWithCSS = "h2[test-id^='about-']";
+        WebElement lblTitleWebStartWithElement = webDriver.findElement(By.xpath(lblAboutMeStartWithCSS));
+
+        String lblTitleNameContainsCSS = "h4[test-id*='db-title']";
+        WebElement lblTitleNameContainsElement = webDriver.findElement(By.xpath(lblTitleNameContainsCSS));
+
+        String lblTitleNameStartWithCSS = "h4[@test-id^='db-']";
+        WebElement lblTitleNameStartWithElement = webDriver.findElement(By.xpath(lblTitleNameStartWithCSS));
+
+
 
     }
 
@@ -58,8 +71,41 @@ public class SolutionTest {
         gotoTestWebsite();
 
         // Full Name Component
-        String lblTitleAncestorXPath = "//h4[@test-id='db-title']/ancestor::div[@test-id='about-me-grid']";
-        WebElement lblTitleElement = webDriver.findElement(By.xpath(lblTitleAncestorXPath));
+
+        String lblAboutMeContainsXPath = "//h2[contains(@test-id ,'about-me')]";
+        WebElement lblAboutMeContainsElement = webDriver.findElement(By.xpath(lblAboutMeContainsXPath));
+
+        String lblAboutMeStartWithXPath = "//h2[starts-with(@test-id ,'about-')]";
+        WebElement lblAboutMeStartWithElement = webDriver.findElement(By.xpath(lblAboutMeStartWithXPath));
+
+        String lblAboutMeNormalSpaceXPath = "//h2[normalize-space() = 'TESTEK - KIỂM THỬ THỰC CHIẾN']";
+        WebElement lblAboutMeTextElement = webDriver.findElement(By.xpath(lblAboutMeNormalSpaceXPath));
+
+        String lblAboutMeAncestorXPath = "//h2[@test-id='about-me-title']/ancestor::div[@test-id='about-me-section']";
+        WebElement lblAboutMeAncestorElement = webDriver.findElement(By.xpath(lblAboutMeAncestorXPath));
+
+        String lblTitleNameContainsXPath = "//h4[contains(@test-id, 'db-title')]";
+        WebElement lblTitleNameContainsElement = webDriver.findElement(By.xpath(lblTitleNameContainsXPath));
+
+        String lblTitleNameStartWithXPath = "//h4[starts-with(@test-id, 'db-')]";
+        WebElement lblTitleNameStartWithElement = webDriver.findElement(By.xpath(lblTitleNameStartWithXPath));
+
+        String lblTitleNameTextXPath = "//h4[text()='Đào tạo API Testing, Performance Testing, Automation Testing']";
+        WebElement lblTitleNameTextElement = webDriver.findElement(By.xpath(lblTitleNameTextXPath));
+
+        String lblTitleNameDescendantXPath = "//body[@test-id='body-root']/descendant::h4[@id='db-title-id']";
+        WebElement lblTitleNameDescendantElement = webDriver.findElement(By.xpath(lblTitleNameDescendantXPath));
+
+        String lblDbWebsiteLinkContainsXpath = "//h4[contains(@test-id ,'db-website-link')]";
+        WebElement txtWebContainsEle = webDriver.findElement(By.xpath(lblDbWebsiteLinkContainsXpath));
+
+        String lblDbWebsiteLinkFollowingXpath = "//h4[@test-id='db-title']/following::h4[@test-id='db-website']";
+        WebElement lblDbWebsiteLinkFollowingElement = webDriver.findElement(By.xpath(lblDbWebsiteLinkFollowingXpath));
+
+        String txtDiscordPreSibXpath = "//h4[@test-id='db-contact']/preceding-sibling::h4[@test-id='db-discord']";
+        WebElement txtDiscordPreSibEle = webDriver.findElement(By.xpath(txtDiscordPreSibXpath));
+
+
 
         // Handle other elements similarly
     }
