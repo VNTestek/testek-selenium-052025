@@ -92,7 +92,7 @@ public class SolutionTest {
 
         //TÌM KIẾM ĐOẠN TEXT: Hotline:
         String containsHotlineCSS = "h4[test-id*='contact']";
-        webElement = webDriver.findElement(By.cssSelector(containsFbCSS));
+        webElement = webDriver.findElement(By.cssSelector(containsFbCSS));        //HoangBH: Nhầm biến của FB
         String startsHotlineCSS = "h4[test-id^='db-con']";
         webElement = webDriver.findElement(By.cssSelector(startsHotlineCSS));
         String lastHotline = "h4[test-id$='contact']";
