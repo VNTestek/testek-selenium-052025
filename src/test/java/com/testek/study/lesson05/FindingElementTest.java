@@ -1,5 +1,6 @@
 package com.testek.study.lesson05;
 
+import com.testek.study.common.Menu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +13,7 @@ import org.testng.annotations.Test;
 import java.util.Objects;
 
 import static java.lang.Thread.sleep;
+
 
 public class FindingElementTest {
 
@@ -36,8 +38,6 @@ public class FindingElementTest {
     public void afterClass() {
         if (Objects.nonNull(webDriver)) webDriver.quit();
     }
-
-
 
 
     /**
@@ -96,9 +96,9 @@ public class FindingElementTest {
     }
 
 
-
     /**
      * Create a xpath expression
+     *
      * @param format : Expression format
      * @param values : Values for the expression
      * @return : The xpath
@@ -120,17 +120,100 @@ public class FindingElementTest {
         }
     }
 
+    @Test
+
+    public void testImproveLocator() {
+
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+
+        // Init format
+
+        String FORM = "//div[@test-id='%s']";
+
+        // Find elements with dynamic locator
+        String FORM_XPATH_INPUT_PLACEHODER = "//input[@id='%s']";
+        String FORM_XPATH_LABLE_TEXT = "//label[@for='%s']";
+        String FORM_XPATH_BUTTON_TEXT = "//button[@test-id='%s']";
+        String FORM_XPATH_TITLE_TEXT = "//h3[@test-id='%s']";
+
+        //Input
+        String txtNameXpath = String.format(FORM_XPATH_INPUT_PLACEHODER, "name");
+        String txtEmailXpath = String.format(FORM_XPATH_INPUT_PLACEHODER, "email");
+        String txtPhoneXpath = String.format(FORM_XPATH_INPUT_PLACEHODER, "phone");
+        String txtAddressXpath = String.format(FORM_XPATH_INPUT_PLACEHODER, "address");
+
+        //Label
+        String lblNameXpath = String.format(FORM_XPATH_LABLE_TEXT, "name");
+        String lblEmailXpath = String.format(FORM_XPATH_LABLE_TEXT, "email");
+        String lblPhoneXpath = String.format(FORM_XPATH_LABLE_TEXT, "phone");
+        String lblAddressXpath = String.format(FORM_XPATH_LABLE_TEXT, "address");
+
+        //Button
+        String bntSubmitXPath = String.format(FORM_XPATH_BUTTON_TEXT, "textbox-form-submit");
+        String bntClearXPath = String.format(FORM_XPATH_BUTTON_TEXT, "textbox-form-reset");
+
+        //Tittle
+        String lblTitleXPath = String.format(FORM_XPATH_TITLE_TEXT, "textbox-form-title");
+        String lblOutputTitleXPath = String.format(FORM_XPATH_TITLE_TEXT, "textbox-form-output-title");
+
+
+        //Find Element
+        webDriver.findElement(By.xpath(txtNameXpath));
+        webDriver.findElement(By.xpath(txtEmailXpath));
+        webDriver.findElement(By.xpath(txtPhoneXpath));
+        webDriver.findElement(By.xpath(txtAddressXpath));
+
+        webDriver.findElement(By.xpath(lblNameXpath));
+        webDriver.findElement(By.xpath(lblEmailXpath));
+        webDriver.findElement(By.xpath(lblPhoneXpath));
+        webDriver.findElement(By.xpath(lblAddressXpath));
+
+        webDriver.findElement(By.xpath(bntSubmitXPath));
+        webDriver.findElement(By.xpath(bntClearXPath));
+
+        webDriver.findElement(By.xpath(lblTitleXPath));
+        webDriver.findElement(By.xpath(lblOutputTitleXPath));
+
+    }
+
     /**
      * Go to Test Website
      */
-    void gotoTestWebsite() {
+    private void gotoTestWebsite() {
         String url = "https://testek.vn/lab/auto/web-elements/";
         webDriver.get(url);
 
-        // Access: Elements > [Menu]
-        String mnuElementXPath = "//div[@test-id='menu-elements']";
-        WebElement mnuElementEle = webDriver.findElement(By.xpath(mnuElementXPath));
+        String XPATH_MENU_FORMAT = "//div[@test-id='%s']";
+
+        // Access: Form > [Student Form]
+        WebElement mnuElementEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, Menu.FORM.getName())));
         mnuElementEle.click();
+
+        WebElement mnuEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, Menu.STUDENT_FORM.getName())));
+        mnuEle.click();
+
+        waitForDebug(5000);
     }
 
+    private void gotoTestWebsite(Menu parent, Menu subMenu) {
+
+        String url = "https://testek.vn/lab/auto/web-elements/";
+
+        webDriver.get(url);
+
+        String XPATH_MENU_FORMAT = "//div[@test-id='%s']";
+
+        // Access: Form > [Student Form]
+
+        WebElement mnuElementEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, parent.getName())));
+
+        mnuElementEle.click();
+
+        WebElement mnuEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, subMenu.getName())));
+
+        mnuEle.click();
+
+        waitForDebug(5000);
+
+    }
 }

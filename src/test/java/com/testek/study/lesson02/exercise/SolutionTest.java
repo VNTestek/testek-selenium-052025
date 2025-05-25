@@ -142,10 +142,14 @@ public class SolutionTest {
         WebElement aboutMeXpathEle = webDriver.findElement((By.xpath(aboutMeXpath)));
 
         String avatarXpath = "//img[@data-e2e='creator-profile-userInfo-Avatar']";
-        WebElement avatarXpathEle = webDriver.findElement((By.xpath(avatarXpath)));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        //WebElement avatarXpathEle = webDriver.findElement((By.xpath(avatarXpath)));
+        WebElement avatarCssEle = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(avatarXpath)));
+
 
         String vntestekXpath = "//span[text()='vntestek']";
-        WebElement vntestekXpathEle = webDriver.findElement((By.xpath(vntestekXpath)));
+       // WebElement vntestekXpathEle = webDriver.findElement((By.xpath(vntestekXpath)));
+        WebElement vntestekXpathEle = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(vntestekXpath)));
 
         String numberFollowingXpath = "//div[@data-e2e='creator-profile-userInfo-NumberContainer'][1]/a";
         WebElement numberFollowingXpathEle = webDriver.findElement((By.xpath(numberFollowingXpath)));
