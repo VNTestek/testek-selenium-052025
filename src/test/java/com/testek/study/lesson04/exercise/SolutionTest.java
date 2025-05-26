@@ -47,7 +47,15 @@ public class SolutionTest {
     public void findLocatorWithCSSOfTextBox() {
         gotoTestWebsite(Menu.TEXT_BOX);
 
-        // Handle other elements similarly
+        // find TextBox by contains CSS
+        String FORM_CSS_TXT_INPUT = "//input[@test-id *='textbox-form-input-%s']";
+
+        WebElement findTxtNameEle = webDriver.findElement(By.cssSelector(String.format(FORM_CSS_TXT_INPUT, "name")));
+        WebElement findTxtEmailEle = webDriver.findElement(By.cssSelector(String.format(FORM_CSS_TXT_INPUT, "email")));
+        WebElement findTxtPhoneEle = webDriver.findElement(By.cssSelector(String.format(FORM_CSS_TXT_INPUT, "phone")));
+        WebElement findTxtAddressEle = webDriver.findElement(By.cssSelector(String.format(FORM_CSS_TXT_INPUT, "address")));
+
+        // find CheckBox by contains CSS
 
     }
 
@@ -58,7 +66,13 @@ public class SolutionTest {
     public void findLocatorWithXPathOfTextBox() {
         gotoTestWebsite(Menu.TEXT_BOX);
 
-        // Handle other elements similarly
+        // find TextBox by contains Xpath
+        String FORM_XPATH_TXT_INPUT = "//input[contains(@test-id,'textbox-form-input-%s')]";
+
+        WebElement findTxtNameEle = webDriver.findElement(By.xpath(String.format(FORM_XPATH_TXT_INPUT, "name")));
+        WebElement findTxtEmailEle = webDriver.findElement(By.xpath(String.format(FORM_XPATH_TXT_INPUT, "email")));
+        WebElement findTxtPhoneEle = webDriver.findElement(By.xpath(String.format(FORM_XPATH_TXT_INPUT, "phone")));
+        WebElement findTxtAddressEle = webDriver.findElement(By.xpath(String.format(FORM_XPATH_TXT_INPUT, "address")));
 
     }
 
@@ -69,8 +83,11 @@ public class SolutionTest {
     public void findLocatorWithCSSOfRadioButton() {
         gotoTestWebsite(Menu.RADIO_BUTTON);
 
-        // Handle other elements similarly
-
+        // find TextBox by contains Xpath
+        String FORM_CSS_RAD = "label[test-id = '%s']";
+        WebElement findTxtNameEle = webDriver.findElement(By.cssSelector(String.format(FORM_CSS_RAD, "radio-label-yes")));
+        WebElement findTxtEmailEle = webDriver.findElement(By.cssSelector(String.format(FORM_CSS_RAD, "radio-label-impressive")));
+        WebElement findTxtPhoneEle = webDriver.findElement(By.cssSelector(String.format(FORM_CSS_RAD, "radio-label-no")));
     }
 
     /**
@@ -80,8 +97,11 @@ public class SolutionTest {
     public void findLocatorWithXPathOfRadioButton() {
         gotoTestWebsite(Menu.RADIO_BUTTON);
 
-        // Handle other elements similarly
-
+        // find TextBox by contains Xpath
+        String FORM_XPATH_RAD = "//label[@test-id = '%s']";
+        WebElement findTxtNameEle = webDriver.findElement(By.xpath(String.format(FORM_XPATH_RAD, "radio-label-yes")));
+        WebElement findTxtEmailEle = webDriver.findElement(By.xpath(String.format(FORM_XPATH_RAD, "radio-label-impressive")));
+        WebElement findTxtPhoneEle = webDriver.findElement(By.xpath(String.format(FORM_XPATH_RAD, "radio-label-no")));
     }
 
 
@@ -91,9 +111,10 @@ public class SolutionTest {
     @Test(description = "Find element with CSS")
     public void findLocatorWithCSSOfButtons() {
         gotoTestWebsite(Menu.BUTTONS);
-
-        // Handle other elements similarly
-
+        String FORM_CSS_BTN = "button[test-id ='%s']";
+        WebElement findTxtNameEle = webDriver.findElement(By.cssSelector(String.format(FORM_CSS_BTN, "button-click-me")));
+        WebElement findTxtEmailEle = webDriver.findElement(By.cssSelector(String.format(FORM_CSS_BTN, "button-confirm-me")));
+        WebElement findTxtPhoneEle = webDriver.findElement(By.cssSelector(String.format(FORM_CSS_BTN, "button-prompt-me")));
     }
 
     /**
@@ -102,8 +123,11 @@ public class SolutionTest {
     @Test(description = "Find element with XPath")
     public void findLocatorWithXPathOfButtons() {
         gotoTestWebsite(Menu.BUTTONS);
-
         // Handle other elements similarly
+        String FORM_XPATH_BTN = "//button[@test-id ='%s']";
+        WebElement findTxtNameEle = webDriver.findElement(By.xpath(String.format(FORM_XPATH_BTN, "button-click-me")));
+        WebElement findTxtEmailEle = webDriver.findElement(By.xpath(String.format(FORM_XPATH_BTN, "button-confirm-me")));
+        WebElement findTxtPhoneEle = webDriver.findElement(By.xpath(String.format(FORM_XPATH_BTN, "button-prompt-me")));
 
     }
 
@@ -115,7 +139,10 @@ public class SolutionTest {
     public void findLocatorWithCSSOfDynamicPro() {
         gotoTestWebsite(Menu.DYNAMIC_PROPERTIES);
 
-        // Handle other elements similarly
+        String FORM_CSS_BTN = "//button[@test-id ='%s']";
+        WebElement findTxtNameEle = webDriver.findElement(By.xpath(String.format(FORM_CSS_BTN, "button-click-me")));
+        WebElement findTxtEmailEle = webDriver.findElement(By.xpath(String.format(FORM_CSS_BTN, "button-confirm-me")));
+        WebElement findTxtPhoneEle = webDriver.findElement(By.xpath(String.format(FORM_CSS_BTN, "button-prompt-me")));
 
     }
 
@@ -127,6 +154,7 @@ public class SolutionTest {
         gotoTestWebsite(Menu.DYNAMIC_PROPERTIES);
 
         // Handle other elements similarly
+
 
     }
 
