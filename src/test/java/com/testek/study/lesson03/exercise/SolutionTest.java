@@ -117,7 +117,7 @@ public class SolutionTest {
 
     private void findTitleByStartWith() {
         String textFindOutByStartWith = "//h2[starts-with(@test-id, 'about-me')]";
-        WebElement titleFindOutByStartWithCSS = webDriver.findElement(By.xpath(textFindOutByStartWith));
+        WebElement titleFindOutByStartWithCSS = webDriver.findElement(By.xpath(textFindOutByStartWith));   //HoangBH: Tên biến chưa phù hợp
     }
 
     private void findTitleWithContains() {
