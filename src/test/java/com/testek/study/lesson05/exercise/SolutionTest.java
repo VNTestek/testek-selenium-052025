@@ -66,7 +66,103 @@ public class SolutionTest {
     public void testDynamicLocator() {
         gotoTestWebsite();
 
-        // Define the locator format then apply to elements
+        // title TESTEK - KIỂM THỬ THỰC CHIẾN
+        String lblTitleContainsCSS = "h2[test-id*= 'about'] > b";
+        webDriver.findElement(By.cssSelector(lblTitleContainsCSS));
+        String lblTittleStartCSS = "h2[test-id^= 'about'] > b";
+        webDriver.findElement(By.cssSelector(lblTittleStartCSS));
+
+        // Đào tạo API Testing, Performance Testing, Automation Testing
+        String lblTrainingTitleContainsCSS = "h4[name*= 'name']";
+        webDriver.findElement(By.cssSelector(lblTrainingTitleContainsCSS));
+        String lblTittleStartWithCSS = "h4[name^= 'db-title']";
+        webDriver.findElement(By.cssSelector(lblTittleStartWithCSS));
+
+        // https://testek.vn
+        String lblWebContainsCSS = "h4[test-id*= 'website']";
+        webDriver.findElement(By.cssSelector(lblWebContainsCSS));
+        String lblWebStartWithCSS = "h4[test-id^= 'db-web']";
+        webDriver.findElement(By.cssSelector(lblWebStartWithCSS));
+
+        // https://testek.vn
+        String linkWebsiteContainsCSS = "a[test-id*= 'website-link']";
+        webDriver.findElement(By.cssSelector(linkWebsiteContainsCSS));
+        String linkWebsiteStartWithCSS = "a[test-id^= 'db-website-l']";
+        webDriver.findElement(By.cssSelector(linkWebsiteStartWithCSS));
+
+        // Facebook: Testek - Kiểm thử thực chiến
+        String lblFbContainsCSS = "h4[test-id*= 'face']";
+        webDriver.findElement(By.cssSelector(lblFbContainsCSS));
+        String lblFbStartWithCSS = "h4[test-id^= 'db']";
+        webDriver.findElement(By.cssSelector(lblFbStartWithCSS));
+
+        // Link face Testek - Kiểm thử thực chiến
+        String linkFaceContainsCSS = "a[test-id*= 'facebook']";
+        webDriver.findElement(By.cssSelector(linkFaceContainsCSS));
+        String linkFaceStartWithCSS = "a[test-id^= 'db-facebook']";
+        webDriver.findElement(By.cssSelector(linkFaceStartWithCSS));
+
+        // Hotline: 083.286.8822 / Email: vntestek@gmail.com
+        String lblContactContainsCSS = "h4[test-id*= 'contact']";
+        webDriver.findElement(By.cssSelector(lblContactContainsCSS));
+        String lblContactStartCSS = "h4[test-id^= 'db-con']";
+        webDriver.findElement(By.cssSelector(lblContactStartCSS));
+
+        // Img
+        String imgContainsCSS = "img[test-id*= 'coffee']";
+        webDriver.findElement(By.cssSelector(imgContainsCSS));
+        String imgStartCSS = "img[test-id^= 'about-me']";
+        webDriver.findElement(By.cssSelector(imgStartCSS));
+
+        // Link Swagger
+        String lblLinkAPIContainsCSS = "a[test-id*= 'api']";
+        webDriver.findElement(By.cssSelector(lblLinkAPIContainsCSS));
+        String lblLinkAPIStartCSS = "a[test-id^= 'db-api']";
+        webDriver.findElement(By.cssSelector(lblLinkAPIStartCSS));
+
+        // API System: Swagger
+        String lblAPIContainsCSS = "li[test-id*= 'api']";
+        webDriver.findElement(By.cssSelector(lblAPIContainsCSS));
+        String lblAPIStartWithCSS = "li[test-id^= 'db-api']";
+        webDriver.findElement(By.cssSelector(lblAPIStartWithCSS));
+
+
+        // Automation Web: Product Management
+        String lblAutoWebContainsCSS = "li[test-id*= 'auto']";
+        webDriver.findElement(By.cssSelector(lblAutoWebContainsCSS));
+        String lblAutoWebStartWithCSS = "li[test-id^= 'db-auto']";
+        webDriver.findElement(By.cssSelector(lblAutoWebStartWithCSS));
+
+        // Link Product Management
+        String lblLinkAutoWebContainsCSS = "a[test-id*= 'auto']";
+        webDriver.findElement(By.cssSelector(lblLinkAutoWebContainsCSS));
+        String lblLinkAutoWebStartWithCSS = "a[test-id^= 'db-auto']";
+        webDriver.findElement(By.cssSelector(lblLinkAutoWebStartWithCSS));
+
+        // Admin: admin_com_role
+        String lblAdminContainsCSS = "li[test-id*= 'admin']";
+        webDriver.findElement(By.cssSelector(lblAdminContainsCSS));
+        String lblAdminStartWithCSS = "li[test-id^= 'db-account-ad']";
+        webDriver.findElement(By.cssSelector(lblAdminStartWithCSS));
+
+        // User: user_com_role
+        String lblUserContainsCSS = "li[test-id*= 'user']";
+        webDriver.findElement(By.cssSelector(lblUserContainsCSS));
+        String lblUserStartWithCSS = "li[test-id^= 'db-account-u']";
+        webDriver.findElement(By.cssSelector(lblUserStartWithCSS));
+
+        // Guest: guest_com_role
+        String lblGuestContainsCSS = "li[test-id*= 'guest']";
+        webDriver.findElement(By.cssSelector(lblGuestContainsCSS));
+        String lblGuestStartWithCSS = "li[test-id^= 'db-account-g']";
+        webDriver.findElement(By.cssSelector(lblGuestStartWithCSS));
+
+        // HỆ THỐNG CÁC WEB ELEMENTS CƠ BẢN TRONG AUTOMATION TESTING, CÙNG CHUNG TAY XÂY DỰNG CỘNG ĐỒNG KIỂM THỬ TỰ ĐỘNG VIỆT NAM LỚN MẠNH!!!
+        String lblTextContainsCSS = "h4[test-id*= 'about'] > b";
+        webDriver.findElement(By.cssSelector(lblTextContainsCSS));
+        String lblTextStartWithCSS = "h4[test-id^= 'about'] > b";
+        webDriver.findElement(By.cssSelector(lblTextStartWithCSS));
+
     }
 
     /**
