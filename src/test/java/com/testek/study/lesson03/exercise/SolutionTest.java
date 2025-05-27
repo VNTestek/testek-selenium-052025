@@ -253,6 +253,15 @@ public class SolutionTest {
         webDriver.findElement(By.xpath(lblTextStartXPath));
         String lblTextPreSibXPath = "//h4[@test-id = 'about-me-separator']/preceding-sibling::h4";
         webDriver.findElement(By.xpath(lblTextPreSibXPath));
+
+        String text = "//input[@test-id = 'textbox-form-input-%s')]";
+        String editText = String.format(text, "address");
+        System.out.println(editText);
+        //input[@test-id = 'textbox-form-input-%s')]
+        //button[@test-id = 'textbox-form-%s')]
+        //textarea[@test-id = 'textbox-form-output']
+        //h3[normalize-space() = '%s']
+        //label[@test-id = 'textbox-form-label-%s']
     }
 
 
