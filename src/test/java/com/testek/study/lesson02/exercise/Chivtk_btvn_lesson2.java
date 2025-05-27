@@ -18,7 +18,7 @@ import java.util.Objects;
 
 @Getter
 @Setter
-public class chivtk_btvn_lesson2 {
+public class Chivtk_btvn_lesson2 {
     // The driver for interacting with the webpage
     private WebDriver webDriver;
     private WebElement webElement;
@@ -128,7 +128,7 @@ public class chivtk_btvn_lesson2 {
         //TÌM KIẾM LINK TEXT: Web Element: Basic Web Elements
         String partiallinktextWE = "Web Elements";
         webElement = webDriver.findElement(By.partialLinkText(partiallinktextWE));
-        String cssWE = "[test-id^=\"db-web-element-\"]";
+        String cssWE = "[test-id^='db-web-element-']";
         webElement = webDriver.findElement(By.cssSelector(cssWE));
 
         //TÌM KIẾM ĐOẠN TEXT: ACCOUNT
@@ -136,6 +136,12 @@ public class chivtk_btvn_lesson2 {
         webElement = webDriver.findElement(By.xpath(xpathAcc));
         String cssAcc = "[test-id='db-account']";
         webElement = webDriver.findElement(By.cssSelector(cssAcc));
+
+        //TÌM KIẾM ĐOẠN TEXT Admin_com_role:
+        String txtAdmin_com_role_xpath = "//li[text()='Admin: admin_com_role ']";
+        webElement = webDriver.findElement(By.xpath(txtAdmin_com_role_xpath));
+        String lblDbAdmin_com_role_css = "[test-id='db-account-admin']";
+        webElement = webDriver.findElement(By.cssSelector(lblDbAdmin_com_role_css));
 
         //TÌM KIẾM ĐOẠN TEXT: Database: Updating...
         String xpathDB = "//li[contains(text(),'Updating...')]";
@@ -176,4 +182,5 @@ public class chivtk_btvn_lesson2 {
         webElement = webDriver.findElement(By.cssSelector(cssopenTiktok));
     }
 }
+
 
