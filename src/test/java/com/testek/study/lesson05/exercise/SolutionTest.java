@@ -54,7 +54,91 @@ public class SolutionTest {
     public void findBasicLocatorWithXPath() {
         gotoTestWebsite();
 
-        // Handle other elements similarly
+        //Title
+        String FORM_XPATH_H3_TEXT = "//h3[normalize-space()='%s']";
+
+        //Label
+        String FORM_XPATH_LABEL_TEXT = "//label[normalize-space()='%s']";
+
+        //Input (textbox)
+        String FORM_XPATH_INPUT_TEXT = "//input[@placeholder='%s']";
+
+        //Input (textarea)
+        String FORM_XPATH_INPUT_TXTAREA = "//textarea[@placeholder='%s']";
+
+        //Input (radiobutton)
+        String FORM_XPATH_INPUT_RDO = "//label[@test-id='%s']";
+
+        //Input (datetime picker)
+        String FORM_XPATH_INPUT_DTPICKER = "//input[@id='%s']";
+
+        //Button
+        String FORM_XPATH_BTN = "//button[@id='%s']";
+
+
+        String ttlHeaderXPath = String.format(FORM_XPATH_H3_TEXT, "Browser Windows");
+        webDriver.findElement(By.xpath(ttlHeaderXPath));
+
+        String ttlFormXPath = String.format(FORM_XPATH_H3_TEXT, "Form đăng ký sinh viên");
+        webDriver.findElement(By.xpath(ttlFormXPath));
+
+
+        String lblFsttNmXPath = String.format(FORM_XPATH_LABEL_TEXT, "First Name:");
+        String inputFstNmXPath = String.format(FORM_XPATH_INPUT_TEXT, "Enter your first name");
+        webDriver.findElement(By.xpath(lblFsttNmXPath));
+        webDriver.findElement(By.xpath(inputFstNmXPath));
+
+        String lblLstNmXPath = String.format(FORM_XPATH_LABEL_TEXT, "Last Name:");
+        String inputLstNmXPath = String.format(FORM_XPATH_INPUT_TEXT, "Enter your last name");
+        webDriver.findElement(By.xpath(lblLstNmXPath));
+        webDriver.findElement(By.xpath(inputLstNmXPath));
+
+
+        String lblEmailXPath = String.format(FORM_XPATH_LABEL_TEXT, "Email:");
+        String inputEmailXPath = String.format(FORM_XPATH_INPUT_TEXT, "Enter your email");
+        webDriver.findElement(By.xpath(lblEmailXPath));
+        webDriver.findElement(By.xpath(inputEmailXPath));
+
+        String lblGenderXPath = String.format(FORM_XPATH_LABEL_TEXT, "Gender:");
+        String inputMaleXPath = String.format(FORM_XPATH_INPUT_RDO, "label-male");
+        String inputFemaleXPath = String.format(FORM_XPATH_INPUT_RDO, "label-female");
+        webDriver.findElement(By.xpath(lblGenderXPath));
+        webDriver.findElement(By.xpath(inputMaleXPath));
+        webDriver.findElement(By.xpath(inputFemaleXPath));
+
+        String lblMblXPath = String.format(FORM_XPATH_LABEL_TEXT, "Mobile:");
+        String inputMblXPath = String.format(FORM_XPATH_INPUT_TEXT, "Enter your mobile number");
+        webDriver.findElement(By.xpath(lblMblXPath));
+        webDriver.findElement(By.xpath(inputMblXPath));
+
+        String lblDateOfBirthXPath = String.format(FORM_XPATH_LABEL_TEXT, "Date of Birth:");
+        String inputDtPickerXPath = String.format(FORM_XPATH_INPUT_DTPICKER, "dob");
+        webDriver.findElement(By.xpath(lblDateOfBirthXPath));
+        webDriver.findElement(By.xpath(inputDtPickerXPath));
+
+        String lblSubjectsXPath = String.format(FORM_XPATH_LABEL_TEXT, "Subjects:");
+        String inputSubjectsXpath = String.format(FORM_XPATH_INPUT_TEXT, "Enter your subjects");
+        webDriver.findElement(By.xpath(lblSubjectsXPath));
+        webDriver.findElement(By.xpath(inputSubjectsXpath));
+
+        String lblHobbiesXPath = String.format(FORM_XPATH_LABEL_TEXT, "Hobbies:");
+        String inputReadingXPath = String.format(FORM_XPATH_INPUT_RDO, "label-reading");
+        String inputSportsXPath = String.format(FORM_XPATH_INPUT_RDO, "label-sports");
+        String inputMusicXPath = String.format(FORM_XPATH_INPUT_RDO, "label-music");
+        webDriver.findElement(By.xpath(lblHobbiesXPath));
+        webDriver.findElement(By.xpath(inputReadingXPath));
+        webDriver.findElement(By.xpath(inputSportsXPath));
+        webDriver.findElement(By.xpath(inputMusicXPath));
+
+        String lblAdrXPath = String.format(FORM_XPATH_LABEL_TEXT, "Address:");
+        String inputAdrXPath = String.format(FORM_XPATH_INPUT_TXTAREA, "Enter your address");
+        webDriver.findElement(By.xpath(lblAdrXPath));
+        webDriver.findElement(By.xpath(inputAdrXPath));
+
+        String btnSubmitXPath = String.format(FORM_XPATH_BTN, "submit-button");
+        String btnClearXPath = String.format(FORM_XPATH_BTN, "reset-button");
+        webDriver.findElement(By.xpath(btnSubmitXPath));
+        webDriver.findElement(By.xpath(btnClearXPath));
 
     }
 
