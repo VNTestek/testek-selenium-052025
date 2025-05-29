@@ -1,5 +1,7 @@
 package com.testek.study.lesson05;
 
+import com.testek.study.common.Menu;
+import org.apache.poi.poifs.crypt.standard.StandardEncryptionInfoBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,8 +38,6 @@ public class FindingElementTest {
     public void afterClass() {
         if (Objects.nonNull(webDriver)) webDriver.quit();
     }
-
-
 
 
     /**
@@ -95,10 +95,77 @@ public class FindingElementTest {
         // Practice with the other elements
     }
 
+    @Test
+    public void testImproveLocator() {
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+        // Init format
+        String FORM = "//div[@test-id='%s']";
+        // Find elements with dynamic locator
 
+        String XPATH_H3_TITLE_FORM = "//h3[@test-id = '%s']";
+        String XPATH_LBL_FORM = "//label[@for = '%s']";
+        String XPATH_INPUT_TEXT_FORM = "//input[@placeholder = '%s']";
+        String XPATH_BUTTON_FORM = "//button[normalize-space() = '%s']";
+        String XPATH_TXT_AREA_FORM = "//textarea[@id = '%s']";
+
+        //Nhập thông tin người dùng:
+        String txtFormTitleXPath = String.format(XPATH_H3_TITLE_FORM, "textbox-form-title");
+        //Thông tin bạn đã nhập:
+        String txtFormOutputTitleXPath = String.format(XPATH_H3_TITLE_FORM, "textbox-form-output-title");
+        //Họ và tên:
+        String lblNameXPath = String.format(XPATH_LBL_FORM, "name");
+        String txtNameXPath = String.format(XPATH_INPUT_TEXT_FORM, "Nhập họ tên");
+        //Email:
+        String lblEmailXPath = String.format(XPATH_LBL_FORM, "email");
+        String txtEmailXPath = String.format(XPATH_INPUT_TEXT_FORM, "Nhập email");
+        //Số điện thoại:
+        String lblPhoneXPath = String.format(XPATH_LBL_FORM, "phone");
+        String txtPhoneXPath = String.format(XPATH_INPUT_TEXT_FORM, "Nhập số điện thoại");
+        //Địa chỉ:
+        String lblAddressXPath = String.format(XPATH_LBL_FORM, "address");
+        String txtAddressXPath = String.format(XPATH_INPUT_TEXT_FORM, "Nhập địa chỉ");
+        //BTN Gửi thông tin
+        String btnSubmitXPath = String.format(XPATH_BUTTON_FORM, "Gửi thông tin");
+        //BTN Clear
+        String btnClearFormXPath = String.format(XPATH_BUTTON_FORM, "Clear");
+        //TextArea Thông tin bạn đã nhập:
+        String txtAreaOutputTextXPath = String.format(XPATH_TXT_AREA_FORM, "outputText");
+
+        //Find web elements
+        webDriver.findElement(By.xpath(txtFormTitleXPath));
+        webDriver.findElement(By.xpath(txtFormOutputTitleXPath));
+        webDriver.findElement(By.xpath(lblNameXPath));
+        webDriver.findElement(By.xpath(txtNameXPath));
+        webDriver.findElement(By.xpath(lblEmailXPath));
+        webDriver.findElement(By.xpath(txtEmailXPath));
+        webDriver.findElement(By.xpath(lblPhoneXPath));
+        webDriver.findElement(By.xpath(txtPhoneXPath));
+        webDriver.findElement(By.xpath(lblAddressXPath));
+        webDriver.findElement(By.xpath(txtAddressXPath));
+        webDriver.findElement(By.xpath(btnSubmitXPath));
+        webDriver.findElement(By.xpath(btnClearFormXPath));
+        webDriver.findElement(By.xpath(txtAreaOutputTextXPath));
+
+    }
+
+    /**
+     * Go to Test Website
+     */
+    private void gotoTestWebsite(Menu parent, Menu subMenu) {
+        String url = "https://testek.vn/lab/auto/web-elements/";
+        webDriver.get(url);
+        String XPATH_MENU_FORMAT = "//div[@test-id='%s']";
+        // Access: Form > [Student Form]
+        WebElement mnuElementEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, parent.getName())));
+        mnuElementEle.click();
+        WebElement mnuEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, subMenu.getName())));
+        mnuEle.click();
+        waitForDebug(5000);
+    }
 
     /**
      * Create a xpath expression
+     *
      * @param format : Expression format
      * @param values : Values for the expression
      * @return : The xpath
