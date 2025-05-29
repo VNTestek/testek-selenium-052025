@@ -103,10 +103,6 @@ public class SolutionTest {
         lblWebsiteCSS= "a[href='https://testek.vn/lab/auto/web-elements']";
         webDriver.findElement(By.cssSelector(lblWebsiteCSS));
 
-//        // Tiktok
-//        lblWebsiteCSS= "div.css-1f603so e1v8cfre1";
-//        webDriver.findElement(By.cssSelector(lblWebsiteCSS));
-
         // Buy me a coffee
         lblWebsiteCSS= "p[test-id='about-me-coffee-text']";
         webDriver.findElement(By.cssSelector(lblWebsiteCSS));

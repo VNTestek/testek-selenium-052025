@@ -1,5 +1,6 @@
 package com.testek.study.lesson05;
 
+import com.testek.study.common.Menu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -93,6 +94,47 @@ public class FindingElementTest {
         webDriver.findElement(By.xpath(mnuDynamicProperXPath));
 
         // Practice with the other elements
+    }
+    @Test
+
+    public void testImproveLocator(){
+
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+
+        // Init format
+
+        String FORM = "//div[@test-id='%s']";
+
+        // Find elements with dynamic locator
+
+    }
+
+    /**
+
+     * Go to Test Website
+
+     */
+
+    private void gotoTestWebsite(Menu parent, Menu subMenu) {
+
+        String url = "https://testek.vn/lab/auto/web-elements/";
+
+        webDriver.get(url);
+
+        String XPATH_MENU_FORMAT = "//div[@test-id='%s']";
+
+        // Access: Form > [Student Form]
+
+        WebElement mnuElementEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, parent.getName())));
+
+        mnuElementEle.click();
+
+        WebElement mnuEle = webDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, subMenu.getName())));
+
+        mnuEle.click();
+
+        waitForDebug(5000);
+
     }
 
 

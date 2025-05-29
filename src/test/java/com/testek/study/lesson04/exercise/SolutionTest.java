@@ -43,11 +43,29 @@ public class SolutionTest {
     /**
      * Description:
      */
+
     @Test(description = "Find element with CSS")
     public void findLocatorWithCSSOfTextBox() {
         gotoTestWebsite(Menu.TEXT_BOX);
 
         // Handle other elements similarly
+        // Họ và tên
+        String txtNameCSS = "input[placeholder='Nhập họ tên']";
+        webDriver.findElement(By.cssSelector(txtNameCSS));
+        String txtNameStartCSS = "input[placeholder^='Nhập họ']";
+        webDriver.findElement(By.cssSelector(txtNameStartCSS));
+        String txtNameContainCSS = "input[placeholder*='Nhập họ']";
+        webDriver.findElement(By.cssSelector(txtNameContainCSS));
+        String txtNameIdCSS = "#name";
+        webDriver.findElement(By.cssSelector(txtNameIdCSS));
+
+        // Email
+        String txtEmailCSS = "input[placeholder='Nhập email']";
+        webDriver.findElement(By.cssSelector(txtEmailCSS));
+        String txtEmailStartCSS = "input[placeholder^='Nhập ema']";
+        webDriver.findElement(By.cssSelector(txtEmailStartCSS));
+        String txtEmailContainCSS = "input[placeholder*='Nhập ema']";
+        webDriver.findElement(By.cssSelector(txtEmailContainCSS));
 
     }
 
@@ -60,6 +78,53 @@ public class SolutionTest {
 
         // Handle other elements similarly
 
+        //Họ và tên
+        String txtNameXpath = "//input[@placeholder='Nhập họ tên']";
+        webDriver.findElement(By.xpath(txtNameXpath));
+        String txtNameStartXpath = "//input[starts-with(@placeholder,'Nhập họ ')]";
+        webDriver.findElement(By.xpath(txtNameStartXpath));
+        String txtNameContainXpath = "//input[contains(@placeholder,'Nhập họ ')]";
+        webDriver.findElement(By.xpath(txtNameContainXpath));
+        String txtNameFollowingSiblingXpath = "//label[text()='Họ và tên:']/following-sibling::input[@placeholder='Nhập họ tên']";
+        webDriver.findElement(By.xpath(txtNameFollowingSiblingXpath));
+        String txtNameDescendantXpath = "//div[@class='form-container']/descendant::input[@placeholder='Nhập họ tên']";
+        webDriver.findElement(By.xpath(txtNameDescendantXpath));
+
+        //Email:
+        String txtEmailXpath = "//input[@placeholder='Nhập email']";
+        webDriver.findElement(By.xpath(txtEmailXpath));
+        String txtEmailStartXpath = "//input[starts-with(@placeholder,'Nhập em')]";
+        webDriver.findElement(By.xpath(txtEmailStartXpath));
+        String txtEmailContainXpath = "//input[contains(@placeholder,'Nhập em')]";
+        webDriver.findElement(By.xpath(txtEmailContainXpath));
+        String txtEmailFollowingSiblingXpath = "//label[text()='Họ và tên:']/following-sibling::input[@placeholder='Nhập email']";
+        webDriver.findElement(By.xpath(txtEmailFollowingSiblingXpath));
+        String txtEmailDescendantXpath = "//div[@class='form-container']/descendant::input[@placeholder='Nhập email']";
+        webDriver.findElement(By.xpath(txtEmailDescendantXpath));
+
+        //Số điện thoại:
+        String txtPhoneXpath = "//input[@placeholder='Nhập số điện thoại']";
+        webDriver.findElement(By.xpath(txtPhoneXpath));
+        String txtPhoneStartXpath = "//input[starts-with(@placeholder,'Nhập số ')]";
+        webDriver.findElement(By.xpath(txtPhoneStartXpath));
+        String txtPhoneContainXpath = "//input[contains(@placeholder,'Nhập số ')]";
+        webDriver.findElement(By.xpath(txtPhoneContainXpath));
+        String txtPhoneFollowingSiblingXpath = "//label[text()='Họ và tên:']/following-sibling::input[@placeholder='Nhập số điện thoại']";
+        webDriver.findElement(By.xpath(txtPhoneFollowingSiblingXpath));
+        String txtPhoneDescendantXpath = "//div[@class='form-container']/descendant::input[@placeholder='Nhập số điện thoại']";
+        webDriver.findElement(By.xpath(txtPhoneDescendantXpath));
+
+        //Địa chỉ:
+        String txtAddressXpath = "//input[@placeholder='Nhập địa chỉ']";
+        webDriver.findElement(By.xpath(txtAddressXpath));
+        String txtAddressStartXpath = "//input[starts-with(@placeholder,'Nhập địa')]";
+        webDriver.findElement(By.xpath(txtAddressStartXpath));
+        String txtAddressContainXpath = "//input[contains(@placeholder,'Nhập địa')]";
+        webDriver.findElement(By.xpath(txtAddressContainXpath));
+        String txtAddressFollowingSiblingXpath = "//label[text()='Họ và tên:']/following-sibling::input[@placeholder='Nhập địa chỉ']";
+        webDriver.findElement(By.xpath(txtAddressFollowingSiblingXpath));
+        String txtAddressDescendantXpath = "//div[@class='form-container']/descendant::input[@placeholder='Nhập địa chỉ']";
+        webDriver.findElement(By.xpath(txtAddressDescendantXpath));
     }
 
     /**
@@ -70,7 +135,9 @@ public class SolutionTest {
         gotoTestWebsite(Menu.RADIO_BUTTON);
 
         // Handle other elements similarly
-
+        //Radio btn Impressive
+        String rdoImpressiveCSS = "input[value='Impressive']";
+        webDriver.findElement(By.cssSelector(rdoImpressiveCSS));
     }
 
     /**
@@ -81,7 +148,8 @@ public class SolutionTest {
         gotoTestWebsite(Menu.RADIO_BUTTON);
 
         // Handle other elements similarly
-
+        String rdoImpressiveXpath = "//input[@value='Impressive']";
+        webDriver.findElement(By.xpath(rdoImpressiveXpath));
     }
 
 
@@ -93,7 +161,11 @@ public class SolutionTest {
         gotoTestWebsite(Menu.BUTTONS);
 
         // Handle other elements similarly
-
+        // Button 1
+        String btnButtonOneCSS = "button[id='button1']";
+        webDriver.findElement(By.cssSelector(btnButtonOneCSS));
+        String btnButtonOneIdCSS = "#button1";
+        webDriver.findElement(By.cssSelector(btnButtonOneIdCSS));
     }
 
     /**
@@ -104,7 +176,9 @@ public class SolutionTest {
         gotoTestWebsite(Menu.BUTTONS);
 
         // Handle other elements similarly
-
+        // Button 1
+        String btnButtonOneXpath = "//button[@id='button1']";
+        webDriver.findElement(By.xpath(btnButtonOneXpath));
     }
 
 
@@ -116,7 +190,10 @@ public class SolutionTest {
         gotoTestWebsite(Menu.DYNAMIC_PROPERTIES);
 
         // Handle other elements similarly
-
+        String btnDynamicPropertiesCSS = "button[id='change-color-button']";
+        webDriver.findElement(By.cssSelector(btnDynamicPropertiesCSS));
+        String btnDynamicPropertiesIdCSS = "#change-color-button";
+        webDriver.findElement(By.cssSelector(btnDynamicPropertiesCSS));
     }
 
     /**
@@ -127,7 +204,8 @@ public class SolutionTest {
         gotoTestWebsite(Menu.DYNAMIC_PROPERTIES);
 
         // Handle other elements similarly
-
+        String btnDynamicPropertiesXpath = "//button[@id='change-color-button']";
+        webDriver.findElement(By.xpath(btnDynamicPropertiesXpath));
     }
 
 
