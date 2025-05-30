@@ -16,7 +16,6 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-
 import static java.lang.Thread.sleep;
 
 /**
@@ -176,6 +175,7 @@ public class WebElementInteractionTest {
     /**
      * Go to Test Website
      */
+    @Test
     private void gotoTestWebsite(Menu parent, Menu subMenu) {
         String url = "https://testek.vn/lab/auto/web-elements/";
         mWebDriver.get(url);
@@ -204,5 +204,52 @@ public class WebElementInteractionTest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void practice() {
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+
+        //1. Input Name
+        String txtNameXPath = "//input[@id='name']";
+        WebElement txtNameEle = mWebDriver.findElement(By.xpath(txtNameXPath));
+        txtNameEle.clear();
+        txtNameEle.sendKeys("test");
+
+        //2. Input Email
+        String txtEmailXPath = "//input[@id='email']";
+        WebElement txtEmailEle = mWebDriver.findElement(By.xpath(txtEmailXPath));
+        txtEmailEle.clear();
+        txtEmailEle.sendKeys("info@testek.edu.vn");
+
+        //3. Input Phone
+        String txtPhoneXPath = "//input[@id='phone']";
+        WebElement txtPhoneEle = mWebDriver.findElement(By.xpath(txtPhoneXPath));
+        txtPhoneEle.clear();
+        txtPhoneEle.sendKeys("012345678");
+
+        //4. Input Address
+        String txtAddressXPath = "//input[@id='address']";
+        WebElement txtAddressEle = mWebDriver.findElement(By.xpath(txtAddressXPath));
+        txtAddressEle.clear();
+        txtAddressEle.sendKeys("Hà Nội");
+
+        //5. Click submit
+        String bntAddressXPath = "//button[@test-id='textbox-form-submit']";
+        WebElement bntAddressEle = mWebDriver.findElement(By.xpath(bntAddressXPath));
+        bntAddressEle.click();
+        waitForDebug(1000);
+
+        //6. Check info after submit
+        String txaOutputTextXPath = "//textarea[@id='outputText']";
+        WebElement txaOutputTextEle = mWebDriver.findElement(By.xpath(txaOutputTextXPath));
+                System.out.println(txaOutputTextEle.getAttribute("value"));
+
+        WebDriverWait wait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions
+                .textToBePresentInElementValue(By.id("outputText"), "Họ và tên: test"));
+
+    }
+
+
 }
 
