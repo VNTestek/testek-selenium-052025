@@ -195,7 +195,7 @@ public class SolutionTest {
 
         String lblTitleXpath = String.format(FORM_H3_TEXT,"Form đăng ký sinh viên");
         String lblResTitleXpath = String.format(FORM_H3_TEXT,"Thông tin bạn đã nhập:");
-
+        
         String inputFirstNameXpath = String.format(FORM_INPUT_PLACEHOLDER,"Enter your first name");
         String inputLastNameXpath = String.format(FORM_INPUT_PLACEHOLDER,"Enter your last name");
         String inputEmailXpath = String.format(FORM_INPUT_PLACEHOLDER,"Enter your email");
@@ -205,6 +205,7 @@ public class SolutionTest {
         String radioMaleXpath = String.format(FORM_RADIO_CHECKBOX_DAT,"male","radio");
         String radioFemaleXpath = String.format(FORM_RADIO_CHECKBOX_DAT,"female","radio");
 
+        //HongThai => id là reading , sports, music mới chuẩn.
         String checkboxReadingXpath = String.format(FORM_RADIO_CHECKBOX_DAT,"Reading","checkbox");
         String checkboxSportsXpath = String.format(FORM_RADIO_CHECKBOX_DAT,"Sports","checkbox");
         String checkboxMusicXpath = String.format(FORM_RADIO_CHECKBOX_DAT,"Music","checkbox");
@@ -216,7 +217,9 @@ public class SolutionTest {
 
         String btnSubmitXpath = String.format(FORM_BUTTON_TEXT,"Submit");
         String btnResetXpath = String.format(FORM_BUTTON_TEXT,"Clear");
-
+        
+        //HongThai: thiếu các lbl First name, lastname và element Thông tin bạn đã nhập với text area ở dưới
+        
         webDriver.findElement(By.xpath(lblTitleXpath));
         webDriver.findElement(By.xpath(lblResTitleXpath));
         webDriver.findElement(By.xpath(inputFirstNameXpath));
