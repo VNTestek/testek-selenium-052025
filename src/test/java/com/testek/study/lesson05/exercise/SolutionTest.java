@@ -212,8 +212,6 @@ public class SolutionTest {
      */
     @Test(description = "Dynamic Locator Test")
     public void testDynamicLocator() {
-        gotoTestWebsite();
-
         // Define the locator format then apply to elements
         gotoTestWebsite();
 
