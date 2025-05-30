@@ -208,7 +208,7 @@ public class SolutionTest {
 
         String titleXpath=String.format(FORM_H3_TEXT,"Form đăng ký sinh viên");
         String txtTitleXpath=String.format(FORM_H3_TEXT,"Thông tin nhập");
-
+        
         String inputFirstNameXpath=String.format(FORM_INPUT_PLACEHOLDER,"Enter your first name");
         String inputLastNameXpath=String.format(FORM_INPUT_PLACEHOLDER,"Enter your last name");
         String inputEmailXpath=String.format(FORM_INPUT_PLACEHOLDER,"Enter your email");
@@ -220,6 +220,7 @@ public class SolutionTest {
 
         String addressXpath=String.format(FORM_TEXTAREA_ID,"address");
         String txtResXpath=String.format(FORM_TEXTAREA_ID,"outputTextStudent");
+        //Hongthai: Bắt thiếu các label cũng như element nhóe :D 
 
         webDriver.findElement(By.xpath(titleXpath));
         webDriver.findElement(By.xpath(txtTitleXpath));
