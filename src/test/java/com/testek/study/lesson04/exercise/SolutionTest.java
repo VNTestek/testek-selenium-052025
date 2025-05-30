@@ -48,7 +48,21 @@ public class SolutionTest {
         gotoTestWebsite(Menu.TEXT_BOX);
 
         // Handle other elements similarly
+        //Nhập thông tin người dùng:
+        String lblTitleCSS = "h3[test-id = 'textbox-form-title']";
+        WebElement lblTitleEle = webDriver.findElement(By.cssSelector(lblTitleCSS));
 
+        //Họ và tên:
+        String lblNameCSS = "label[test-id = 'textbox-form-label-name']";
+        WebElement lblNameEle = webDriver.findElement(By.cssSelector(lblNameCSS));
+
+        //Nhập họ tên:
+        String txtInputNameCSS = "label[test-id = 'textbox-form-label-name']";
+        WebElement txtInputNameEle = webDriver.findElement(By.cssSelector(txtInputNameCSS));
+
+        //Gửi thông tin:
+        String btnSubmitCSS = "label[test-id = 'textbox-form-label-name']";
+        WebElement btnSubmitEle = webDriver.findElement(By.cssSelector(btnSubmitCSS));
     }
 
     /**
@@ -59,7 +73,21 @@ public class SolutionTest {
         gotoTestWebsite(Menu.TEXT_BOX);
 
         // Handle other elements similarly
+        //Nhập thông tin người dùng:
+        String lblTitleXPath = "//h3[@test-id = 'textbox-form-title']";
+        WebElement lblTitleEle = webDriver.findElement(By.xpath(lblTitleXPath));
 
+        //Họ và tên:
+        String lblNameXpath = "//label[@test-id = 'textbox-form-label-name']";
+        WebElement lblNameEle = webDriver.findElement(By.cssSelector(lblNameXpath));
+
+        //Nhập họ tên:
+        String txtInputNameXpath = "//label[@test-id = 'textbox-form-label-name']";
+        WebElement txtInputNameEle = webDriver.findElement(By.cssSelector(txtInputNameXpath));
+
+        //Gửi thông tin:
+        String btnSubmitXpath = "//label[@test-id = 'textbox-form-label-name']";
+        WebElement btnSubmitEle = webDriver.findElement(By.cssSelector(btnSubmitXpath));
     }
 
     /**
@@ -70,7 +98,13 @@ public class SolutionTest {
         gotoTestWebsite(Menu.RADIO_BUTTON);
 
         // Handle other elements similarly
+        //Do you like the site?
+        String lblTitleCSS = "h3[test-id = 'radio-input-yes']";
+        WebElement lblTitleEle = webDriver.findElement(By.cssSelector(lblTitleCSS));
 
+        //Yes
+        String rdoYesCSS = "input[test-id = 'radio-input-yes']";
+        WebElement rdoYesEle = webDriver.findElement(By.cssSelector(rdoYesCSS));
     }
 
     /**
@@ -81,7 +115,13 @@ public class SolutionTest {
         gotoTestWebsite(Menu.RADIO_BUTTON);
 
         // Handle other elements similarly
+        //Do you like the site?
+        String lblTitleXpath = "//h3[@test-id = 'radio-input-yes']";
+        WebElement lblTitleEle = webDriver.findElement(By.cssSelector(lblTitleXpath));
 
+        //Yes
+        String rdoYesXpath = "//input[@test-id = 'radio-input-yes']";
+        WebElement rdoYesEle = webDriver.findElement(By.cssSelector(rdoYesXpath));
     }
 
 
@@ -93,7 +133,13 @@ public class SolutionTest {
         gotoTestWebsite(Menu.BUTTONS);
 
         // Handle other elements similarly
+        //Buttons
+        String lblButtonCSS = "h3[test-id = 'buttons-title']";
+        WebElement lblTitleEle = webDriver.findElement(By.cssSelector(lblButtonCSS));
 
+        //Click me
+        String btnClickCSS = "button[test-id = 'button-click-me']";
+        WebElement btnClickEle = webDriver.findElement(By.cssSelector(btnClickCSS));
     }
 
     /**
@@ -104,7 +150,13 @@ public class SolutionTest {
         gotoTestWebsite(Menu.BUTTONS);
 
         // Handle other elements similarly
+        //Buttons
+        String lblButtonXpath = "//h3[@test-id = 'buttons-title']";
+        WebElement lblTitleEle = webDriver.findElement(By.cssSelector(lblButtonXpath));
 
+        //Click me
+        String btnClickXpath = "//button[@test-id = 'button-click-me']";
+        WebElement btnClickEle = webDriver.findElement(By.cssSelector(btnClickXpath));
     }
 
 
@@ -116,7 +168,13 @@ public class SolutionTest {
         gotoTestWebsite(Menu.DYNAMIC_PROPERTIES);
 
         // Handle other elements similarly
+        //Dynamic Properties
+        String lblDynamicPropCSS = "h3[test-id = 'dynamic-properties-title']";
+        WebElement lblTitleEle = webDriver.findElement(By.cssSelector(lblDynamicPropCSS));
 
+        //Click me
+        String btnChangeColorCSS = "button[test-id = 'button-click-me']";
+        WebElement btnChangeColorEle = webDriver.findElement(By.cssSelector(btnChangeColorCSS));
     }
 
     /**
@@ -127,7 +185,13 @@ public class SolutionTest {
         gotoTestWebsite(Menu.DYNAMIC_PROPERTIES);
 
         // Handle other elements similarly
+        //Dynamic Properties
+        String lblDynamicPropXpath = "//h3[@test-id = 'dynamic-properties-title']";
+        WebElement lblTitleEle = webDriver.findElement(By.cssSelector(lblDynamicPropXpath));
 
+        //Click me
+        String btnChangeColorXpath = "//button[@test-id = 'button-click-me']";
+        WebElement btnChangeColorEle = webDriver.findElement(By.cssSelector(btnChangeColorXpath));
     }
 
 
