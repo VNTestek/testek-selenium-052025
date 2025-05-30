@@ -216,239 +216,207 @@ public class SolutionTest {
         String lblDescriptionXPathWithChild = "//div[@test-id='about-me-grid-item']/child::h4[@id='db-title-id']";
         webDriver.findElement(By.xpath(lblDescriptionXPathWithChild));
 
-        //TÌM KIẾM ĐOẠN TEXT: “TESTEK - KIỂM THỬ THỰC CHIẾN”
-        String containsTitleXpath = "//h2[contains(@test-id,'about-me')]";
-        webDriver.findElement(By.xpath(containsTitleXpath));
-        String startsTitleXpath = "//h2[starts-with(@test-id,'about-')]";
-        webDriver.findElement(By.xpath(startsTitleXpath));
-        String normalizeTitle = "//b[normalize-space()='TESTEK - KIỂM THỬ THỰC CHIẾN']";
-        webDriver.findElement(By.xpath(normalizeTitle));
-        String ancestorTitle = "//b[normalize-space()='TESTEK - KIỂM THỬ THỰC CHIẾN']/ancestor::h2";
-        webDriver.findElement(By.xpath(ancestorTitle));
-        String precedingSibTitle = "//h4[starts-with(@test-id,'about-me-web')]/preceding-sibling::h2/b";
-        webDriver.findElement(By.xpath(precedingSibTitle));
-        String descendantTitle = "//div[@test-id='content-root']/descendant::h2";
-        webDriver.findElement(By.xpath(descendantTitle));
-        String followingSibTitle = "//div[@test-id='sidebar-root']/following-sibling::div/descendant::h2";
-        webDriver.findElement(By.xpath(followingSibTitle));
-        String precedingTitle = "//h4[@test-id='about-me-web-elements']/preceding::h2";
-        webDriver.findElement(By.xpath(precedingTitle));
-        String followingTitle = "//div[@test-id='sidebar-root']/following::div[@test-id='content-root']";
-        webDriver.findElement(By.xpath(followingTitle));
-        String parentTitle = "//b/parent::h2[@test-id='about-me-title']";
-        webDriver.findElement(By.xpath(parentTitle));
-        String childTitle = "//div[@id='about-me']/child::h2";
-        webDriver.findElement(By.xpath(childTitle));
+        // Locate the link: Website
+        String lblWebsiteXPathWithExactText = "//h4[text()='Website: ']";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithExactText));
+        String lblWebsiteXPathWithContains = "//h4[contains(text(),'Web')]";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithContains));
+        String lblWebsiteXPathWithStarts = "//h4[starts-with(text(),'Web')]";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithStarts));
+        String lblWebsiteXPathWithNormalize = "//a[normalize-space()='https://testek.vn']";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithNormalize));
+        String lblWebsiteXPathWithAncestor = "//a[@test-id='db-website-link']/ancestor::h4";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithAncestor));
+        String lblWebsiteXPathWithPrecedingSibling = "//h4[@test-id='db-contact']/preceding-sibling::h4[@test-id='db-website']";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithPrecedingSibling));
+        String lblWebsiteXPathWithDescendant = "//div[@test-id='about-me-grid']/descendant::h4[@test-id='db-website']";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithDescendant));
+        String lblWebsiteXPathWithFollowingSibling = "//h4[@id='db-title-id']/following-sibling::h4[@test-id='db-website']";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithFollowingSibling));
+        String lblWebsiteXPathWithPreceding = "//h4[@test-id='db-systems']/preceding::h4[@test-id='db-website']";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithPreceding));
+        String lblWebsiteXPathWithFollowing = "//h4[@test-id='db-title']/following::h4[@test-id='db-website']";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithFollowing));
+        String lblWebsiteXPathWithParent = "//a[@test-id='db-website-link']/parent::h4";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithParent));
+        String lblWebsiteXPathWithChild = "//div[@test-id='about-me-grid-item']/child::h4[@test-id='db-website']";
+        webDriver.findElement(By.xpath(lblWebsiteXPathWithChild));
 
-        //TÌM KIẾM ĐOẠN TEXT: "Đào tạo API Testing, Performance Testing, Automation Testing"
-        String txtDescription = "//h4[text()='Đào tạo API Testing, Performance Testing, Automation Testing']";
-        webDriver.findElement(By.xpath(txtDescription));
-        String containsDescription = "//h4[contains(@id,'db-t')]";
-        webDriver.findElement(By.xpath(containsDescription));
-        String startsDescription = "//h4[starts-with(@id,'db-t')]";
-        webDriver.findElement(By.xpath(startsDescription));
-        String normalizeDescription = "//h4[normalize-space()='Đào tạo API Testing, Performance Testing, Automation Testing']";
-        webDriver.findElement(By.xpath(normalizeDescription));
-        String ancestorDescription = "//a[@test-id='db-website-link']/ancestor::h4/preceding-sibling::h4";
-        webDriver.findElement(By.xpath(ancestorDescription));
-        String precedingSibDescription = "//h4[@test-id='db-website']/preceding-sibling::h4";
-        webDriver.findElement(By.xpath(precedingSibDescription));
-        String descendantDescription = "//body[@test-id='body-root']/descendant::h4[@id='db-title-id']";
-        webDriver.findElement(By.xpath(descendantDescription));
-        String followingSibDescription = "//h2[@test-id='about-me-title']/following-sibling::div/div/h4[@id='db-title-id']";
-        webDriver.findElement(By.xpath(followingSibDescription));
-        String precedingDescription = "//h4[@test-id='db-facebook']/preceding::h4[@id='db-title-id']";
-        webDriver.findElement(By.xpath(precedingDescription));
-        String followingDescription = "//h2[@test-id='about-me-title']/following::div[@test-id='about-me-grid']/div/h4[@id='db-title-id']";
-        webDriver.findElement(By.xpath(followingDescription));
-        String childDescription = "//div[@test-id='about-me-grid-item']/child::h4[@id='db-title-id']";
-        webDriver.findElement(By.xpath(childDescription));
+        // Locate the link: Discord
+        String lblDiscordXPathWithExactText = "//h4[text()='Discord: ']";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithExactText));
+        String lblDiscordXPathWithContains = "//h4[contains(text(),'Dis')]";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithContains));
+        String lblDiscordXPathWithStarts = "//h4[starts-with(text(),'Dis')]";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithStarts));
+        String lblDiscordXPathWithNormalize = "//a[normalize-space()='Testek - Kiểm thử thực chiến']/ancestor::h4[@id='db-discord']";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithNormalize));
+        String lblDiscordXPathWithAncestor = "//a[@test-id='db-discord-link']/ancestor::h4";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithAncestor));
+        String lblDiscordXPathWithPrecedingSibling = "//ul[@test-id='db-systems-list']/preceding-sibling::h4[@test-id='db-discord']";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithPrecedingSibling));
+        String lblDiscordXPathWithDescendant = "//h4[@test-id='db-discord']/descendant::a";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithDescendant));
+        String lblDiscordXPathWithFollowingSibling = "//h4[@id='db-title-id']/following-sibling::h4[@test-id='db-discord']";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithFollowingSibling));
+        String lblDiscordXPathWithPreceding = "//h4[@test-id='db-systems']/preceding::h4[@test-id='db-discord']";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithPreceding));
+        String lblDiscordXPathWithFollowing = "//h4[@test-id='db-title']/following::h4[@test-id='db-discord']";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithFollowing));
+        String lblDiscordXPathWithParent = "//a[@test-id='db-discord-link']/parent::h4";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithParent));
+        String lblDiscordXPathWithChild = "//div[@test-id='about-me-grid-item']/child::h4[@test-id='db-discord']";
+        webDriver.findElement(By.xpath(lblDiscordXPathWithChild));
 
-        //TÌM KIẾM LINK Website
-        String txtWebsite = "//h4[text()='Website: ']";
-        webDriver.findElement(By.xpath(txtWebsite));
-        String containsWebsite = "//h4[contains(text(),'Web')]";
-        webDriver.findElement(By.xpath(containsWebsite));
-        String startsWebsite = "//h4[starts-with(text(),'Web')]";
-        webDriver.findElement(By.xpath(startsWebsite));
-        String normalizeWebsite = "//a[normalize-space()='https://testek.vn']";
-        webDriver.findElement(By.xpath(normalizeWebsite));
-        String ancestorWebsite = "//a[@test-id='db-website-link']/ancestor::h4";
-        webDriver.findElement(By.xpath(ancestorWebsite));
-        String precedingSibWebsite = "//h4[@test-id='db-contact']/preceding-sibling::h4[@test-id='db-website']";
-        webDriver.findElement(By.xpath(precedingSibWebsite));
-        String descendantWebsite = "//div[@test-id='about-me-grid']/descendant::h4[@test-id='db-website']";
-        webDriver.findElement(By.xpath(descendantWebsite));
-        String followingSibWebsite = "//h4[@id='db-title-id']/following-sibling::h4[@test-id='db-website']";
-        webDriver.findElement(By.xpath(followingSibWebsite));
-        String precedingWebsite = "//h4[@test-id='db-systems']/preceding::h4[@test-id='db-website']";
-        webDriver.findElement(By.xpath(precedingWebsite));
-        String followingWebsite = "//h4[@test-id='db-title']/following::h4[@test-id='db-website']";
-        webDriver.findElement(By.xpath(followingWebsite));
-        String parentWebsite = "//a[@test-id='db-website-link']/parent::h4";
-        webDriver.findElement(By.xpath(parentWebsite));
-        String childWebsite = "//div[@test-id='about-me-grid-item']/child::h4[@test-id='db-website']";
-        webDriver.findElement(By.xpath(childWebsite));
+        // Locate the Facebook section
+        String lblFbXPathWithExactText = "//h4[text()='Facebook: ']";
+        webDriver.findElement(By.xpath(lblFbXPathWithExactText));
+        String lblFbXPathWithContains = "//h4[contains(text(),'Fa')]";
+        webDriver.findElement(By.xpath(lblFbXPathWithContains));
+        String lblFbXPathWithStarts = "//h4[starts-with(text(),'Fa')]";
+        webDriver.findElement(By.xpath(lblFbXPathWithStarts));
+        String lblFbXPathWithNormalize = "//a[normalize-space()='Testek - Kiểm thử thực chiến']/ancestor::h4[@test-id='db-facebook']";
+        webDriver.findElement(By.xpath(lblFbXPathWithNormalize));
+        String lblFbXPathWithAncestor = "//a[@test-id='db-facebook-link']/ancestor::h4";
+        webDriver.findElement(By.xpath(lblFbXPathWithAncestor));
+        String lblFbXPathWithPrecedingSibling = "//ul[@test-id='db-systems-list']/preceding-sibling::h4[@test-id='db-facebook']";
+        webDriver.findElement(By.xpath(lblFbXPathWithPrecedingSibling));
+        String lblFbXPathWithDescendant = "//h4[@test-id='db-facebook']/descendant::a";
+        webDriver.findElement(By.xpath(lblFbXPathWithDescendant));
+        String lblFbXPathWithFollowingSibling = "//h4[@id='db-title-id']/following-sibling::h4[@test-id='db-facebook']";
+        webDriver.findElement(By.xpath(lblFbXPathWithFollowingSibling));
+        String lblFbXPathWithPreceding = "//h4[@test-id='db-systems']/preceding::h4[@test-id='db-facebook']";
+        webDriver.findElement(By.xpath(lblFbXPathWithPreceding));
+        String lblFbXPathWithFollowing = "//h4[@test-id='db-title']/following::h4[@test-id='db-facebook']";
+        webDriver.findElement(By.xpath(lblFbXPathWithFollowing));
+        String lblFbXPathWithParent = "//a[@test-id='db-facebook-link']/parent::h4";
+        webDriver.findElement(By.xpath(lblFbXPathWithParent));
+        String lblFbXPathWithChild = "//div[@test-id='about-me-grid-item']/child::h4[@test-id='db-facebook']";
+        webDriver.findElement(By.xpath(lblFbXPathWithChild));
 
-        //TÌM KIÊM LINK: Discord:
-        String txtDiscord = "//h4[text()='Discord: ']";
-        webDriver.findElement(By.xpath(txtDiscord));
-        String containsDiscord = "//h4[contains(text(),'Dis')]";
-        webDriver.findElement(By.xpath(containsDiscord));
-        String startsDiscord = "//h4[starts-with(text(),'Dis')]";
-        webDriver.findElement(By.xpath(startsDiscord));
-        String normalizeDiscord = "//a[normalize-space()='Testek - Kiểm thử thực chiến']/ancestor::h4[@id='db-discord']";
-        webDriver.findElement(By.xpath(normalizeDiscord));
-        String ancestorDiscord = "//a[@test-id='db-discord-link']/ancestor::h4";
-        webDriver.findElement(By.xpath(ancestorDiscord));
-        String precedingSibDiscord = "//ul[@test-id='db-systems-list']/preceding-sibling::h4[@test-id='db-discord']";
-        webDriver.findElement(By.xpath(precedingSibDiscord));
-        String descendantDiscord = "//h4[@test-id='db-discord']/descendant::a";
-        webDriver.findElement(By.xpath(descendantDiscord));
-        String followingSibDiscord = "//h4[@id='db-title-id']/following-sibling::h4[@test-id='db-discord']";
-        webDriver.findElement(By.xpath(followingSibDiscord));
-        String precedingDiscord = "//h4[@test-id='db-systems']/preceding::h4[@test-id='db-discord']";
-        webDriver.findElement(By.xpath(precedingDiscord));
-        String followingDiscord = "//h4[@test-id='db-title']/following::h4[@test-id='db-discord']";
-        webDriver.findElement(By.xpath(followingDiscord));
-        String parentDiscord = "//a[@test-id='db-discord-link']/parent::h4";
-        webDriver.findElement(By.xpath(parentDiscord));
-        String childDiscord = "//div[@test-id='about-me-grid-item']/child::h4[@test-id='db-discord']";
-        webDriver.findElement(By.xpath(childDiscord));
+        // Locate the text: Hotline
+        String lblHotlineXPathWithExactText = "//h4[text()='Hotline: 083.286.8822 / Email: vntestek@gmail.com']";
+        webDriver.findElement(By.xpath(lblHotlineXPathWithExactText));
+        String lblHotlineXPathWithContains = "//h4[contains(text(),'Email')]";
+        webDriver.findElement(By.xpath(lblHotlineXPathWithContains));
+        String lblHotlineXPathWithStarts = "//h4[starts-with(text(),'Hotline')]";
+        webDriver.findElement(By.xpath(lblHotlineXPathWithStarts));
+        String lblHotlineXPathWithNormalize = "//h4[normalize-space()='Hotline: 083.286.8822 / Email: vntestek@gmail.com']";
+        webDriver.findElement(By.xpath(lblHotlineXPathWithNormalize));
+        String lblHotlineXPathWithPrecedingSibling = "//ul[@test-id='db-systems-list']/preceding-sibling::h4[@test-id='db-contact']";
+        webDriver.findElement(By.xpath(lblHotlineXPathWithPrecedingSibling));
+        String lblHotlineXPathWithDescendant = "//div[@test-id='about-me-grid-item']/descendant::h4[@test-id='db-contact']";
+        webDriver.findElement(By.xpath(lblHotlineXPathWithDescendant));
+        String lblHotlineXPathWithFollowingSibling = "//h4[@id='db-discord']/following-sibling::h4[@test-id='db-contact']";
+        webDriver.findElement(By.xpath(lblHotlineXPathWithFollowingSibling));
+        String lblHotlineXPathWithPreceding = "//ul[@test-id='db-systems-list']/preceding::h4[@test-id='db-contact']";
+        webDriver.findElement(By.xpath(lblHotlineXPathWithPreceding));
+        String lblHotlineXPathWithFollowing = "//h4[@test-id='db-website']/following::h4[@test-id='db-contact']";
+        webDriver.findElement(By.xpath(lblHotlineXPathWithFollowing));
+        String lblHotlineXPathWithChild = "//div[@test-id='about-me-grid-item']/child::h4[@test-id='db-contact']";
+        webDriver.findElement(By.xpath(lblHotlineXPathWithChild));
 
-        //TÌM KIẾM LINK: Facebook:
-        String txtFb = "//h4[text()='Facebook: ']";
-        webDriver.findElement(By.xpath(txtFb));
-        String containsFb = "//h4[contains(text(),'Fa')]";
-        webDriver.findElement(By.xpath(containsFb));
-        String startsFb = "//h4[starts-with(text(),'Fa')]";
-        webDriver.findElement(By.xpath(startsFb));
-        String normalizeFb = "//a[normalize-space()='Testek - Kiểm thử thực chiến']/ancestor::h4[@test-id='db-facebook']";
-        webDriver.findElement(By.xpath(normalizeFb));
-        String ancestorFb = "//a[@test-id='db-facebook-link']/ancestor::h4";
-        webDriver.findElement(By.xpath(ancestorFb));
-        String precedingSibFb = "//ul[@test-id='db-systems-list']/preceding-sibling::h4[@test-id='db-facebook']";
-        webDriver.findElement(By.xpath(precedingSibFb));
-        String descendantFb = "//h4[@test-id='db-facebook']/descendant::a";
-        webDriver.findElement(By.xpath(descendantFb));
-        String followingSibFb = "//h4[@id='db-title-id']/following-sibling::h4[@test-id='db-facebook']";
-        webDriver.findElement(By.xpath(followingSibFb));
-        String precedingFb = "//h4[@test-id='db-systems']/preceding::h4[@test-id='db-facebook']";
-        webDriver.findElement(By.xpath(precedingFb));
-        String followingFb = "//h4[@test-id='db-title']/following::h4[@test-id='db-facebook']";
-        webDriver.findElement(By.xpath(followingFb));
-        String parentFb = "//a[@test-id='db-facebook-link']/parent::h4";
-        webDriver.findElement(By.xpath(parentFb));
-        String childFb = "//div[@test-id='about-me-grid-item']/child::h4[@test-id='db-facebook']";
-        webDriver.findElement(By.xpath(childFb));
+        // Locate the text: Các hệ thống Testek cung cấp
+        String lblSystemTitleXPathWithExactText = "//h4[text()='Các hệ thống Testek cung cấp']";
+        webDriver.findElement(By.xpath(lblSystemTitleXPathWithExactText));
+        String lblSystemTitleXPathWithContains = "//h4[contains(@test-id,'db-sys')]";
+        webDriver.findElement(By.xpath(lblSystemTitleXPathWithContains));
+        String lblSystemTitleXPathWithStarts = "//h4[starts-with(@test-id,'db-s')]";
+        webDriver.findElement(By.xpath(lblSystemTitleXPathWithStarts));
+        String lblSystemTitleXPathWithNormalize = "//h4[normalize-space()='Các hệ thống Testek cung cấp']";
+        webDriver.findElement(By.xpath(lblSystemTitleXPathWithNormalize));
+        String lblSystemTitleXPathWithPrecedingSibling = "//ul[@test-id='db-systems-list']/preceding-sibling::h4[@test-id='db-contact']";
+        webDriver.findElement(By.xpath(lblSystemTitleXPathWithPrecedingSibling));
 
-        //TÌM KIẾM ĐOẠN TEXT: Hotline:
-        String txtHotline = "//h4[text()='Hotline: 083.286.8822 / Email: vntestek@gmail.com']";
-        webDriver.findElement(By.xpath(txtHotline));
-        String containsHotline = "//h4[contains(text(),'Email')]";
-        webDriver.findElement(By.xpath(containsHotline));
-        String startsHotline = "//h4[starts-with(text(),'Hotline')]";
-        webDriver.findElement(By.xpath(startsHotline));
-        String normalizeHotline = "//h4[normalize-space()='Hotline: 083.286.8822 / Email: vntestek@gmail.com']";
-        webDriver.findElement(By.xpath(normalizeHotline));
-        String precedingSibHotline = "//ul[@test-id='db-systems-list']/preceding-sibling::h4[@test-id='db-contact']";
-        webDriver.findElement(By.xpath(precedingSibHotline));
-        String descendantHotline = "//div[@test-id='about-me-grid-item']/descendant::h4[@test-id='db-contact']";
-        webDriver.findElement(By.xpath(descendantHotline));
-        String followingSibHotline = "//h4[@id='db-discord']/following-sibling::h4[@test-id='db-contact']";
-        webDriver.findElement(By.xpath(followingSibHotline));
-        String precedingHotline = "//ul[@test-id='db-systems-list']/preceding::h4[@test-id='db-contact']";
-        webDriver.findElement(By.xpath(precedingHotline));
-        String followingHotline = "//h4[@test-id='db-website']/following::h4[@test-id='db-contact']";
-        webDriver.findElement(By.xpath(followingHotline));
-        String childHotline = "//div[@test-id='about-me-grid-item']/child::h4[@test-id='db-contact']";
-        webDriver.findElement(By.xpath(childHotline));
 
-        //TÌM KIẾM ĐOẠN TEXT: Các hệ thống Testek cung cấp
-        String txtSystemTitle = "//h4[text()='Các hệ thống Testek cung cấp']";
-        webDriver.findElement(By.xpath(txtSystemTitle));
-        String containsSystemTitle = "//h4[contains(@test-id,'db-sys')]";
-        webDriver.findElement(By.xpath(containsSystemTitle));
-        String startsSystemTitle = "//h4[starts-with(@test-id,'db-s')]";
-        webDriver.findElement(By.xpath(startsSystemTitle));
-        String normalizeSystemTitle = "//h4[normalize-space()='Các hệ thống Testek cung cấp']";
-        webDriver.findElement(By.xpath(normalizeSystemTitle));
-        String precedingSibSystemTitle = "//ul[@test-id='db-systems-list']/preceding-sibling::h4[@test-id='db-contact']";
-        webDriver.findElement(By.xpath(precedingSibSystemTitle));
+        // Locate the link text: API System
+        String lblApiSystemXPathWithDescendant = "//div[@test-id='about-me-grid-item']/descendant::li[@test-id='db-api-system']";
+        webDriver.findElement(By.xpath(lblApiSystemXPathWithDescendant));
+        String lblApiSystemXPathWithFollowingSibling = "//h4[@id='db-title-id']/following-sibling::ul/li[@test-id='db-api-system']";
+        webDriver.findElement(By.xpath(lblApiSystemXPathWithFollowingSibling));
+        String lblApiSystemXPathWithPreceding = "//div[@test-id='about-me-grid-item-coffee']/preceding::li[@test-id='db-api-system']";
+        webDriver.findElement(By.xpath(lblApiSystemXPathWithPreceding));
+        String lblApiSystemXPathWithFollowing = "//h2[@test-id='about-me-title']/following::li[@test-id='db-api-system']";
+        webDriver.findElement(By.xpath(lblApiSystemXPathWithFollowing));
+        String lblApiSystemXPathWithChild = "//ul[@test-id='db-systems-list']/child::li[@test-id='db-api-system']";
+        webDriver.findElement(By.xpath(lblApiSystemXPathWithChild));
 
-        //TÌM KIẾM LINK TEXT: API System
-        String descendantApiSystem = "//div[@test-id='about-me-grid-item']/descendant::li[@test-id='db-api-system']";
-        webDriver.findElement(By.xpath(descendantApiSystem));
-        String followingSibApiSystem = "//h4[@id='db-title-id']/following-sibling::ul/li[@test-id='db-api-system']";
-        webDriver.findElement(By.xpath(followingSibApiSystem));
-        String precedingApiSystem = "//div[@test-id='about-me-grid-item-coffee']/preceding::li[@test-id='db-api-system']";
-        webDriver.findElement(By.xpath(precedingApiSystem));
-        String followingApiSystem = "//h2[@test-id='about-me-title']/following::li[@test-id='db-api-system']";
-        webDriver.findElement(By.xpath(followingApiSystem));
-        String childApiSystem = "//ul[@test-id='db-systems-list']/child::li[@test-id='db-api-system']";
-        webDriver.findElement(By.xpath(childApiSystem));
+        // Locate the link text: Automation Web:
+        String lblAutoWebXPathWithParent = "//a[contains(text(),'Management')]/parent::li";
+        webDriver.findElement(By.xpath(lblAutoWebXPathWithParent));
+        String lblAutoWebXPathWithText = "//a[text()='Product Management']";
+        webDriver.findElement(By.xpath(lblAutoWebXPathWithText));
 
-        //TÌM KIẾM LINK TEXT: Automation Web:
-        String parentAutoWeb = "//a[contains(text(),'Management')]/parent::li";
-        webDriver.findElement(By.xpath(parentAutoWeb));
-        String txtAutoWeb = "//a[text()='Product Management']";
-        webDriver.findElement(By.xpath(txtAutoWeb));
+        // Locate the link text: Web Element
+        String lblWebElementXPathWithContains = "//li[contains(@test-id,'db-web')]";
+        webDriver.findElement(By.xpath(lblWebElementXPathWithContains));
+        String lblWebElementXPathWithStartsWith = "//li[starts-with(@test-id,'db-web')]";
+        webDriver.findElement(By.xpath(lblWebElementXPathWithStartsWith));
 
-        //TÌM KIẾM LINK TEXT: Web Element
-        String containsWebEle = "//li[contains(@test-id,'db-web')]";
-        webDriver.findElement(By.xpath(containsWebEle));
-        String startsWebEle = "//li[starts-with(@test-id,'db-web')]";
-        webDriver.findElement(By.xpath(startsWebEle));
+        // Locate the text: ACCOUNT
+        String lblAccountXPathWithNormalize = "//b[normalize-space()='for API System & Automation Web']";
+        webDriver.findElement(By.xpath(lblAccountXPathWithNormalize));
+        String lblAccountXPathWithPrecedingSibling = "//li[@test-id='db-database']/preceding-sibling::li[@test-id='db-account']";
+        webDriver.findElement(By.xpath(lblAccountXPathWithPrecedingSibling));
 
-        //TÌM KIẾM ĐOẠN TEXT: ACCOUNT
-        String normalizeAccount = "//b[normalize-space()='for API System & Automation Web']";
-        webDriver.findElement(By.xpath(normalizeAccount));
-        String precedingSibAccount = "//li[@test-id='db-database']/preceding-sibling::li[@test-id='db-account']";
-        webDriver.findElement(By.xpath(precedingSibAccount));
+        // Locate the text: Admin_com_role
+        String lblAdminComRoleXPathWithDescendant = "//li[@test-id='db-account']/descendant::li[@test-id='db-account-admin']";
+        webDriver.findElement(By.xpath(lblAdminComRoleXPathWithDescendant));
+        String lblAdminComRoleXPathWithPreceding = "//div[contains(@test-id,'item-coffee')]/preceding::li[@test-id='db-account-admin']";
+        webDriver.findElement(By.xpath(lblAdminComRoleXPathWithPreceding));
 
-        //TÌM KIẾM ĐOẠN TEXT Admin_com_role
-        String descendantAdminComRole = "//li[@test-id='db-account']/descendant::li[@test-id='db-account-admin']";
-        webDriver.findElement(By.xpath(descendantAdminComRole));
-        String precedingAdminComRole = "//div[contains(@test-id,'item-coffee')]/preceding::li[@test-id='db-account-admin']";
-        webDriver.findElement(By.xpath(precedingAdminComRole));
+        // Locate the text: user_com_role
+        String lblUserComRoleXPathWithFollowingSibling = "//li[@test-id='db-account-admin']/following-sibling::li[@test-id='db-account-user']";
+        webDriver.findElement(By.xpath(lblUserComRoleXPathWithFollowingSibling));
+        String lblUserComRoleXPathWithNormalize = "//li[normalize-space()='User: user_com_role']";
+        webDriver.findElement(By.xpath(lblUserComRoleXPathWithNormalize));
 
-        //TÌM KIẾM ĐOẠN TEXT user_com_role
-        String followingSibUserComRole = "//li[@test-id='db-account-admin']/following-sibling::li[@test-id='db-account-user']";
-        webDriver.findElement(By.xpath(followingSibUserComRole));
-        String normalizeUserComRole = "//li[normalize-space()='User: user_com_role']";
-        webDriver.findElement(By.xpath(normalizeUserComRole));
+        // Locate the text: guest_com_role
+        String lblGuestComRoleXPathWithFollowing = "//li[@test-id='db-account-admin']/following::li[@test-id='db-account-guest']";
+        webDriver.findElement(By.xpath(lblGuestComRoleXPathWithFollowing));
+        String lblGuestComRoleXPathWithChild = "//ul[@class='custom-resource']/child::li[@test-id='db-account-guest']";
+        webDriver.findElement(By.xpath(lblGuestComRoleXPathWithChild));
 
-        //TÌM KIẾM ĐOẠN TEXT guest_com_role
-        String followingGuestComRole = "//li[@test-id='db-account-admin']/following::li[@test-id='db-account-guest']";
-        webDriver.findElement(By.xpath(followingGuestComRole));
-        String childGuestComRole = "//ul[@class='custom-resource']/child::li[@test-id='db-account-guest']";
-        webDriver.findElement(By.xpath(childGuestComRole));
+        // Locate the text: Password: aA12345678@
+        String lblPasswordXPathWithText = "//li[text()='Password: aA12345678@ ']";
+        webDriver.findElement(By.xpath(lblPasswordXPathWithText));
+        String lblPasswordXPathWithContains = "//li[contains(text(),'aA12345678@')]";
+        webDriver.findElement(By.xpath(lblPasswordXPathWithContains));
+        String lblPasswordXPathWithContainsTestId = "//li[contains(@test-id ,'db-account-password')]";
+        webDriver.findElement(By.xpath(lblPasswordXPathWithContainsTestId));
+        String lblPasswordXPathWithStartWith = "//li[starts-with(@test-id ,'db-account-password')]";
+        webDriver.findElement(By.xpath(lblPasswordXPathWithStartWith));
 
-        //TÌM KIẾM ĐOẠN TEXT Password: aA12345678@
-        String txtPassword = "//li[text()='Password: aA12345678@ ']";
-        webDriver.findElement(By.xpath(txtPassword));
-        String containsPassword = "//li[contains(text(),'aA12345678@')]";
-        webDriver.findElement(By.xpath(containsPassword));
+        // Locate the text: Database: Updating...
+        String lblDbXPathWithStartsWith = "//li[starts-with(@test-id,'db-da')]";
+        webDriver.findElement(By.xpath(lblDbXPathWithStartsWith));
+        String lblDbXPathWithNormalize = "//li[normalize-space()='Database: Updating...']";
+        webDriver.findElement(By.xpath(lblDbXPathWithNormalize));
+        String lblDbXPathWithContains = "//li[contains(@test-id ,'db-database')]";
+        webDriver.findElement(By.xpath(lblDbXPathWithContains));
+        String lblDbXPathWithStartWith = "//li[starts-with(@test-id ,'db-database')]";
+        webDriver.findElement(By.xpath(lblDbXPathWithStartWith));
 
-        //TÌM KIẾM ĐOẠN TEXT Database: Updating...
-        String startsDb = "//li[starts-with(@test-id,'db-da')]";
-        webDriver.findElement(By.xpath(startsDb));
-        String normalizeDb = "//li[normalize-space()='Database: Updating...']";
-        webDriver.findElement(By.xpath(normalizeDb));
+        // Locate the text: HỆ THỐNG CÁC WEB ELEMENTS CƠ BẢN
+        String lblAboutMeWebEleXPathWithAncestor = "//b[contains(text(),'HỆ THỐNG')]/ancestor::h4";
+        webDriver.findElement(By.xpath(lblAboutMeWebEleXPathWithAncestor));
+        String lblAboutMeWebEleXPathWithPrecedingSibling = "//h4[@test-id='about-me-separator']/preceding-sibling::h4";
+        webDriver.findElement(By.xpath(lblAboutMeWebEleXPathWithPrecedingSibling));
+        String lblAboutMeWebEleXPathWithContains = "//h4[contains(@test-id ,'about-me-web-elements')]";
+        webDriver.findElement(By.xpath(lblAboutMeWebEleXPathWithContains));
+        String lblAboutMeWebEleXPathWithStartWith = "//h4[starts-with(@test-id ,'about-me-web-elements')]";
+        webDriver.findElement(By.xpath(lblAboutMeWebEleXPathWithStartWith));
 
-        //TÌM KIẾM ĐOẠN TEXT HỆ THỐNG CÁC WEB ELEMENTS CƠ BẢN
-        String ancestorAboutMeWebEle = "//b[contains(text(),'HỆ THỐNG')]/ancestor::h4";
-        webDriver.findElement(By.xpath(ancestorAboutMeWebEle));
-        String precedingSibAboutMeWebEle = "//h4[@test-id='about-me-separator']/preceding-sibling::h4";
-        webDriver.findElement(By.xpath(precedingSibAboutMeWebEle));
-
-        //TÌM KIẾM HÌNH QR CODE
-        String descendantQr = "//div[@class='grid-item']/descendant::img";
-        webDriver.findElement(By.xpath(descendantWebsite));
-        String followingSibQr = "//div[@class='grid-item']/following-sibling::div/img";
-        webDriver.findElement(By.xpath(followingSibQr));
+        // Locate the QR code image
+        String lblQrXPathWithDescendant = "//div[@class='grid-item']/descendant::img";
+        webDriver.findElement(By.xpath(lblQrXPathWithDescendant));
+        String lblQrXPathWithFollowingSibling = "//div[@class='grid-item']/following-sibling::div/img";
+        webDriver.findElement(By.xpath(lblQrXPathWithFollowingSibling));
+        String lblQrXPathWithContains = "//img[contains(@test-id ,'about-me-coffee-img')]";
+        webDriver.findElement(By.xpath(lblQrXPathWithContains));
+        String lblQrXPathWithStartWith = "//img[starts-with(@test-id ,'about-me-coffee-img')]";
+        webDriver.findElement(By.xpath(lblQrXPathWithStartWith));
     }
-
 
     /**
      * Go to Test Website

@@ -298,7 +298,7 @@ public class SolutionTest {
 
         //<li test-id="db-database" xpath="1">Database: Updating... </li>
         String lblDbDatabaseXPathWithTestIdAndTag = "//li[@test-id='db-database']";
-        webDriver.findElement(By.xpath(lblDbWebElementXPathWithTestIdAndTag));
+        webDriver.findElement(By.xpath(lblDbDatabaseXPathWithTestIdAndTag));
 
         //<p test-id="about-me-coffee-text" style="" xpath="1">Buy Me a Coffee </p>
         String lblAboutMeCoffeeTextXPathWithTestIdAndTag = "//p[@test-id='about-me-coffee-text']";
