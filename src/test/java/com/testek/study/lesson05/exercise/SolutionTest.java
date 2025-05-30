@@ -215,6 +215,112 @@ public class SolutionTest {
         gotoTestWebsite();
 
         // Define the locator format then apply to elements
+        gotoTestWebsite();
+
+        // Define the locator format then apply to elements
+        String XPATH_TITLE_TEST_ID_FORMAT = "//h3[@test-id = '%s']";
+        String XPATH_LABEL_FOR_FORMAT = "//label[@for = '%s']";
+        String XPATH_INPUT_TEST_ID_FORMAT = "//input[@test-id = '%s' ]";
+        String XPATH_BUTTON_TYPE_FORMAT = "//button[@type = '%s']";
+        String XPATH_TEXT_AREA_ID_FORMAT = "//textarea[@test-id = '%s']";
+
+        // Locate elements using dynamic XPath
+        // Locate the title: "Browser Windows"
+        String lblBrowserWindowsTitleDynamicXpath = String.format(XPATH_TITLE_TEST_ID_FORMAT,"browser-windows-title");
+        webDriver.findElement(By.xpath(lblBrowserWindowsTitleDynamicXpath));
+
+        // Locate the title: "Student Registration Form"
+        String lblStudentFormDynamicXpath = String.format(XPATH_TITLE_TEST_ID_FORMAT,"student-registration-title");
+        webDriver.findElement(By.xpath(lblStudentFormDynamicXpath));
+
+        // Locate the title: "First Name:"
+        String lblFirstNameDynamicXpath = String.format(XPATH_LABEL_FOR_FORMAT,"firstName");
+        webDriver.findElement(By.xpath(lblFirstNameDynamicXpath));
+
+        // Locate the title: "Last Name:"
+        String lblLastNameDynamicXPath =String.format(XPATH_LABEL_FOR_FORMAT,"lastName");
+        webDriver.findElement(By.xpath(lblLastNameDynamicXPath));
+
+        // Locate the title: "Email:"
+        String lblEmailDynamicXPath = String.format(XPATH_LABEL_FOR_FORMAT,"email");
+        webDriver.findElement(By.xpath(lblEmailDynamicXPath));
+
+        // Locate the title: "Gender:"
+        String lblGenderDynamicXPath = String.format(XPATH_LABEL_FOR_FORMAT,"gender");
+        webDriver.findElement(By.xpath(lblGenderDynamicXPath));
+
+        // Locate the title: "Mobile:"
+        String lblMobileDynamicXPath = String.format(XPATH_LABEL_FOR_FORMAT,"mobile");
+        webDriver.findElement(By.xpath(lblMobileDynamicXPath));
+
+        // Locate the title: "Date of Birth:"
+        String lblDateOfBirthDynamicXPath = String.format(XPATH_LABEL_FOR_FORMAT,"dob");
+        webDriver.findElement(By.xpath(lblDateOfBirthDynamicXPath));
+
+        // Locate the title: "Subjects:"
+        String lblSubjectDynamicXPath = String.format(XPATH_LABEL_FOR_FORMAT,"subjects");
+        webDriver.findElement(By.xpath(lblSubjectDynamicXPath));
+
+        // Locate the title: "Hobbies:"
+        String lblHobbiesDynamicXPath = String.format(XPATH_LABEL_FOR_FORMAT,"hobbies");
+        webDriver.findElement(By.xpath(lblHobbiesDynamicXPath));
+
+        // Locate the title: "Address:"
+        String lblAddressDynamicXPath = String.format(XPATH_LABEL_FOR_FORMAT,"address");
+        webDriver.findElement(By.xpath(lblAddressDynamicXPath));
+
+        // Locate the textbox: "Submit"
+        String txtFirstNameDynamicXPath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-firstName");
+        webDriver.findElement(By.xpath(txtFirstNameDynamicXPath));
+
+        // Locate the textbox: "Last Name"
+        String txtLastNameDynamicXPath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-lastName");
+        webDriver.findElement(By.xpath(txtLastNameDynamicXPath));
+
+        // Locate the textbox: "Email"
+        String txtEmailDynamicXPath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-email");
+        webDriver.findElement(By.xpath(txtEmailDynamicXPath));
+
+        // Locate the textbox: "Mobile"
+        String txtMobileDynamicXPath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-mobile");
+        webDriver.findElement(By.xpath(txtMobileDynamicXPath));
+
+        // Locate the textbox: "Date of Birth"
+        String txtDateOfBirthDynamicXPath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-dob");
+        webDriver.findElement(By.xpath(txtDateOfBirthDynamicXPath));
+
+        // Locate the textbox: "Subjects"
+        String txtSubjectDynamicXpath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-subjects");
+        webDriver.findElement(By.xpath(txtSubjectDynamicXpath));
+
+        // Locate the textarea: "Address"
+        String txtAddressDynamicXpath = String.format(XPATH_TEXT_AREA_ID_FORMAT,"textarea-address");
+        webDriver.findElement(By.xpath(txtAddressDynamicXpath));
+
+        // Locate the checkbox: "Hobbies"
+        String chbReadingDynamicXpath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-reading");
+        webDriver.findElement(By.xpath(chbReadingDynamicXpath));
+
+        String chbSportsDynamicXpath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-sports");
+        webDriver.findElement(By.xpath(chbSportsDynamicXpath));
+
+        String chbMusicDynamicXPath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-music");
+        webDriver.findElement(By.xpath(chbMusicDynamicXPath));
+
+        // Locate the radio button: "Gender"
+        String rdoMaleDynamicXPath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-male");
+        webDriver.findElement(By.xpath(rdoMaleDynamicXPath));
+
+        String rdoFemaleDynamicXPath = String.format(XPATH_INPUT_TEST_ID_FORMAT,"input-female");
+        webDriver.findElement(By.xpath(rdoFemaleDynamicXPath));
+
+        // Locate the button: "Submit"
+        String btnSubmitDynamicXpath = String.format(XPATH_BUTTON_TYPE_FORMAT,"submit");
+        webDriver.findElement(By.xpath(btnSubmitDynamicXpath));
+
+        // Locate the button: "Clear"
+        String btnClearDynamicXpath = String.format(XPATH_BUTTON_TYPE_FORMAT,"reset");
+        webDriver.findElement(By.xpath(btnClearDynamicXpath));
     }
 
     /**
