@@ -93,6 +93,7 @@ public class SolutionTest {
         String lblReadingXPath = String.format(FORM_XPATH_LABEL_TEXT, "label-reading");
         String lblSportsXPath = String.format(FORM_XPATH_LABEL_TEXT, "label-sports");
         String lblMusicXPath = String.format(FORM_XPATH_LABEL_TEXT, "label-music");
+        //Hongthai: Thiếu các label Address, thông tin đã nhập
 
         //Input test
         String txtFistNameXPath = String.format(FORM_XPATH_INPUT_PLACEHOlDER, "firstName");
