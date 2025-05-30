@@ -42,6 +42,58 @@ public class WebElementInteractionTest {
         }
     }
 
+    @Test
+    public void practiceTestTextBoxInteraction() {
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+
+        //txt form
+        String XPATH_INPUT_TEXT_FORM = "//input[@placeholder = '%s']";
+
+        //name
+        String txtNameXPath = String.format(XPATH_INPUT_TEXT_FORM, "Nhập họ tên");
+        WebElement txtNameEle = mWebDriver.findElement(By.xpath(txtNameXPath));
+        txtNameEle.clear();
+        txtNameEle.sendKeys("Trịnh Khánh Toàn");
+
+        //email
+        String txtEmailXPath = String.format(XPATH_INPUT_TEXT_FORM, "Nhập email");
+        WebElement txtEmailEle = mWebDriver.findElement(By.xpath(txtEmailXPath));
+        txtEmailEle.clear();
+        txtEmailEle.sendKeys("trinhkhanhtoan27@gmail.com");
+
+        //phone
+        String txtPhoneXPath = String.format(XPATH_INPUT_TEXT_FORM, "Nhập số điện thoại");
+        WebElement txtPhoneEle = mWebDriver.findElement(By.xpath(txtPhoneXPath));
+        txtPhoneEle.clear();
+        txtPhoneEle.sendKeys("09123876421");
+
+        //address
+        String txtAddressXPath = String.format(XPATH_INPUT_TEXT_FORM, "Nhập địa chỉ");
+        WebElement txtAddressEle = mWebDriver.findElement(By.xpath(txtAddressXPath));
+        txtAddressEle.clear();
+        txtAddressEle.sendKeys("HM - Ha Noi");
+
+        //submit btn
+        String btnSendXPath = "//button[@test-id='textbox-form-submit']";
+        WebElement btnSendEle = mWebDriver.findElement(By.xpath(btnSendXPath));
+
+        // Create a wait driver
+        WebDriverWait webDriverWait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
+
+        // Wait for your element to ready click
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(btnSendEle));
+        btnSendEle.click();
+
+        waitForDebug(5000);
+
+        // Get the value of the text box
+        String txtAreaOutputTextXPath = "//textarea[@test-id='textbox-form-output']";
+        WebElement txtAreaOutputTextEle = mWebDriver.findElement(By.xpath(txtAreaOutputTextXPath));
+        String outputTextVal = txtAreaOutputTextEle.getAttribute("value");
+        System.out.println(outputTextVal);
+//        log.info("\nYour input:\n{}", outputTextVal);
+    }
+
     /**
      * Interact with Text Box
      */
