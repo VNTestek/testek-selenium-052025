@@ -242,7 +242,7 @@ public class WebElementInteractionTest {
         //6. Check info after submit
         String txaOutputTextXPath = "//textarea[@id='outputText']";
         WebElement txaOutputTextEle = mWebDriver.findElement(By.xpath(txaOutputTextXPath));
-                System.out.println(txaOutputTextEle.getAttribute("value"));
+        System.out.println(txaOutputTextEle.getAttribute("value"));
 
         WebDriverWait wait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions
