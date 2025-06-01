@@ -94,7 +94,7 @@ public class SolutionTest {
         String lblSportsXPath = String.format(FORM_XPATH_LABLE_TEXT, "label-sports");
         String lblMusicXPath = String.format(FORM_XPATH_LABLE_TEXT, "label-music");
 
-        //Input test
+        //Input text
         String txtFistNameXPath = String.format(FORM_XPATH_INPUT_PLACEHOlDER, "firstName");
         String txtLastNameXPath = String.format(FORM_XPATH_INPUT_PLACEHOlDER, "lastName");
         String txtEmailXPath = String.format(FORM_XPATH_INPUT_PLACEHOlDER, "email");

@@ -10,12 +10,15 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.Random;
 
+import static java.lang.Thread.currentThread;
 import static java.lang.Thread.sleep;
 
 /**
@@ -24,6 +27,8 @@ import static java.lang.Thread.sleep;
 @Slf4j
 public class WebElementInteractionTest {
     private WebDriver mWebDriver;
+    String name;
+    String email;
 
     @BeforeMethod
     public void beforeTestMethod() {
@@ -32,6 +37,11 @@ public class WebElementInteractionTest {
         chromeOptions.addArguments("--remote-allow-origins=*");
         mWebDriver = new ChromeDriver(chromeOptions);
         mWebDriver.manage().window().maximize(); // Set the window size to maximum
+
+        //Create data random
+        name = "lientest" + randomData();
+        email = name + "@gmail.com";
+
     }
 
     @AfterMethod
@@ -175,7 +185,7 @@ public class WebElementInteractionTest {
     /**
      * Go to Test Website
      */
-    @Test
+
     private void gotoTestWebsite(Menu parent, Menu subMenu) {
         String url = "https://testek.vn/lab/auto/web-elements/";
         mWebDriver.get(url);
@@ -205,6 +215,11 @@ public class WebElementInteractionTest {
         }
     }
 
+    public int randomData(){
+        Random random = new Random();
+        return random.nextInt(999+1);
+    }
+
     @Test
     public void practice() {
         gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
@@ -213,13 +228,13 @@ public class WebElementInteractionTest {
         String txtNameXPath = "//input[@id='name']";
         WebElement txtNameEle = mWebDriver.findElement(By.xpath(txtNameXPath));
         txtNameEle.clear();
-        txtNameEle.sendKeys("test");
+        txtNameEle.sendKeys(name);
 
         //2. Input Email
         String txtEmailXPath = "//input[@id='email']";
         WebElement txtEmailEle = mWebDriver.findElement(By.xpath(txtEmailXPath));
         txtEmailEle.clear();
-        txtEmailEle.sendKeys("info@testek.edu.vn");
+        txtEmailEle.sendKeys(email);
 
         //3. Input Phone
         String txtPhoneXPath = "//input[@id='phone']";
@@ -242,11 +257,22 @@ public class WebElementInteractionTest {
         //6. Check info after submit
         String txaOutputTextXPath = "//textarea[@id='outputText']";
         WebElement txaOutputTextEle = mWebDriver.findElement(By.xpath(txaOutputTextXPath));
-        System.out.println(txaOutputTextEle.getAttribute("value"));
+        String actualText = txaOutputTextEle.getAttribute("value");
+        System.out.println(actualText);
 
-        WebDriverWait wait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
+        //7. Verify
+        WebDriverWait wait = new WebDriverWait(mWebDriver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions
-                .textToBePresentInElementValue(By.id("outputText"), "Họ và tên: test"));
+                .textToBePresentInElementValue(By.id("outputText"), "Họ và tên: " + name));
+
+        //Assert.assertEquals(txaOutputTextEle.isDisplayed(),true);
+
+        String expectedText =
+                        "Họ và tên: " + name + "\n" +
+                        "Email: " + email + "\n" +
+                        "Số điện thoại: 012345678\n" +
+                        "Địa chỉ: Hà Nội";
+        Assert.assertEquals(actualText, expectedText, "Info does not match!");
 
     }
 
