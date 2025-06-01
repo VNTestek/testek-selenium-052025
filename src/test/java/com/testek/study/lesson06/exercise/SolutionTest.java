@@ -191,7 +191,7 @@ public class SolutionTest {
         Alert alertPrompt = webDriver.switchTo().alert();
         alertPrompt.sendKeys("Automation testing");
         alertPrompt.accept();
-        waitForDebug(2000);
+        waitForDebug(3000);
 
         //Title Buttons with Different Actions (Click, Right-Click, Double-Click):
         String lblBtnWithDifferentActionsXPath = "//h3[@test-id='buttons-different-actions-title']";
@@ -200,22 +200,24 @@ public class SolutionTest {
         String btn1XPath = "//button[@test-id='button1']";
         WebElement btn1Ele = webDriver.findElement(By.xpath(btn1XPath));
         btn1Ele.click();
+        System.out.println();
         waitForDebug(2000);
+        System.out.println("You clicked " + btn1Ele.getAttribute("textContent"));
         //Btn2
         String btn2XPath = "//button[@test-id='button2']";
         WebElement btn2Ele = webDriver.findElement(By.xpath(btn2XPath));
         btn2Ele.click();
         waitForDebug(2000);
+        System.out.println("You clicked " + btn2Ele.getAttribute("textContent"));
         //Btn3
         String btn3XPath = "//button[@test-id='button3']";
         WebElement btn3Ele = webDriver.findElement(By.xpath(btn3XPath));
         btn3Ele.click();
+        System.out.println("You clicked " + btn3Ele.getAttribute("textContent"));
 
         //Hãy nhấn vào một nút để kiểm tra sự kiện.
         String txtXPath = "//p[@test-id='buttons-result-text']";
         WebElement txtEle = webDriver.findElement(By.xpath(txtXPath));
-        System.out.println("Result is: " + txtEle.getText());
-
 
     }
 
