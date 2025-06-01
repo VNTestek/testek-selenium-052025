@@ -203,4 +203,56 @@ public class WebElementInteractionTest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void test(){
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+        //TÌM TEXT BOX: Họ và tên:
+        String txtNameIdCss = "#name";
+        WebElement txtNameIdCssEle = mWebDriver.findElement(By.cssSelector(txtNameIdCss));
+
+        txtNameIdCssEle.clear(); //CLEAR
+        txtNameIdCssEle.sendKeys("Vũ Thị Kim Chi"); //NHAP THONG TIN
+        waitForDebug(1000);
+
+        //TÌM TEXT BOX: Email:
+        String txtStartsEmailCss = "[test-id^='textbox-form-input-e']";
+        WebElement txtStartsEmailCssEle = mWebDriver.findElement(By.cssSelector(txtStartsEmailCss));
+
+        txtStartsEmailCssEle.clear();
+        txtStartsEmailCssEle.sendKeys("vukimchi023@gmail.com");
+        waitForDebug(1000);
+
+        //TÌM TEXT BOX: Phone:
+        String txtContainsPhoneCss = "[test-id*='textbox-form-input-p']";
+        WebElement txtContainsPhoneCssEle = mWebDriver.findElement(By.cssSelector(txtContainsPhoneCss));
+
+        txtContainsPhoneCssEle.clear();
+        txtContainsPhoneCssEle.sendKeys("0374975400");
+        waitForDebug(1000);
+
+        //TÌM TEXT BOX: Address:
+        String txtAddressIdCss = "#address";
+        WebElement txtAddressIdCssEle = mWebDriver.findElement(By.cssSelector(txtAddressIdCss));
+
+        txtAddressIdCssEle.clear();
+        txtAddressIdCssEle.sendKeys("Hà Nội");
+        waitForDebug(1000);
+
+        //TIM KIEM BUTTON GUI THONG TIN
+        String btnSend = "[test-id='textbox-form-submit']";
+        WebElement btnSendEle = mWebDriver.findElement(By.cssSelector(btnSend));
+
+        btnSendEle.click(); //CLICK BUTTON
+        waitForDebug(1000);
+
+        //TÌM TEXTAREA "Thông tin bạn đã nhập:"
+        String outputInfoXpath = "//textarea[@id='outputText']";
+        WebElement outputInfoXpathEle = mWebDriver.findElement(By.xpath(outputInfoXpath));
+
+        waitForDebug(1000);
+        String outputInfo = outputInfoXpathEle.getAttribute("value"); //Lấy ra dữ lieu da nhap
+        System.out.println(outputInfoXpathEle.getText());
+        System.out.println(outputInfo); //IN RA
+    }
 }
