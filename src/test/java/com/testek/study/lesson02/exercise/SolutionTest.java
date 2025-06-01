@@ -146,9 +146,6 @@ public class SolutionTest {
         WebElement txtContactEble=webDriver.findElement(By.xpath(txtContactXpath));
     }
 
-    }
-
-
     /**
      * Go to Website
      */
