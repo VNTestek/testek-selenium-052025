@@ -218,6 +218,7 @@ public class SolutionTest {
         //Hãy nhấn vào một nút để kiểm tra sự kiện.
         String txtXPath = "//p[@test-id='buttons-result-text']";
         WebElement txtEle = webDriver.findElement(By.xpath(txtXPath));
+        System.out.println(txtEle.getAttribute("textContent"));
 
     }
 
