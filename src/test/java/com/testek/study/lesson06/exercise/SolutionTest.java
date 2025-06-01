@@ -145,10 +145,9 @@ public class SolutionTest {
         String btnSubmitXPath = "//button[@id='submit-button']";
         WebElement btnSubmitEle = webDriver.findElement(By.xpath(btnSubmitXPath));
         btnSubmitEle.click();
-        waitForDebug(10000);
 
         //Wait for processing
-        waitForDebug(2000);
+        waitForDebug(5000);
 
         //Thông tin bạn đã nhập:
         String lblInputInfoFieldXPath = "//h3[@test-id='submitted-info-title']";
