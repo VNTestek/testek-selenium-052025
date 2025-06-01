@@ -145,8 +145,7 @@ public class SolutionTest {
         String btnSubmitXPath = "//button[@id='submit-button']";
         WebElement btnSubmitEle = webDriver.findElement(By.xpath(btnSubmitXPath));
         btnSubmitEle.click();
-        String btnClearXPath = "//button[@id='reset-button']";
-        WebElement btnClearEle = webDriver.findElement(By.xpath(btnClearXPath));
+        waitForDebug(10000);
 
         //Wait for processing
         waitForDebug(2000);
@@ -159,6 +158,11 @@ public class SolutionTest {
         WebElement inputtedInfoEle = webDriver.findElement(By.xpath(inputtedInfoXPath));
         String getInputInfoVal = inputtedInfoEle.getAttribute("value");
         System.out.println("Your information is: " + inputtedInfoEle.getAttribute("value"));
+
+        //Clear info
+        String btnClearXPath = "//button[@id='reset-button']";
+        WebElement btnClearEle = webDriver.findElement(By.xpath(btnClearXPath));
+        btnClearEle.click();
 
 
     }
