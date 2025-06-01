@@ -252,7 +252,6 @@ public class SolutionTest {
         String rdoNoXPath = "//label[@test-id='radio-label-no']";
         WebElement rdoNoEle = webDriver.findElement(By.xpath(rdoNoXPath));
         rdoNoEle.click();
-
         System.out.print("You clicked radio button " + rdoNoEle.getAttribute("textContent").trim());
     }
 
