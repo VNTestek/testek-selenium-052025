@@ -177,6 +177,7 @@ public class SolutionTest {
         waitForDebug(2000);
         Alert alertClickMe = webDriver.switchTo().alert();
         alertClickMe.accept();
+        System.out.println("You clicked button " + btnClickMeEle.getText());
         //Confirm me
         String btnConfirmMeXPath = "//button[@test-id='button-confirm-me']";
         WebElement btnConfirmMeEle = webDriver.findElement(By.xpath(btnConfirmMeXPath));
@@ -184,6 +185,7 @@ public class SolutionTest {
         Alert alertConfirm = webDriver.switchTo().alert();
         alertConfirm.accept();
         waitForDebug(2000);
+        System.out.println("You clicked button " + btnConfirmMeEle.getText());
         //Prompt me
         String btnPromptMeXPath = "//button[@test-id='button-prompt-me']";
         WebElement btnPromptMeEle = webDriver.findElement(By.xpath(btnPromptMeXPath));
@@ -192,6 +194,7 @@ public class SolutionTest {
         alertPrompt.sendKeys("Automation testing");
         alertPrompt.accept();
         waitForDebug(3000);
+        System.out.println("You clicked button " + btnPromptMeEle.getText());
 
         //Title Buttons with Different Actions (Click, Right-Click, Double-Click):
         String lblBtnWithDifferentActionsXPath = "//h3[@test-id='buttons-different-actions-title']";
@@ -235,6 +238,7 @@ public class SolutionTest {
         WebElement rdoYesEle = webDriver.findElement(By.xpath(rdoYesXPath));
         rdoYesEle.click();
         waitForDebug(2000);
+        System.out.println("You clicked radio button " + rdoYesEle.getAttribute("textContent").trim());
 
         //Impressive
         String rdoImpressiveXPath = "//label[@test-id='radio-label-impressive']";
@@ -245,6 +249,8 @@ public class SolutionTest {
         String rdoNoXPath = "//label[@test-id='radio-label-no']";
         WebElement rdoNoEle = webDriver.findElement(By.xpath(rdoNoXPath));
         rdoNoEle.click();
+
+        System.out.print("You clicked radio button " + rdoNoEle.getAttribute("textContent").trim());
     }
 
     /**
