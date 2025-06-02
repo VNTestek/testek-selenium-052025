@@ -203,4 +203,45 @@ public class WebElementInteractionTest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void practices() {
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+
+        // Input full name
+        String txtNameDesXPath = "//div[@test-id = 'textbox-form-container']/descendant::input[@placeholder='Nhập họ tên']";
+        WebElement txtNameEle = mWebDriver.findElement(By.xpath(txtNameDesXPath));
+        txtNameEle.clear();
+        txtNameEle.sendKeys("Pham Thi Huong");
+
+        // Input email
+        String txtEmailId = "email";
+        WebElement txtEmailEle = mWebDriver.findElement(By.id(txtEmailId));
+        txtEmailEle.clear();
+        txtEmailEle.sendKeys("phamhuong@gmail.com");
+
+        // Input phone number
+        String txtPhoneContainsCSS = "input[placeholder*= 'số điện thoại']";
+        WebElement txtPhoneEle = mWebDriver.findElement(By.cssSelector(txtPhoneContainsCSS));
+        txtPhoneEle.clear();
+        txtPhoneEle.sendKeys("084655555235");
+
+        // Input address
+        String txtAddressContainsCSS = "input[placeholder*= 'địa chỉ']";
+        WebElement txtAddressEle = mWebDriver.findElement(By.cssSelector(txtAddressContainsCSS));
+        txtAddressEle.clear();
+        txtAddressEle.sendKeys("Ha noi");
+
+        // Click submit
+        String btnSubmitContainsCSS = "button[test-id*= 'form-submit']";
+        WebElement btnSubmitEle = mWebDriver.findElement(By.cssSelector(btnSubmitContainsCSS));
+        btnSubmitEle.click();
+
+        // Print info
+        String txtOutputInfoContainsCSS = "textarea[test-id*='textbox-form-output']";
+        WebElement txtOutputInfoEle = mWebDriver.findElement(By.cssSelector(txtOutputInfoContainsCSS));
+        String results = txtOutputInfoEle.getAttribute("value");
+        log.info(results);
+
+    }
 }
