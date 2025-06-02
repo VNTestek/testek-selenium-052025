@@ -160,7 +160,7 @@ public class SolutionTest {
         alertConfirm.accept();
         System.out.println(btnConfirmMeEle.getText());
 
-        //prompt-me
+        //Prompt-me
         String btnPromptMeXPath = String.format(XPATH_BUTTON, "button-prompt-me");
         WebElement btnPromptMeEle = webDriver.findElement(By.xpath(btnPromptMeXPath));
         btnPromptMeEle.click();
