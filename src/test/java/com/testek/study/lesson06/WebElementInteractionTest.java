@@ -27,8 +27,16 @@ public class WebElementInteractionTest {
 
     @BeforeMethod
     public void beforeTestMethod() {
+//        ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.addArguments("--start-maximized");
+//        chromeOptions.addArguments("--remote-allow-origins=*");
+//        mWebDriver = new ChromeDriver(chromeOptions);
+//        mWebDriver.manage().window().maximize(); // Set the window size to maximum
+
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("--max-window-size");
         chromeOptions.addArguments("--remote-allow-origins=*");
         mWebDriver = new ChromeDriver(chromeOptions);
         mWebDriver.manage().window().maximize(); // Set the window size to maximum
@@ -202,5 +210,45 @@ public class WebElementInteractionTest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Test
+    public void practice(){
+        gotoTestWebsite(Menu.ELEMENTS,Menu.TEXT_BOX);
+
+        //Input Họ và tên:
+        String inputNameCSS = "input[test-id = 'textbox-form-input-name']";
+        WebElement inputNameEle = mWebDriver.findElement(By.cssSelector(inputNameCSS));
+        inputNameEle.clear();
+        inputNameEle.sendKeys("Ngoc Anh");
+
+        //Input Email
+        String inputEmailCSS = "input[test-id = 'textbox-form-input-email']";
+        WebElement inputEmailEle = mWebDriver.findElement(By.cssSelector(inputEmailCSS));
+        inputEmailEle.clear();
+        inputEmailEle.sendKeys("abc@gmail.com");
+
+        //Input SDT
+        String inputPhoneCSS = "input[test-id = 'textbox-form-input-phone']";
+        WebElement inputPhoneEle = mWebDriver.findElement(By.cssSelector(inputPhoneCSS));
+        inputPhoneEle.clear();
+        inputPhoneEle.sendKeys("0931123456");
+
+        //Input Address
+        String inputAddressCSS = "input[test-id = 'textbox-form-input-address']";
+        WebElement inputAddressEle = mWebDriver.findElement(By.cssSelector(inputAddressCSS));
+        inputAddressEle.clear();
+        inputAddressEle.sendKeys("Ha Noi");
+
+        //Gửi thông tin:
+        String btnSubmitCSS = "button[test-id = 'textbox-form-submit']";
+        WebElement btnSubmitEle = mWebDriver.findElement(By.cssSelector(btnSubmitCSS));
+        btnSubmitEle.click();
+        waitForDebug(10000);
+
+        //Get Info
+        String txtAreaInfoCSS = "textarea[test-id = 'textbox-form-output']";
+        WebElement txtAreaInfoEle = mWebDriver.findElement(By.cssSelector(txtAreaInfoCSS));
+        System.out.println(txtAreaInfoEle.getAttribute("value"));
     }
 }
