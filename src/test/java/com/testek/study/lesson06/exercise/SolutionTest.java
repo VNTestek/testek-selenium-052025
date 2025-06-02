@@ -9,10 +9,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.Objects;
 
 import static java.lang.Thread.sleep;
@@ -59,7 +62,7 @@ public class SolutionTest {
         String XPATH_RADIO_FORM = "//input[@type = 'radio' and @id = '%s']";
         String XPATH_DATE_FORM = "//input[@type = 'date' and @id = '%s']";
         String XPATH_CHECKBOX_FORM = "//input[@type = 'checkbox' and @id = '%s']";
-        String XPATH_BUTTON_FORM = "//button[normalize-space() = '%s']";
+        String XPATH_BUTTON_FORM = "//button[@test-id = '%s']";
         String XPATH_TXT_AREA_FORM = "//textarea[@id = '%s']";
 
         // Find elements & interact
@@ -173,27 +176,23 @@ public class SolutionTest {
         txtAddressEle.sendKeys("Ha Noi - Viet Nam");
 
         //submit btn
-        String btnSubmitXPath = String.format(XPATH_BUTTON_FORM, "Submit");
+        String btnSubmitXPath = String.format(XPATH_BUTTON_FORM, "submit-button");
         WebElement btnSubmitEle = webDriver.findElement(By.xpath(btnSubmitXPath));
+        // Create a wait driver
+        WebDriverWait webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        // Wait for your element to ready click
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(btnSubmitEle));
         btnSubmitEle.click();
-
-        /* Fail
+        waitForDebug(2000);
 
         //clear btn
-        String btnClearFormXPath = String.format(XPATH_BUTTON_FORM, "Clear");
+        String btnClearFormXPath = String.format(XPATH_BUTTON_FORM, "reset-button");
         WebElement btnClearFormEle = webDriver.findElement(By.xpath(btnClearFormXPath));
-        try {
-//         Create a wait driver
-            WebDriverWait webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
-//         Wait for your element to ready click
-            webDriverWait.until(ExpectedConditions.elementToBeClickable(btnClearFormEle));
-            btnClearFormEle.click();
-        } catch (Exception e) {
-//            System.out.println("Click Clear BTN fail ERR: " + e.getMessage());
-            throw new RuntimeException("Click Clear BTN fail ERR: ", e);
-        }
-
-         */
+        // Create a wait driver
+        webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        // Wait for your element to ready click
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(btnClearFormEle));
+        btnClearFormEle.click();
 
         waitForDebug(5000);
     }
