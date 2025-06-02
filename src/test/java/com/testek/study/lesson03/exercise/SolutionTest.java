@@ -139,6 +139,7 @@ public class SolutionTest {
         // Title TESTEK - KIỂM THỬ THỰC CHIẾN
         String lblMainTitleStartCSS = "//h2[starts-with(@test-id,'about-me-titl')]" ;
         webDriver.findElement(By.xpath(lblMainTitleStartCSS));
+
         String lblMainTitleContainsCSS = "//h2[contains(@test-id,'ut-me-titl')]";
         webDriver.findElement(By.xpath(lblMainTitleContainsCSS));
         String lblMainTitleTextCSS = "//b[normalize-space()='TESTEK - KIỂM THỬ THỰC CHIẾN']";

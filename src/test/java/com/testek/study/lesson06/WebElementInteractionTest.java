@@ -171,6 +171,39 @@ public class WebElementInteractionTest {
         waitForDebug(5000);
     }
 
+    @Test
+    public void practices(){
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);    // Create your test script here
+
+        //Họ và tên
+        WebElement txtNameXpath = mWebDriver.findElement(By.xpath("//input[@placeholder='Nhập họ tên']"));
+        txtNameXpath.clear();
+        txtNameXpath.sendKeys("Doãn Huy Kiên");
+
+        //Email
+        WebElement txtEmailXpath = mWebDriver.findElement(By.xpath("//input[@placeholder='Nhập email']"));
+        txtEmailXpath.clear();
+        txtEmailXpath.sendKeys("kiendoan796@gmail.com");
+
+        //Số điện thoại
+        WebElement txtPhoneXpath = mWebDriver.findElement(By.xpath("//input[@placeholder='Nhập số điện thoại']"));
+        txtPhoneXpath.clear();
+        txtPhoneXpath.sendKeys("0989261459");
+
+        // Địa chỉ
+        WebElement txtAddressXpath = mWebDriver.findElement(By.xpath("//input[@placeholder='Nhập địa chỉ']"));
+        txtAddressXpath.clear();
+        txtAddressXpath.sendKeys("Số 6 ngõ 89");
+
+        // Click btn Gửi thông tin
+        WebElement btnAddressXpath = mWebDriver.findElement(By.xpath("//button[text()='Gửi thông tin']"));
+        btnAddressXpath.click();
+
+        // LẤy thôgn tin
+        WebElement txtOutputXpath = mWebDriver.findElement(By.xpath("//textarea[@test-id='textbox-form-output']"));
+        String  output = txtOutputXpath.getAttribute("value");
+        log.info(output);
+    }
 
     /**
      * Go to Test Website
