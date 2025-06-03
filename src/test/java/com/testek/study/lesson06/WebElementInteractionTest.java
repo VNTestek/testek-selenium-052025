@@ -203,4 +203,52 @@ public class WebElementInteractionTest {
             throw new RuntimeException(e);
         }
     }
+    @Test
+    public void practices(){
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+// Handle other elements similarly
+        //Nhập thông tin người dùng:
+        String lblTitleCSS = "h3[test-id = 'textbox-form-title']";
+        WebElement lblTitleEle = mWebDriver.findElement(By.cssSelector(lblTitleCSS));
+
+        //Họ và tên:
+        String lblNameCSS = "label[test-id = 'textbox-form-label-name']";
+        WebElement lblNameEle = mWebDriver.findElement(By.cssSelector(lblNameCSS));
+
+        //Nhập họ tên:
+        String txtInputNameCSS = "input[test-id = 'textbox-form-input-name']";
+        WebElement txtInputNameEle = mWebDriver.findElement(By.cssSelector(txtInputNameCSS));
+        txtInputNameEle.clear();
+        txtInputNameEle.sendKeys("Thu Trà");
+
+        //Nhập email:
+        String txtInputEmailCSS = "input[test-id = 'textbox-form-input-email']";
+        WebElement txtInputEmailEle = mWebDriver.findElement(By.cssSelector(txtInputEmailCSS));
+        txtInputEmailEle.clear();
+        txtInputEmailEle.sendKeys("tra@gmail.com");
+
+        //Nhập tel:
+        String txtInputTelCSS = "input[test-id = 'textbox-form-input-phone']";
+        WebElement txtInputTelEle = mWebDriver.findElement(By.cssSelector(txtInputTelCSS));
+        txtInputTelEle.clear();
+        txtInputTelEle.sendKeys("123");
+
+        //Nhập address:
+        String txtInputAddressCSS = "input[test-id = 'textbox-form-input-address']";
+        WebElement txtInputAddressEle = mWebDriver.findElement(By.cssSelector(txtInputAddressCSS));
+        txtInputAddressEle.clear();
+        txtInputAddressEle.sendKeys("abc");
+
+        //Gửi thông tin:
+        String btnSubmitCSS = "button[test-id = 'textbox-form-submit']";
+        WebElement btnSubmitEle = mWebDriver.findElement(By.cssSelector(btnSubmitCSS));
+        btnSubmitEle.click();
+
+        waitForDebug(5000);
+        //TxtArea:
+        String txtInfoCSS = "textarea[test-id = 'textbox-form-output']";
+        WebElement txtInfoEle = mWebDriver.findElement(By.cssSelector(txtInfoCSS));
+        String info = txtInfoEle.getAttribute("value");
+        System.out.println(info);
+    }
 }
