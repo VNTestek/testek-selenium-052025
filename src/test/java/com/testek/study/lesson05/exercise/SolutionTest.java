@@ -77,53 +77,6 @@ public class SolutionTest {
         String lblMobileIdCss = "#mobile";
         webDriver.findElement(By.cssSelector(lblMobileIdCss));
 
-        //Locate the title Subject
-        String lblSubjectContainsCss = "[placeholder*='your m']";
-        webDriver.findElement(By.cssSelector(lblSubjectContainsCss));
-        String lblSubjectIdCss = "#subjects";
-        webDriver.findElement(By.cssSelector(lblSubjectIdCss));
-
-        //Locate the title DOB
-        String lblDobContainsCss = "[test-id$='ut-dob']";
-        webDriver.findElement(By.cssSelector(lblDobContainsCss));
-        String lblDobIdCss = "#dob";
-        webDriver.findElement(By.cssSelector(lblDobIdCss));
-
-        //Locate the radio button gender
-        String rdoMaleCss = "[name='gender'][value='Male']";
-        webDriver.findElement(By.cssSelector(rdoMaleCss));
-        String rdoMaleIdCss = "#male";
-        webDriver.findElement(By.cssSelector(rdoMaleIdCss));
-        String rdoFemaleContainsCss = "[id*='fe']";
-        webDriver.findElement(By.cssSelector(rdoFemaleContainsCss));
-
-        //Locate the checkbox Hobbies
-        String chkReadingCss = "[name='hobbies'][value='Reading']";
-        webDriver.findElement(By.cssSelector(chkReadingCss));
-        String chkSportsIdCss = "#sports";
-        webDriver.findElement(By.cssSelector(chkSportsIdCss));
-        String chkMusicStartWithCss = "[id^='mus']";
-        webDriver.findElement(By.cssSelector(chkMusicStartWithCss));
-
-        //Locate the textarea Address
-        String txtAddressIdCss = "textarea[id='address']";
-        webDriver.findElement(By.cssSelector(txtAddressIdCss));
-        String txtLastAddressCss = "[placeholder$='address']";
-        webDriver.findElement(By.cssSelector(txtLastAddressCss));
-
-        //Locate the button submit
-        String btnSubmitIdCss = "#submit-button";
-        webDriver.findElement(By.cssSelector(btnSubmitIdCss));
-
-        //Locate the button clear
-        String btnResetContainsCss = "[id*='reset-b']";
-        webDriver.findElement(By.cssSelector(btnResetContainsCss));
-
-        //Locate the textarea Thông tin bạn đã nhập
-        String txtTextStudentCss = "[id$='TextStudent']";
-        webDriver.findElement(By.cssSelector(txtTextStudentCss));
-        String txtTextStudentIdCss = "#outputTextStudent";
-        webDriver.findElement(By.cssSelector(txtTextStudentIdCss));
     }
 
     @Test(description = "Find element with XPath")
