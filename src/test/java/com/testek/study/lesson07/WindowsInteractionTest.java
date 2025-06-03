@@ -214,4 +214,48 @@ public class WindowsInteractionTest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void testPractice() {
+        // 1. Truy cap: https://testek.vn/lab/auto/web-elements
+        mWebDriver.get("https://testek.vn/lab/auto/web-elements");
+        waitForDebug(2000);
+        // Luu tam thong tin Id win hien tai
+        String curWinID = mWebDriver.getWindowHandle();
+
+        // 2. Mo windows moi va truy cap https://testek.vn
+        mWebDriver.switchTo().newWindow(WindowType.WINDOW);
+        mWebDriver.get("https://testek.vn");
+        waitForDebug(2000);
+
+        // 3. Back lai windows dau tien
+        mWebDriver.switchTo().window(curWinID);
+        waitForDebug(2000);
+
+        // 4. Lay danh sach cac windows hien co
+        Set<String> windowList = mWebDriver.getWindowHandles();
+        System.out.println("List window: ");
+        for (String win : windowList) {
+            System.out.println(win);
+        }
+    }
+
+    @Test
+    public void testPractice2() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
+
+        // Click "Alerts"
+        String alertXPath = "//button[@id='confirmAlert']";
+        WebElement alertWinEle = mWebDriver.findElement(By.xpath(alertXPath));
+        alertWinEle.click();
+
+        // Print the text
+        Alert alert = mWebDriver.switchTo().alert();
+        System.out.println("Text: " + alert.getText());
+        waitForDebug(3000);
+        // Press Cancel button
+        alert.dismiss();
+    }
+
+
 }

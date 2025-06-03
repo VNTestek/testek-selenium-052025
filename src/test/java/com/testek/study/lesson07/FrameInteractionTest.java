@@ -58,7 +58,7 @@ public class FrameInteractionTest {
 
         //region Frame verification
         String expHeadingText = "This is a Large Frame";
-        if(actChildFrameText.equals(expHeadingText)){
+        if (actChildFrameText.equals(expHeadingText)) {
             log.info("The frame text:  {}", actChildFrameText);
         } else {
             log.info("The frame text is not same: actual: {}, expected: {}", actChildFrameText, expHeadingText);
@@ -101,5 +101,29 @@ public class FrameInteractionTest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Test
+    public void testFrame() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
+
+        // Find the frame
+        String smallFrame = "small-frame";
+        WebElement smallFrameEle = mWebDriver.findElement(By.id(smallFrame));
+        mWebDriver.switchTo().frame(smallFrameEle);
+
+        // Print the text in the frame
+        WebElement lblFrameTitleEle = mWebDriver.findElement(By.tagName("h1"));
+        String frameTitleText = lblFrameTitleEle.getText();
+        System.out.println("Title of small frame: " + frameTitleText);
+
+        WebElement lblFrameContentEle = mWebDriver.findElement(By.tagName("p"));
+        String frameContentText = lblFrameContentEle.getText();
+        System.out.println("Content of small frame: " + frameContentText);
+
+        // Back to page contents
+        mWebDriver.switchTo().defaultContent();
+        WebElement ltbTitlePageEle = mWebDriver.findElement(By.id("frames-title"));
+        System.out.println("Title Page: " + ltbTitlePageEle.getText());
     }
 }
