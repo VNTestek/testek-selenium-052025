@@ -6,7 +6,6 @@ import lombok.Setter;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.Browser;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -79,12 +78,13 @@ public class SolutionTest {
         }
         waitForDebug(2000);
 
-        //Back to homepage
+        //Back to Homepage
         Set<String> windowHandles = mWebDriver.getWindowHandles();
         for (String windowHandle : windowHandles) {
             mWebDriver.switchTo().window(windowHandle);
             mWebDriver.get(baseURL);
         }
+
         //Print window list
         Set<String> windowList = mWebDriver.getWindowHandles();
         System.out.println("Current window list: ");
@@ -101,17 +101,17 @@ public class SolutionTest {
         // Handle your code here
 
         //Access small frame
-        String smallFrId = "small-frame";
-        WebElement smallFrmEle = mWebDriver.findElement(By.id(smallFrId));
+        String smallFrmId = "small-frame";
+        WebElement smallFrmEle = mWebDriver.findElement(By.id(smallFrmId));
         mWebDriver.switchTo().frame(smallFrmEle);
         WebElement lblTitleEle = mWebDriver.findElement(By.tagName("h1"));
         WebElement lblTxtEle = mWebDriver.findElement(By.tagName("p"));
 
         //Print text in small frame
         String txtTitle = lblTitleEle.getText();
-        System.out.println("Title in small frame: " + txtTitle);
+        System.out.println("Title: " + txtTitle);
         String txtInFrm = lblTxtEle.getText();
-        System.out.println("Text in small frame: " + txtInFrm);
+        System.out.println("Text: " + txtInFrm);
 
         //Back to default content
         mWebDriver.switchTo().defaultContent();
