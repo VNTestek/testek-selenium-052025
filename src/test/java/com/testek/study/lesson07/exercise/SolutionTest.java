@@ -64,7 +64,6 @@ public class SolutionTest {
         for (String menu : listMenu) {
             WebDriver newTab = mWebDriver.switchTo().newWindow(WindowType.TAB);
             newTab.get(baseURL + menu);
-
         }
         waitForDebug(2000);
 
