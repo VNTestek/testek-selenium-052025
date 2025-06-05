@@ -23,6 +23,7 @@ public class WindowsInteractionTest {
 
     @BeforeMethod
     public void beforeTestMethod() {
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--remote-allow-origins=*");
@@ -213,5 +214,56 @@ public class WindowsInteractionTest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+//    1. Truy cap: https://testek.vn/lab/auto/web-elements
+//            2. Mo windows moi va truy cap https://testek.vn
+//            3. Back lai windows dau tien
+//4. Lay danh sach cac windows hien co
+
+    @Test
+    public void testPracticeAlert1() {
+        mWebDriver.get("https://testek.vn/lab/auto/web-elements");
+        //Luu tam thong tin Id win hien tai
+        String curWinID = mWebDriver.getWindowHandle();
+
+        mWebDriver.switchTo().newWindow(WindowType.WINDOW);
+        mWebDriver.get("https://testek.vn");
+
+        mWebDriver.navigate().back();
+        Set<String> windowList = mWebDriver.getWindowHandles();
+
+        System.out.println("Window list: " + windowList);
+
+    }
+
+    @Test
+    public void testPracticeAlert2() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
+        // Click "Confirm Alert"
+        String altConfirmXpath = "//button[@test-id='confirmAlert']";
+        WebElement altConfirmEle = mWebDriver.findElement(By.xpath(altConfirmXpath));
+        altConfirmEle.click();
+        // In the text
+        Alert alert = mWebDriver.switchTo().alert();
+        String expValue = alert.getText();
+        System.out.println("Alert text:" + expValue);
+        // Press Cancel button}
+        alert.dismiss();
+    }
+
+    @Test
+    public void testFrame() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
+        // Find the frame
+        String frameXPath = "//iframe[@id='small-frame']";
+        WebElement frameEle = mWebDriver.findElement(By.xpath(frameXPath));
+
+        mWebDriver.switchTo().frame(frameEle);
+        WebElement lblTextEle = mWebDriver.findElement(By.tagName("p"));
+        String textValue = lblTextEle.getText();
+        System.out.println("Value:" + textValue);
+        // Print the text in the frame}
+
     }
 }
