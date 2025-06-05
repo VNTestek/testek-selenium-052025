@@ -214,4 +214,49 @@ public class WindowsInteractionTest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void testWindow (){
+        mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
+        waitForDebug(5000);
+        String currentWindow = mWebDriver.getWindowHandle();
+
+        mWebDriver.switchTo().newWindow(WindowType.WINDOW);
+        mWebDriver.get("https://testek.vn/");
+        waitForDebug(5000);
+
+        //Back to first window
+        mWebDriver.switchTo().window(currentWindow);
+        waitForDebug(5000);
+
+        Set<String> listWebs = mWebDriver.getWindowHandles();
+        System.out.println(listWebs);
+    }
+
+    @Test
+    public void testAlert(){
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
+        String alertConfirmXpath = "//button[@id='confirmAlert']" ;
+        WebElement alertConfirmElement= mWebDriver.findElement(By.xpath(alertConfirmXpath));
+        alertConfirmElement.click();
+        Alert alert = mWebDriver.switchTo().alert();
+        String alertText = alert.getText();
+        System.out.println( alertText);
+        waitForDebug(5000);
+        alert.dismiss();
+    }
+    @Test
+    public void testFrame() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.FRAME);
+        String frameId= "small-frame";
+        WebElement frmSmallEle =mWebDriver.findElement(By.id(frameId));
+        mWebDriver.switchTo().frame(frmSmallEle);
+        WebElement textEle =mWebDriver.findElement(By.tagName("p"));
+        String text = textEle.getAttribute("textContent");
+        System.out.println(text);
+
+        /// back to father frame
+        mWebDriver.switchTo().defaultContent();
+
+    }
 }
