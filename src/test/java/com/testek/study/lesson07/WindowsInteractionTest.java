@@ -214,4 +214,63 @@ public class WindowsInteractionTest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void testBackCurrentWindow() {
+        mWebDriver.get("https://testek.vn/lab/auto/web-elements");
+
+        String curWin = mWebDriver.getWindowHandle();
+
+        mWebDriver.switchTo().newWindow(WindowType.WINDOW);
+        mWebDriver.get("https://testek.vn");
+
+        mWebDriver.switchTo().window(curWin);
+
+        Set<String> listWindowId = mWebDriver.getWindowHandles();
+
+        System.out.println(listWindowId);
+
+
+    }
+
+    @Test
+    public void testPracticeAlert2() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
+
+        // Click "Confirm Alert"
+        String btnConfirmXPath = "//button[normalize-space() = 'Confirm Alert']";
+        WebElement btnConfirmEle = mWebDriver.findElement(By.xpath(btnConfirmXPath));
+        btnConfirmEle.click();
+        Alert alert = mWebDriver.switchTo().alert();
+
+        // In the text
+        String text = alert.getText();
+        System.out.println(text);
+        waitForDebug(1000);
+
+        // Press Cancel button}
+        alert.dismiss();
+    }
+
+    @Test
+    public void testFrame() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
+
+        // Find the frame
+        String smallFrameId = "small-frame";
+        WebElement frmSmallEle = mWebDriver.findElement(By.id(smallFrameId));
+
+        mWebDriver.switchTo().frame(frmSmallEle);
+
+        WebElement lblTextEle = mWebDriver.findElement(By.tagName("p"));
+        String text = lblTextEle.getAttribute("textContent");
+        System.out.println(text);
+
+        // Back lại
+        mWebDriver.switchTo().defaultContent();
+
+        String lblTitleId = "frames-title";
+        WebElement lblTitleEle = mWebDriver.findElement(By.id(lblTitleId));
+    }
+
 }
