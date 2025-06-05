@@ -3,9 +3,7 @@ package com.testek.study.lesson07.exercise;
 import com.testek.study.common.Menu;
 import lombok.Getter;
 import lombok.Setter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
@@ -45,19 +43,42 @@ public class SolutionTest {
      * URL: <a href="https://testek.vn/lab/auto/web-elements">...</a>
      * Access to Elements navigation
      */
-    @Test(description = "Element Interaction: Student Form")
-    public void testStudentForm() {
-        gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
-
-        // Handle your code here
-
-    }
+//    @Test(description = "Element Interaction: Student Form")
+//    public void testStudentForm() {
+//        gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
+//
+//        // Handle your code here
+//
+//    }
 
     @Test(description = "Element Interaction: Small Frame")
     public void testSmallFrame() {
         gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
 
         // Handle your code here
+        String frmSmall = "small-frame";
+        WebElement frmSmallEle = mWebDriver.findElement(By.id(frmSmall));
+
+        mWebDriver.switchTo().frame(frmSmall);
+
+        WebElement lblTitleEle = mWebDriver.findElement(By.tagName("h1"));
+        System.out.println(lblTitleEle.getText());
+
+        WebElement lblTxtEle = mWebDriver.findElement(By.tagName("p"));
+        System.out.println(lblTxtEle.getText());
+    }
+
+    @Test(description = "Switch windows/ tabs")
+    public void testWindowTabs() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.WINDOWS);
+        WebDriver newTab = mWebDriver.switchTo().newWindow(WindowType.TAB);
+        String homepage = "https://testek.vn/lab/auto/web-elements/";
+        newTab.get(homepage);
+
+        WebDriver newWindow = mWebDriver.switchTo().newWindow(WindowType.WINDOW);
+        newWindow.get(homepage);
+        // các element khác đều có chung URL nên kb cách switch theo get
+        System.out.println(mWebDriver.getWindowHandles());
     }
 
     @Test(description = "Element Interaction: Alert")
@@ -65,6 +86,25 @@ public class SolutionTest {
         gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
 
         // Handle your code here
+        // Button Confirm Alert
+        String btnConfirmMe = "//button[@id= 'confirmAlert']";
+        WebElement btnConfirmMeEle = mWebDriver.findElement(By.xpath(btnConfirmMe));
+        btnConfirmMeEle.click();
+        Alert confirmAlert = mWebDriver.switchTo().alert();
+
+        System.out.println(confirmAlert.getText());
+
+        confirmAlert.dismiss();
+
+        // Button Prompt Alert
+        String btnPromptAlert = "//button[@id= 'promptAlert']";
+        WebElement btnPromptAlertEle = mWebDriver.findElement(By.xpath(btnPromptAlert));
+        btnPromptAlertEle.click();
+        Alert promptAlert = mWebDriver.switchTo().alert();
+        System.out.println(promptAlert.getText());
+        waitForDebug(5000);
+        promptAlert.sendKeys("Windy");
+        promptAlert.accept();
     }
 
      /**
