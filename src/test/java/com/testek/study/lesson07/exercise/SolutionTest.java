@@ -3,9 +3,7 @@ package com.testek.study.lesson07.exercise;
 import com.testek.study.common.Menu;
 import lombok.Getter;
 import lombok.Setter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
@@ -97,5 +95,54 @@ public class SolutionTest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+    @Test
+    public  void Ex1 () {
+        mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
+        waitForDebug(5000);
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
+        waitForDebug(5000);
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.FRAME);
+        waitForDebug(5000);
+        mWebDriver.switchTo().newWindow(WindowType.WINDOW);
+        mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.FRAME);
+    }
+    @Test
+    public void testFrame() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.FRAME);
+        String frameId= "small-frame";
+        WebElement frmSmallEle =mWebDriver.findElement(By.id(frameId));
+        mWebDriver.switchTo().frame(frmSmallEle);
+        WebElement textEle =mWebDriver.findElement(By.tagName("p"));
+        String text = textEle.getAttribute("textContent");
+        System.out.println(text);
+        /// back to father frame
+        mWebDriver.switchTo().defaultContent();
+    }
+    @Test
+    public void Ex2() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.FRAME);
+        String tab1Handle = mWebDriver.getWindowHandle();
+        waitForDebug(5000);
+        WebDriver newTab = mWebDriver.switchTo().newWindow(WindowType.TAB);
+        String tab2Handle = mWebDriver.getWindowHandle();
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
+        mWebDriver.switchTo().window(tab1Handle);
+    }
+    @Test
+    public void Ex3(){
+        mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
+        String alertConfirmXpath = "//button[@id='simpleAlert']" ;
+        WebElement alertConfirmElement= mWebDriver.findElement(By.xpath(alertConfirmXpath));
+        alertConfirmElement.click();
+        WebElement confirmButton = mWebDriver.findElement(By.xpath("//button[text()='Ok']"));
+        confirmButton.click();
+        Alert alert = mWebDriver.switchTo().alert();
+        String alertText = alert.getText();
+        System.out.println( alertText);
+        waitForDebug(5000);
+        alert.dismiss();
     }
 }
