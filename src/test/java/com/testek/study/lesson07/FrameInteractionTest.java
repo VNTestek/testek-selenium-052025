@@ -102,4 +102,11 @@ public class FrameInteractionTest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test()
+    private void interactWithSmallFrame() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
+
+
+    }
 }

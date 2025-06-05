@@ -1,6 +1,7 @@
 package com.testek.study.lesson07;
 
 import com.testek.study.common.Menu;
+import io.cucumber.plugin.event.Node;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -180,6 +181,22 @@ public class WindowsInteractionTest {
         alert.sendKeys("Automation Test - 2025");
         waitForDebug(3000);
         alert.accept();
+    }
+    @Test
+    private void interactWindow() {
+        String url = "https://testek.vn/lab/auto/web-elements/";
+        mWebDriver.get(url);
+
+        String currentId = mWebDriver.getWindowHandle();
+
+        mWebDriver.switchTo().newWindow(WindowType.WINDOW);
+
+        mWebDriver.get("https://testek.vn");
+
+        mWebDriver.switchTo().window(currentId);
+
+        Set<String> listWindow = mWebDriver.getWindowHandles();
+
     }
 
 
