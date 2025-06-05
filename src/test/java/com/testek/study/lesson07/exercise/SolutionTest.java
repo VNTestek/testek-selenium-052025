@@ -3,10 +3,7 @@ package com.testek.study.lesson07.exercise;
 import com.testek.study.common.Menu;
 import lombok.Getter;
 import lombok.Setter;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
@@ -49,9 +46,27 @@ public class SolutionTest {
 
     @Test(description = "Element Interaction: Windows & Tab")
     public void testWindowsAndTab() {
-        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.WINDOWS);
 
         // Handle your code here
+
+        //open window & new tab
+        String homeUrl = "https://selenium.dev";
+        mWebDriver.get(homeUrl);
+        String firstWinHomeID = mWebDriver.getWindowHandle();
+
+        mWebDriver.switchTo().newWindow(WindowType.TAB);
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.WINDOWS);
+        waitForDebug(2000);
+        mWebDriver.switchTo().window(firstWinHomeID);
+
+        //new windows
+        mWebDriver.switchTo().newWindow(WindowType.WINDOW);
+        mWebDriver.get(homeUrl);
+        String secondWinHomeID = mWebDriver.getWindowHandle();
+        waitForDebug(2000);
+        mWebDriver.switchTo().newWindow(WindowType.TAB);
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.ALERT);
+        mWebDriver.switchTo().window(secondWinHomeID);
 
     }
 
