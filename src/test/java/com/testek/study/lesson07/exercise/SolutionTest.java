@@ -144,5 +144,6 @@ public class SolutionTest {
         System.out.println( alertText);
         waitForDebug(5000);
         alert.dismiss();
+
     }
 }
