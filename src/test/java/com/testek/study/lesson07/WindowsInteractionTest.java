@@ -214,4 +214,83 @@ public class WindowsInteractionTest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void testPracticeWindow() {
+        //1. Truy cap: https://testek.vn/lab/auto/web-elements
+        mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
+        //Luu tam thong tin window hien tai
+        String curWinID = mWebDriver.getWindowHandle();
+
+        //2. Mo windows moi va truy cap https://testek.vn
+        mWebDriver.switchTo().newWindow(WindowType.WINDOW);
+        mWebDriver.get("https://testek.vn");
+        waitForDebug(1000);
+
+        //3. Back lai windows dau tien
+        mWebDriver.switchTo().window(curWinID);
+
+        //4. Lay danh sach cac windows hien co
+        Set<String> listWindowId = mWebDriver.getWindowHandles();
+        System.out.println(listWindowId);
+    }
+
+    @Test
+    public void testPracticeAlert2() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
+        // Click "Confirm Alert"
+        String btnConfirmAlert = "confirmAlert";
+        WebElement btnConfirmAlertEle = mWebDriver.findElement(By.id(btnConfirmAlert));
+        btnConfirmAlertEle.click();
+        // Chuyển sang alert
+        Alert alert = mWebDriver.switchTo().alert();
+
+        // In the text
+        System.out.println("Button confirm alert text: " + alert.getText());
+
+        // Press Cancel button}
+        alert.dismiss();
+        waitForDebug(1000);
+    }
+
+    @Test
+    public void testFrame() {
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
+        //Find the frame
+        String frmSmallId = "small-frame";
+        WebElement frmSmallIdEle = mWebDriver.findElement(By.id(frmSmallId));
+        mWebDriver.switchTo().frame(frmSmallIdEle);
+        WebElement lblTextEle = mWebDriver.findElement(By.tagName("p"));
+        String text = lblTextEle.getAttribute("textContent");
+        System.out.println(text);
+
+        //Back lại
+        mWebDriver.switchTo().defaultContent();
+
+        String lblTitleId = "frames-title";
+        WebElement lblTitleIdEle = mWebDriver.findElement(By.id(lblTitleId));
+
+
+        //In text cua frame
+    }
+
+    @Test
+    public void test() {
+        mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
+        waitForDebug(5000);
+        String curWin1 = mWebDriver.getWindowHandle();
+        mWebDriver.navigate().to("https://testek.vn");
+        String curWin2 = mWebDriver.getWindowHandle();
+        mWebDriver.switchTo().newWindow(WindowType.WINDOW);
+        waitForDebug(5000);
+        mWebDriver.switchTo().newWindow(WindowType.TAB);
+        waitForDebug(5000);
+        mWebDriver.navigate().forward();
+        waitForDebug(5000);
+        mWebDriver.navigate().back();
+        waitForDebug(5000);
+        mWebDriver.navigate().refresh();
+        waitForDebug(5000);
+    }
+
 }
