@@ -78,8 +78,8 @@ public class SolutionTest {
         System.out.println("Content of small frame: " + smallFrameContentText);
 
         // Verify interaction small frame successfully
-        String expSmallFrameTitleText = "This is a Small Frame  ";
-        Assert.assertEquals(smallFrameContentText, expSmallFrameTitleText,
+        String expSmallFrameTitleText = "This is a Small Frame";
+        Assert.assertEquals(smallFrameTitleText, expSmallFrameTitleText,
                 "The title of small frame is not same as expected");
 
         // Back to page contents
@@ -97,37 +97,44 @@ public class SolutionTest {
 
     @Test(description = "Interaction: Windows")
     public void testInteractionWindows() {
+        // 1. Open Menu Page
         gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
 
         // Handle your code here
-        // 1. Save the first window ID
-        String firstTabWinID = mWebDriver.getWindowHandle();
+        // Save the first window ID
+        String firstWindowID = mWebDriver.getWindowHandle();
 
-        // 2.Open new tab and access https://testek.vn/lab/auto/web-elements/
+        // 2.Open new tab and go to Home Page: https://testek.vn/lab/auto/web-elements/
         mWebDriver.switchTo().newWindow(WindowType.TAB);
         mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
-        waitForDebug(2000);
+        waitForDebug(5000);
 
-        // 3. Back to the first window
-        mWebDriver.switchTo().window(firstTabWinID);
-        waitForDebug(2000);
+        // 3. Back to the before TAB: Menu Page
+        mWebDriver.switchTo().window(firstWindowID);
+        waitForDebug(5000);
 
         // 4. Print the list of all windows currently open
         Set<String> windowList = mWebDriver.getWindowHandles();
-        System.out.println("List window: ");
+        System.out.println("List of the first window: ");
         for (String win : windowList) {
             System.out.println(win);
         }
 
         // 5. Open a new window and access Home page of Testek and menu page in 2 tabs
         mWebDriver.switchTo().newWindow(WindowType.WINDOW);
-        mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
-        waitForDebug(2000);
-        mWebDriver.switchTo().newWindow(WindowType.TAB);
+        // Go to Menu Page
         gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
+        String secondWindowID = mWebDriver.getWindowHandle();
+        System.out.println("The second window: " + secondWindowID);
+        waitForDebug(5000);
 
-        // Back to home page
-        mWebDriver.navigate().back();
+        mWebDriver.switchTo().window(secondWindowID);
+        mWebDriver.switchTo().newWindow(WindowType.TAB);
+        // Go to Home Page
+        mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
+        waitForDebug(5000);
+        System.out.println("The current window: " + mWebDriver.getWindowHandle());
+
 
     }
 
@@ -142,6 +149,7 @@ public class SolutionTest {
         WebElement simpleAlertEle = mWebDriver.findElement(By.xpath(simpleAlertXPath));
         simpleAlertEle.click();
         Alert simpleAlert = mWebDriver.switchTo().alert();
+        waitForDebug(3000);
 
         // Print the text of the simple alert and verify
         String actualSimpleAlertText = simpleAlert.getText();
@@ -151,6 +159,7 @@ public class SolutionTest {
                 "The text of simple alert is not same as expected");
         // Press OK button
         simpleAlert.accept();
+        waitForDebug(5000);
 
 
         // 2. Click "Confirm Alert"
@@ -158,6 +167,7 @@ public class SolutionTest {
         WebElement confirmAlertEle = mWebDriver.findElement(By.xpath(confirmAlertXPath));
         confirmAlertEle.click();
         Alert confirmAlert = mWebDriver.switchTo().alert();
+        waitForDebug(3000);
 
         // Print the text of the confirm alert and verify
         String actualConfirmAlertText = confirmAlert.getText();
@@ -165,16 +175,17 @@ public class SolutionTest {
         System.out.println("Text of Confirm Alert: " + actualConfirmAlertText);
         Assert.assertEquals(actualConfirmAlertText, expectedConfirmAlertText,
                 "The text of confirm alert is not same as expected");
-        waitForDebug(3000);
 
         // Press Cancel button
         confirmAlert.dismiss();
+        waitForDebug(5000);
 
         // 3. Click "Prompt Alert"
         String promptAlertXPath = "//button[@id='promptAlert']";
         WebElement promptAlertEle = mWebDriver.findElement(By.xpath(promptAlertXPath));
         promptAlertEle.click();
         Alert promptAlert = mWebDriver.switchTo().alert();
+        waitForDebug(3000);
 
         // Print the text of the prompt alert and verify
         String actualPromptAlertText = promptAlert.getText();
@@ -187,9 +198,11 @@ public class SolutionTest {
         String yourName = "Lien test";
         promptAlert.sendKeys(yourName);
         System.out.println("Your name: " + yourName);
+        waitForDebug(3000);
 
         // Press OK button
         promptAlert.accept();
+        waitForDebug(5000);
 
         // 4. Click "Timed Alert"
         String timedAlertXPath = "//button[@id='timedAlert']";
@@ -227,7 +240,7 @@ public class SolutionTest {
         WebElement mnuEle = mWebDriver.findElement(By.xpath(String.format(XPATH_MENU_FORMAT, subMenu.getName())));
         mnuEle.click();
 
-        waitForDebug(30000);
+        waitForDebug(5000);
     }
 
     /**
