@@ -42,6 +42,93 @@ public class ActionsAPITest {
     /**
      * Access website and interact with frame
      */
+
+    @Test
+    public void testActionClick() {
+        gotoTestWebsite(Menu.WIDGETS, Menu.ACCORDION);
+
+        //Click Giảng viên là các chuyên gia đầu ngành
+        String firstAccordionId = "accordion-header-1";
+        WebElement firstAccordionEle = mWebDriver.findElement(By.id(firstAccordionId));
+        firstAccordionEle.click();
+        waitForDebug(2000);
+        String firstAccordionContentId = "accordion-body-1";
+        WebElement firstAccordionContentEle = mWebDriver.findElement(By.id(firstAccordionContentId));
+        System.out.println("firstAccordionContent value: " + firstAccordionContentEle.getText());
+        firstAccordionEle.click();
+
+        //double-click
+        Actions actions = new Actions(mWebDriver);
+        actions.doubleClick(firstAccordionEle).perform();
+        System.out.println("firstAccordionContent value after double click: " + firstAccordionContentEle.getText());
+
+        //Học để làm KHÔNG học để biết
+        String secondAccordionId = "accordion-header-2";
+        WebElement secondAccordionEle = mWebDriver.findElement(By.id(secondAccordionId));
+        secondAccordionEle.click();
+        waitForDebug(2000);
+        String secondAccordionContentId = "accordion-body-2";
+        WebElement secondAccordionContentEle = mWebDriver.findElement(By.id(secondAccordionContentId));
+        System.out.println("secondAccordionContent value: " + secondAccordionContentEle.getText());
+        secondAccordionEle.click();
+
+        //double-click
+        actions.doubleClick(secondAccordionEle).perform();
+        System.out.println("secondAccordionContent value after double click: " + secondAccordionContentEle.getText());
+
+        // Định hướng nghề nghiệp
+        String thirdAccordionId = "accordion-header-3";
+        WebElement thirdAccordionEle = mWebDriver.findElement(By.id(thirdAccordionId));
+        thirdAccordionEle.click();
+        waitForDebug(2000);
+        String thirdAccordionContentId = "accordion-body-3";
+        WebElement thirdAccordionContentEle = mWebDriver.findElement(By.id(thirdAccordionContentId));
+        System.out.println("thirdAccordionContent value: " + thirdAccordionContentEle.getText());
+        thirdAccordionEle.click();
+
+        //double-click
+        actions.doubleClick(thirdAccordionEle).perform();
+        System.out.println("thirdAccordionContent value after double click: " + thirdAccordionContentEle.getText());
+    }
+
+    @Test
+    public void testActionPractice() {
+        gotoTestWebsite(Menu.WIDGETS, Menu.TOOL_TIPS);
+        Actions mActions = new Actions(mWebDriver);
+
+        //hover to tooltip-button-1
+        String hoverXPath = "//button[@test-id='tooltip-button-1']";
+        WebElement hoverEle = mWebDriver.findElement(By.xpath(hoverXPath));
+
+        mActions.moveToElement(hoverEle).click().build().perform();
+
+        //get text & print
+        String hoverTextXPath = "//div[@test-id='tooltip-1']";
+        WebElement hoverTextEle = mWebDriver.findElement(By.xpath(hoverTextXPath));
+        System.out.println("hoverTextValue: " + hoverTextEle.getText());
+
+        //tooltip-link-2
+        String hoverLinkXPath = "//a[@test-id='tooltip-link-2']";
+        WebElement hoverLinkEle = mWebDriver.findElement(By.xpath(hoverLinkXPath));
+
+        mActions.moveToElement(hoverLinkEle).click().build().perform();
+
+        //get text & print
+        String hoverLinkTextXPath = "//div[@test-id='tooltip-2']";
+        WebElement hoverLinkTextEle = mWebDriver.findElement(By.xpath(hoverLinkTextXPath));
+        System.out.println("hoverLinkTextValue: " + hoverLinkTextEle.getText());
+
+        //span tooltip-text-3
+        String hoverText3XPath = "//span[@test-id='tooltip-text-3']";
+        WebElement hoverText3Ele = mWebDriver.findElement(By.xpath(hoverText3XPath));
+        mActions.moveToElement(hoverText3Ele).click().build().perform();
+
+        String hoverText3ValueXPath = "//div[@test-id='tooltip-3']";
+        WebElement hoverText3ValueEle = mWebDriver.findElement(By.xpath(hoverText3ValueXPath));
+        System.out.println("hoverText3Value: " + hoverText3ValueEle.getText());
+    }
+
+
     @Test
     public void testAction() {
         // Access to the website
@@ -53,12 +140,14 @@ public class ActionsAPITest {
         // Hover to elements
         String hoverXPath = "//button[@test-id='tooltip-button-1']";
         WebElement hoverElement = mWebDriver.findElement(By.xpath(hoverXPath));
+
+
         mActions.moveToElement(hoverElement).click().build().perform();
 
         // Verify the hover. The elements had a new attribute "aria-describedby"
         String tooltipXPath = "//div[@test-id='tooltip-1']";
         WebElement hoverEle = mWebDriver.findElement(By.xpath(tooltipXPath));
-       String  hoverText = hoverEle.getText();
+        String hoverText = hoverEle.getText();
         log.info("Tooltip text: {}", hoverText);
         waitForDebug(5000);
 
@@ -118,6 +207,7 @@ public class ActionsAPITest {
         log.info("Double click text: {}", actDoubleClickText);
 
     }
+
     @Test
     public void testRightClick() {
         // Access to the website
@@ -139,6 +229,7 @@ public class ActionsAPITest {
         log.info("Right click text: {}", actDoubleClickText);
         waitForDebug(5000);
     }
+
     @Test
     public void testKeyBoard() {
         // Access to the website
@@ -152,7 +243,6 @@ public class ActionsAPITest {
         mActions.keyDown(keyBoardEle, Keys.SHIFT).sendKeys("Hello Vincent - upperCase nhé").keyUp(Keys.SHIFT).perform();
         waitForDebug(5000);
     }
-
 
 
     /**
