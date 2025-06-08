@@ -58,7 +58,7 @@ public class ActionsAPITest {
         // Verify the hover. The elements had a new attribute "aria-describedby"
         String tooltipXPath = "//div[@test-id='tooltip-1']";
         WebElement hoverEle = mWebDriver.findElement(By.xpath(tooltipXPath));
-       String  hoverText = hoverEle.getText();
+        String hoverText = hoverEle.getText();
         log.info("Tooltip text: {}", hoverText);
         waitForDebug(5000);
 
@@ -118,6 +118,7 @@ public class ActionsAPITest {
         log.info("Double click text: {}", actDoubleClickText);
 
     }
+
     @Test
     public void testRightClick() {
         // Access to the website
@@ -139,6 +140,7 @@ public class ActionsAPITest {
         log.info("Right click text: {}", actDoubleClickText);
         waitForDebug(5000);
     }
+
     @Test
     public void testKeyBoard() {
         // Access to the website
@@ -152,7 +154,6 @@ public class ActionsAPITest {
         mActions.keyDown(keyBoardEle, Keys.SHIFT).sendKeys("Hello Vincent - upperCase nhé").keyUp(Keys.SHIFT).perform();
         waitForDebug(5000);
     }
-
 
 
     /**
@@ -186,4 +187,75 @@ public class ActionsAPITest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void testTooltips() {
+        // Access to the website
+        gotoTestWebsite(Menu.WIDGETS, Menu.TOOL_TIPS);
+
+        // Create a new Actions
+        Actions mActions = new Actions(mWebDriver);
+
+        // Hover to elements: Hover over this link
+        String linkTooltipXPath = "//a[@test-id='tooltip-link-2']";
+        WebElement hoverLinkTooltipEle = mWebDriver.findElement(By.xpath(linkTooltipXPath));
+        mActions.moveToElement(hoverLinkTooltipEle).click().build().perform();
+
+        // Verify text of tooltip
+        String tooltipTextXPath = "//div[@test-id='tooltip-2']";
+        WebElement hoverTextTooltipEle = mWebDriver.findElement(By.xpath(tooltipTextXPath));
+        String hoverText = hoverTextTooltipEle.getText();
+        System.out.println("Tooltip text: " + hoverText);
+        waitForDebug(5000);
+
+    }
+
+    @Test
+    public void testActionClicks() {
+        // Access to the website
+        gotoTestWebsite(Menu.ELEMENTS, Menu.BUTTONS);
+
+        // Create a new Actions
+        Actions mActions = new Actions(mWebDriver);
+
+        //Button 1
+        String btnButton1XPath = "//button[@test-id='button1']";
+        WebElement btnButton1Ele = mWebDriver.findElement(By.xpath(btnButton1XPath));
+        mActions.click(btnButton1Ele).perform();
+
+        // Get text after the click
+        String ltbTextOfButton1XPath = "//p[@test-id='buttons-result-text']";
+        WebElement ltbTextOfButton1Ele = mWebDriver.findElement(By.xpath(ltbTextOfButton1XPath));
+        String actualText = ltbTextOfButton1Ele.getText();
+        log.info("Text after click button 1: {}", actualText);
+        waitForDebug(5000);
+
+    }
+    @Test
+    public void testActionAccordian() {
+        // Access to the website
+        gotoTestWebsite(Menu.WIDGETS, Menu.ACCORDION);
+        // Create a new Actions
+        Actions mActions = new Actions(mWebDriver);
+
+        //Button 1
+        String accordionXPath = "//div[@test-id='accordion-header-1']";
+        WebElement accordionEle = mWebDriver.findElement(By.xpath(accordionXPath));
+        mActions.click(accordionEle).perform();
+
+        // Get text after the click
+        String ltbTextAccordion1XPath = "//div[@test-id='accordion-header-1']/following-sibling::div";
+        WebElement ltbTextAccorditon1Ele = mWebDriver.findElement(By.xpath(ltbTextAccordion1XPath));
+        String actualText = ltbTextAccorditon1Ele.getText();
+        log.info("Text after click button 1: {}", actualText);
+
+        // Double click to close the accordion
+        mActions.doubleClick(accordionEle).perform();
+        log.info("Double click to close accordion: {}", accordionEle.getText());
+        waitForDebug(5000);
+
+
+    }
+
+
 }
