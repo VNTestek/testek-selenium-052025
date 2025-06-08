@@ -76,7 +76,7 @@ public class SolutionTest {
         String XPATH_RADIO_FORM = "//input[@type = 'radio' and @id = '%s']";
         String XPATH_DATE_FORM = "//input[@type = 'date' and @id = '%s']";
         String XPATH_CHECKBOX_FORM = "//input[@type = 'checkbox' and @id = '%s']";
-        String XPATH_BUTTON_FORM = "//button[normalize-space() = '%s']";
+        String XPATH_BUTTON_FORM = "//button[id='%s']";
         String XPATH_TXT_AREA_FORM = "//textarea[@id = '%s']";
 
         // Browser Windows
