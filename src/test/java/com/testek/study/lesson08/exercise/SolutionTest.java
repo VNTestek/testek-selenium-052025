@@ -293,39 +293,6 @@ public class SolutionTest {
         }
     }
 
-//    @Test(description = "Element Interaction: Hover")
-//    public void testHover() {
-//        gotoTestWebsite(Menu.WIDGETS, Menu.MENU);
-//        Actions actions = new Actions(mWebDriver);
-//
-//        //define list menu element
-//        String mnuLstXPath = "//a[starts-with(@test-id,'menu')]";
-//        List<WebElement> mnuEleLst = mWebDriver.findElements(By.xpath(mnuLstXPath));
-//        for (WebElement menu : mnuEleLst) {
-//            actions.moveToElement(menu).perform();
-//            waitForDebug(5000);
-//
-//            String menuTitle = menu.getText();
-//            System.out.print(menuTitle + ": ");
-//
-//            List<WebElement> subMenus = mWebDriver.findElements(By.xpath("//a[starts-with(@test-id,'submenu')]"));
-//            if (!subMenus.isEmpty()) {
-//                System.out.print("[");
-//                for (int i = 0; i < subMenus.size(); i++) {
-//                    System.out.print(subMenus.get(i).getText());
-//                    if (i < subMenus.size() - 1) System.out.print(", ");
-//                }
-//                System.out.println("]");
-//            } else {
-//                System.out.println("[No submenu]");
-//            }
-//
-//            waitForDebug(3000);
-//
-//        }
-//
-//    }
-
      /**
      * Go to Test Website
      */
