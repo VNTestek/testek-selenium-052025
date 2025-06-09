@@ -65,7 +65,7 @@ public class SolutionTest {
         // Handle your code here
     }
 
-     /**
+    /**
      * Go to Test Website
      */
     private void gotoTestWebsite(Menu parent, Menu subMenu) {
@@ -96,33 +96,36 @@ public class SolutionTest {
             throw new RuntimeException(e);
         }
     }
+
     @Test
-    public  void Ex1 () {
+    public void Ex1() {
         mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
         waitForDebug(5000);
         gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
         waitForDebug(5000);
-        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.FRAME);
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
         waitForDebug(5000);
         mWebDriver.switchTo().newWindow(WindowType.WINDOW);
         mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
-        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.FRAME);
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
     }
+
     @Test
     public void testFrame() {
-        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.FRAME);
-        String frameId= "small-frame";
-        WebElement frmSmallEle =mWebDriver.findElement(By.id(frameId));
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
+        String frameId = "small-frame";
+        WebElement frmSmallEle = mWebDriver.findElement(By.id(frameId));
         mWebDriver.switchTo().frame(frmSmallEle);
-        WebElement textEle =mWebDriver.findElement(By.tagName("p"));
+        WebElement textEle = mWebDriver.findElement(By.tagName("p"));
         String text = textEle.getAttribute("textContent");
         System.out.println(text);
         /// back to father frame
         mWebDriver.switchTo().defaultContent();
     }
+
     @Test
     public void Ex2() {
-        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS,Menu.FRAME);
+        gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
         String tab1Handle = mWebDriver.getWindowHandle();
         waitForDebug(5000);
         WebDriver newTab = mWebDriver.switchTo().newWindow(WindowType.TAB);
@@ -130,18 +133,19 @@ public class SolutionTest {
         gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
         mWebDriver.switchTo().window(tab1Handle);
     }
+
     @Test
-    public void Ex3(){
+    public void Ex3() {
         mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
         gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
-        String alertConfirmXpath = "//button[@id='simpleAlert']" ;
-        WebElement alertConfirmElement= mWebDriver.findElement(By.xpath(alertConfirmXpath));
+        String alertConfirmXpath = "//button[@id='simpleAlert']";
+        WebElement alertConfirmElement = mWebDriver.findElement(By.xpath(alertConfirmXpath));
         alertConfirmElement.click();
         WebElement confirmButton = mWebDriver.findElement(By.xpath("//button[text()='Ok']"));
         confirmButton.click();
         Alert alert = mWebDriver.switchTo().alert();
         String alertText = alert.getText();
-        System.out.println( alertText);
+        System.out.println(alertText);
         waitForDebug(5000);
         alert.dismiss();
 

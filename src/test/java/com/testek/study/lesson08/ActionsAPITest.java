@@ -186,4 +186,49 @@ public class ActionsAPITest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void hover() {
+        gotoTestWebsite(Menu.WIDGETS, Menu.TOOL_TIPS);
+        Actions mActions = new Actions(mWebDriver);
+        String tooltipXpath = "//button[@test-id='tooltip-button-1']";
+        WebElement tooltipXpathEle = mWebDriver.findElement(By.xpath(tooltipXpath));
+        mActions.moveToElement(tooltipXpathEle).click().build().perform();
+
+        String textTooltipXpath = "//div[@test-id='tooltip-1']";
+        WebElement textTooltipEle = mWebDriver.findElement(By.xpath(textTooltipXpath));
+        System.out.println(textTooltipEle.getText());
+    }
+    @Test
+    public void click() {
+//        mWebDriver.get("https://testek.vn/lab/auto/web-elements/");
+        Actions mActions = new Actions(mWebDriver);
+        gotoTestWebsite(Menu.WIDGETS, Menu.ACCORDION);
+        String accordion1Xpath = "//div[@id='accordion-header-1']";
+        WebElement accordion1Ele = mWebDriver.findElement(By.xpath(accordion1Xpath));
+        mActions.click(accordion1Ele).perform();
+
+        String accordion1Text = "//div[@id='accordion-body-1']";
+        WebElement accordion1TextEle = mWebDriver.findElement(By.xpath(accordion1Text));
+        log.info(accordion1TextEle.getText());
+
+        gotoTestWebsite(Menu.WIDGETS, Menu.ACCORDION);
+        String accordion2Xpath = "//div[@id='accordion-header-2']";
+        WebElement accordion2Ele = mWebDriver.findElement(By.xpath(accordion2Xpath));
+        mActions.click(accordion2Ele).perform();
+
+        String accordion2Text = "//div[@id='accordion-body-2']";
+        WebElement accordion2TextEle = mWebDriver.findElement(By.xpath(accordion2Text));
+        log.info(accordion2TextEle.getText());
+
+        gotoTestWebsite(Menu.WIDGETS, Menu.ACCORDION);
+        String accordion3Xpath = "//div[@id='accordion-header-3']";
+        WebElement accordion3Ele = mWebDriver.findElement(By.xpath(accordion3Xpath));
+        mActions.click(accordion3Ele).perform();
+
+        String accordion3Text = "//div[@id='accordion-body-3']";
+        WebElement accordion3TextEle = mWebDriver.findElement(By.xpath(accordion3Text));
+        log.info(accordion3TextEle.getText());
+
+    }
 }

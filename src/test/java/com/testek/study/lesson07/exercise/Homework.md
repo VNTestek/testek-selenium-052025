@@ -19,7 +19,7 @@
       1. Click 
       2. Confirm
       3. Prompt
-      4. Show text of alert
+         4. Show text of alert               
    
    ![alert.png](../../../../../../resources/data/study/alert_homework.png)
 
