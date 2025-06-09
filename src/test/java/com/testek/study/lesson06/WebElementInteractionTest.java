@@ -255,4 +255,10 @@ public class WebElementInteractionTest {
         System.out.println(outputInfoXpathEle.getText());
         System.out.println(outputInfo); //IN RA
     }
+
+    @Test
+    public void testDropList() {
+        gotoTestWebsite(Menu.WIDGETS, Menu.SELECTED_MENU);
+
+    }
 }
