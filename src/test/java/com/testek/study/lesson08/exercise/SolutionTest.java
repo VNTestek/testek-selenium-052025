@@ -47,7 +47,7 @@ public class SolutionTest {
      * URL: <a href="https://testek.vn/lab/auto/web-elements">...</a>
      * Access to Elements navigation
      */
-    @Test(description = "Element Interaction: Student Form")
+    @Test(priority = 1, description = "Element Interaction: Student Form")
     public void testStudentForm() {
         gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
         // Handle your code here
@@ -187,7 +187,7 @@ public class SolutionTest {
 
     }
 
-    @Test(description = "Login > Dashboard > Sản phẩm")
+    @Test(priority = 2, description = "Auto: Login > Dashboard > Sản phẩm")
     public void testSearchProducts() {
         String url = "https://testek.vn/lab/auto/login";
         webDriver.get(url);
@@ -234,7 +234,7 @@ public class SolutionTest {
         waitForDebug(3000);
     }
 
-    @Test(description = "Element Interaction: Click, Double Click, Right Click")
+    @Test(priority = 3, description = "Element Interaction: Click, Double Click, Right Click")
     public void testClick() {
         gotoTestWebsite(Menu.WIDGETS, Menu.ACCORDION);
         Actions actions = new Actions(webDriver);
@@ -283,22 +283,28 @@ public class SolutionTest {
 
     }
 
-    @Test(description = "Element Interaction: Hover")
+    @Test(priority = 4, description = "Element Interaction: Hover")
     public void testHover() {
         gotoTestWebsite(Menu.WIDGETS, Menu.MENU);
         Actions actions = new Actions(webDriver);
+        System.out.println("\nExercise4: Element Interaction: Hover");
 
         //define list menu element
         String mnuLstXPath = "//a[starts-with(@test-id,'menu')]";
         List<WebElement> mnuEleLst = webDriver.findElements(By.xpath(mnuLstXPath));
         for (WebElement menu : mnuEleLst) {
-            actions.moveToElement(menu).perform();
-            waitForDebug(5000);
+            actions.moveToElement(menu).click().build().perform();
+            waitForDebug(3000);
 
             String menuTitle = menu.getText();
             System.out.print(menuTitle + ": ");
 
-            List<WebElement> subMenus = webDriver.findElements(By.xpath("//a[starts-with(@test-id,'submenu')]"));
+            //define lst submenu
+            String XPATH_SUB_MNU_FORM = "//li[contains(@id,'%s')]//a[starts-with(@test-id,'submenu')]";
+            String subMnuXPath = String.format(XPATH_SUB_MNU_FORM, menuTitle.toLowerCase());
+            List<WebElement> subMenus = webDriver.findElements(By.xpath(subMnuXPath));
+
+            //print res
             if (!subMenus.isEmpty()) {
                 System.out.print("[");
                 for (int i = 0; i < subMenus.size(); i++) {
@@ -309,11 +315,8 @@ public class SolutionTest {
             } else {
                 System.out.println("[No submenu]");
             }
-
             waitForDebug(3000);
-
         }
-
     }
 
     /**
