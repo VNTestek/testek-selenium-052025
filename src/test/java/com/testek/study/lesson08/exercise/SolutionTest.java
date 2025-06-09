@@ -47,7 +47,7 @@ public class SolutionTest {
      * URL: <a href="https://testek.vn/lab/auto/web-elements">...</a>
      * Access to Elements navigation
      */
-    @Test(description = "Element Interaction: Student Form")
+    @Test(priority = 1, description = "Element Interaction: Student Form")
     public void testStudentForm() {
         gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
         Actions action = new Actions(mWebDriver);
@@ -166,7 +166,7 @@ public class SolutionTest {
         waitForDebug(2000);
     }
 
-    @Test(description = "Login > Dashboard > Sản phẩm")
+    @Test(priority = 2, description = "Login > Dashboard > Sản phẩm")
     public void testSearchProducts() {
         String url = "https://testek.vn/lab/auto/login";
         mWebDriver.get(url);
@@ -213,7 +213,7 @@ public class SolutionTest {
         action.click(btnSearchEle).perform();
     }
 
-    @Test(description = "Element Interaction: Click, Double Click, Right Click")
+    @Test(priority = 3, description = "Element Interaction: Click, Double Click, Right Click")
     public void testClick() {
         gotoTestWebsite(Menu.WIDGETS, Menu.ACCORDION);
         Actions action = new Actions(mWebDriver);
@@ -262,7 +262,7 @@ public class SolutionTest {
         waitForDebug(2000);
     }
 
-    @Test(description = "Element Interaction: Hover")
+    @Test(priority = 4, description = "Element Interaction: Hover")
     public void testHover() {
         gotoTestWebsite(Menu.WIDGETS, Menu.MENU);
         Actions action = new Actions(mWebDriver);
