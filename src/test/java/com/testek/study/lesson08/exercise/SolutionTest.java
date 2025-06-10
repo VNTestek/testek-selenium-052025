@@ -63,21 +63,21 @@ public class SolutionTest {
         mWebDriver.findElement(By.xpath(lblFirstNameXPath));
         WebElement txtFirstNameXpath = mWebDriver.findElement(By.xpath("//input[@type='text' and @id='firstName']"));
         txtFirstNameXpath.clear();
-        action.sendKeys(txtFirstNameXpath,"Doãn").perform();
+        action.sendKeys(txtFirstNameXpath, "Doãn").perform();
 
         // Last Name
         String lblLastNameXPath = "//label[normalize-space()='Last Name:']";
         mWebDriver.findElement(By.xpath(lblLastNameXPath));
         WebElement txtLastNameXpath = mWebDriver.findElement(By.xpath("//input[@type='text' and @id='lastName']"));
         txtLastNameXpath.clear();
-        action.sendKeys(txtLastNameXpath,"Kiên").perform();
+        action.sendKeys(txtLastNameXpath, "Kiên").perform();
 
         // Email
         String lblEmailXpath = "//label[normalize-space()='Email:']";
         mWebDriver.findElement(By.xpath(lblEmailXpath));
         WebElement txtEmailXpath = mWebDriver.findElement(By.xpath("//input[@test-id='input-email']"));
         txtEmailXpath.clear();
-        action.sendKeys(txtEmailXpath,"kiendoan796@gmail.com").perform();
+        action.sendKeys(txtEmailXpath, "kiendoan796@gmail.com").perform();
 
         // Gender:
         String lblGenderXpath = "//label[normalize-space()='Gender:']";
@@ -92,21 +92,21 @@ public class SolutionTest {
         mWebDriver.findElement(By.xpath(lblMobileXpath));
         WebElement txtMobileXpath = mWebDriver.findElement(By.xpath("//input[@test-id='input-mobile']"));
         txtMobileXpath.clear();
-        action.sendKeys(txtMobileXpath,"0989261459").perform();
+        action.sendKeys(txtMobileXpath, "0989261459").perform();
 
         // DOB
         String lblDOBXpath = "//label[normalize-space()='Date of Birth:']";
         mWebDriver.findElement(By.xpath(lblDOBXpath));
         WebElement txtDOBXpath = mWebDriver.findElement(By.xpath("//input[@test-id='input-dob']"));
         txtDOBXpath.clear();
-        action.sendKeys(txtDOBXpath,"14/04/1999").perform();
+        action.sendKeys(txtDOBXpath, "14/04/1999").perform();
 
         //Subjects
         String lblSubjectsXpath = "//label[normalize-space()='Subjects:']";
         mWebDriver.findElement(By.xpath(lblSubjectsXpath));
         WebElement txtSubjectXpath = mWebDriver.findElement(By.xpath("//input[@test-id='input-subjects']"));
         txtSubjectXpath.clear();
-        action.sendKeys(txtSubjectXpath,"Java").perform();
+        action.sendKeys(txtSubjectXpath, "Java").perform();
 
         // Hobbies
         String lblHobbiesXpath = "//label[normalize-space()='Hobbies:']";
@@ -123,7 +123,7 @@ public class SolutionTest {
         mWebDriver.findElement(By.xpath(lblAddressXpath));
         WebElement txtAddressXpath = mWebDriver.findElement(By.xpath("//textarea[@test-id='textarea-address']"));
         txtAddressXpath.clear();
-        action.sendKeys(txtAddressXpath,"Số 6 ngõ 89").perform();
+        action.sendKeys(txtAddressXpath, "Số 6 ngõ 89").perform();
 
         // Click btn Gửi thông tin
         WebElement btnSubmitXpath = mWebDriver.findElement(By.xpath("//button[normalize-space()='Submit']"));
@@ -144,9 +144,9 @@ public class SolutionTest {
 
         // Input account
         WebElement txtUsernameEle = mWebDriver.findElement(By.id("normal_login_username"));
-        action.sendKeys(txtUsernameEle,"admin_com_role").perform();
+        action.sendKeys(txtUsernameEle, "admin_com_role").perform();
         WebElement txtPasswordEle = mWebDriver.findElement(By.id("normal_login_password"));
-        action.sendKeys(txtPasswordEle,"aA12345678@").perform();
+        action.sendKeys(txtPasswordEle, "aA12345678@").perform();
 
         // Click btn Login
         WebElement btnLoginEle = mWebDriver.findElement(By.xpath("//button[normalize-space()='Đăng nhập']"));
@@ -155,14 +155,14 @@ public class SolutionTest {
         waitForDebug(5000);
 
         // Click menu>Product
-        String menuProductXpath= "//div[@class='menus mt-4 pl-3 pr-3']/child::div[normalize-space()='Sản phẩm']";
+        String menuProductXpath = "//div[@class='menus mt-4 pl-3 pr-3']/child::div[normalize-space()='Sản phẩm']";
         WebElement menuProductEle = mWebDriver.findElement(By.xpath(menuProductXpath));
         action.click(menuProductEle).perform();
 
         // Input keyword search
         String txtKeywordXpath = "//div[@class='filters flex items-center']/descendant::input[@placeholder='keyword']";
         WebElement txtKeywordEle = mWebDriver.findElement(By.xpath(txtKeywordXpath));
-        action.sendKeys(txtKeywordEle,"Tivi").perform();
+        action.sendKeys(txtKeywordEle, "Tivi").perform();
 
         String btnSearchCenterXpath = "//div[@class='filters flex items-center']/descendant::button[normalize-space()='Tìm kiếm']";
         WebElement btnSearchCenterEle = mWebDriver.findElement(By.xpath(btnSearchCenterXpath));
@@ -181,13 +181,13 @@ public class SolutionTest {
 
         String XPATH_BODY_ACCORDION = "//div[@id='accordion-body-%s']";
         // Click
-        for (int i=0; i<accordionHeaderList.size(); i++){
+        for (int i = 0; i < accordionHeaderList.size(); i++) {
             // Click Header accordion
             action.click(accordionHeaderList.get(i)).perform();
             System.out.println(accordionHeaderList.get(i).getText());
 
             // Xpath body accordion
-            String accordionBodyXpath = String.format(XPATH_BODY_ACCORDION,i+1);
+            String accordionBodyXpath = String.format(XPATH_BODY_ACCORDION, i + 1);
             WebElement accordionBodyEle = mWebDriver.findElement(By.xpath(accordionBodyXpath));
 
             System.out.println(accordionBodyEle.getText());
@@ -214,8 +214,8 @@ public class SolutionTest {
 
             // List submenu
             List<WebElement> submenuList = mWebDriver.findElements(By.xpath("//a[starts-with(@test-id, 'submenu-link-')]"));
-            if(!submenuList.isEmpty()){
-                for (int i=0; i<submenuList.size();i++){
+            if (!submenuList.isEmpty()) {
+                for (int i = 0; i < submenuList.size(); i++) {
                     System.out.println(submenuList.get(i).getText());
                 }
             } else {
@@ -224,7 +224,7 @@ public class SolutionTest {
         }
     }
 
-     /**
+    /**
      * Go to Test Website
      */
     private void gotoTestWebsite(Menu parent, Menu subMenu) {
