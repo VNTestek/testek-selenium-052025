@@ -233,7 +233,7 @@ public class SolutionTest {
         Assert.assertFalse(rows.isEmpty(), "No search results found");
 
         // Check each row contains the keyword "Tivi" in Name or Description
-        String[] keywords = {"Tivi", "TV" };
+        String[] keywords = {"Tivi", "TV"};
         for (int i = 0; i < rows.size(); i++) {
             WebElement row = rows.get(i);
             String tdNameCol = row.findElement(By.xpath(".//td[2]")).getText();
@@ -315,60 +315,27 @@ public class SolutionTest {
         gotoTestWebsite(Menu.WIDGETS, Menu.MENU);
 
         // Declare Dynamic XPath
-        String DYNAMIC_MENU_ITEM = "//a[@test-id='%s']";
-        String DYNAMIC_TOOLTIP_TEXT = "//a[@test-id='%s']/following-sibling::ul";
-
-        String hoverHomeXPath = String.format(DYNAMIC_MENU_ITEM, "menu-link-home");
-        String hoverServicesXPath = String.format(DYNAMIC_MENU_ITEM, "menu-link-services");
-        String hoverAboutXPath = String.format(DYNAMIC_MENU_ITEM, "menu-link-about");
-        String hoverContactXPath = String.format(DYNAMIC_MENU_ITEM, "menu-link-contact");
-
-        String toolTipServicesXPath = String.format(DYNAMIC_TOOLTIP_TEXT, "menu-link-services");
-        String toolTipContactXPath = String.format(DYNAMIC_TOOLTIP_TEXT, "menu-link-contact");
+        String DYNAMIC_TOOLTIP_TEXT = "//li[contains(@id, '%s')]//a[starts-with(@test-id, 'submenu')]";
 
         // Create a new Actions
         Actions mActions = new Actions(mWebDriver);
-//        List<WebElement> menuItems = mWebDriver.findElements(By.xpath("//a[starts-with(@test-id,'menu')]"));
-//        for (WebElement menuItem : menuItems) {
-//            System.out.println("Menu Item: " + menuItem.getText());
-//            if(menuItem.getText().isEmpty()) {
-//                System.out.println("Menu Item " + menuItems + " is empty");
-//                continue;
-//            }
-//            List<WebElement> subMenuItems = menuItem.findElements(By.xpath(".//ul/li/a"));
-//        }
+        List<WebElement> menuItems = mWebDriver.findElements(By.xpath("//a[starts-with(@test-id,'menu')]"));
+        for (WebElement menuItem : menuItems) {
+            mActions.moveToElement(menuItem).perform();
+            String menuItemText = menuItem.getText();
+            System.out.println("Menu Item: " + menuItemText);
 
-
-        // Hover over: Home
-        WebElement hoverHomeEle = mWebDriver.findElement(By.xpath(hoverHomeXPath));
-        mActions.moveToElement(hoverHomeEle).perform();
-        waitForDebug(2000);
-
-        // Hover over: menu-link-services
-        WebElement hoverServicesEle = mWebDriver.findElement(By.xpath(hoverServicesXPath));
-        mActions.moveToElement(hoverServicesEle).perform();
-        waitForDebug(2000);
-
-        // Print tooltip text for Services
-        WebElement toolTipServicesEle = mWebDriver.findElement(By.xpath(toolTipServicesXPath));
-        System.out.println("Tooltip for Services: " + toolTipServicesEle.getText());
-        waitForDebug(2000);
-
-        // Hover over: menu-link-about
-        WebElement hoverAboutEle = mWebDriver.findElement(By.xpath(hoverAboutXPath));
-        mActions.moveToElement(hoverAboutEle).perform();
-        waitForDebug(2000);
-
-        // Hover over: menu-link-contact
-        WebElement hoverContactEle = mWebDriver.findElement(By.xpath(hoverContactXPath));
-        mActions.moveToElement(hoverContactEle).perform();
-        waitForDebug(2000);
-
-        // Print tooltip text for Contact
-        WebElement toolTipContactEle = mWebDriver.findElement(By.xpath(toolTipContactXPath));
-        System.out.println("Tooltip for Contact: " + toolTipContactEle.getText());
-        waitForDebug(2000);
-
+            String subMenuItemsXPath = String.format(DYNAMIC_TOOLTIP_TEXT, menuItemText.toLowerCase());
+            List<WebElement> subMenuItemsEle = mWebDriver.findElements(By.xpath(subMenuItemsXPath));
+            System.out.println("Sub menu Item for " + menuItemText + ":");
+            if (subMenuItemsEle.isEmpty()) {
+                System.out.println("    " + menuItemText + " has no submenu");
+            } else {
+                for (WebElement subMenuItem : subMenuItemsEle) {
+                    System.out.println("    " + subMenuItem.getText());
+                }
+            }
+        }
     }
 
     /**
