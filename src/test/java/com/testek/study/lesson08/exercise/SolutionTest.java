@@ -328,6 +328,16 @@ public class SolutionTest {
 
         // Create a new Actions
         Actions mActions = new Actions(mWebDriver);
+//        List<WebElement> menuItems = mWebDriver.findElements(By.xpath("//a[starts-with(@test-id,'menu')]"));
+//        for (WebElement menuItem : menuItems) {
+//            System.out.println("Menu Item: " + menuItem.getText());
+//            if(menuItem.getText().isEmpty()) {
+//                System.out.println("Menu Item " + menuItems + " is empty");
+//                continue;
+//            }
+//            List<WebElement> subMenuItems = menuItem.findElements(By.xpath(".//ul/li/a"));
+//        }
+
 
         // Hover over: Home
         WebElement hoverHomeEle = mWebDriver.findElement(By.xpath(hoverHomeXPath));
