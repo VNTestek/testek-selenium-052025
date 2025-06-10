@@ -3,6 +3,7 @@ package com.testek.study.lesson07.exercise;
 import com.testek.study.common.Menu;
 import lombok.Getter;
 import lombok.Setter;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -58,6 +59,18 @@ public class SolutionTest {
         gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.FRAME);
 
         // Handle your code here
+        String smallFrameID = "small-frame";
+        WebElement smallFrameEle = mWebDriver.findElement(By.id(smallFrameID));
+
+        // frame interaction
+        mWebDriver.switchTo().frame(smallFrameEle);
+        WebElement lblSmallFrameTitleEle = mWebDriver.findElement(By.tagName("h1"));
+        System.out.println("Small Frame Title: " + lblSmallFrameTitleEle.getText());
+        WebElement lblSmallFrameTextContentEle = mWebDriver.findElement(By.tagName("p"));
+        System.out.println("Small Frame Text Content: " + lblSmallFrameTextContentEle.getText());
+
+        // Back to page contents
+        mWebDriver.switchTo().defaultContent();
     }
 
     @Test(description = "Element Interaction: Alert")
@@ -65,6 +78,27 @@ public class SolutionTest {
         gotoTestWebsite(Menu.ALERT_FRAME_AND_WINDOWS, Menu.ALERT);
 
         // Handle your code here
+        String XPATH_BUTTON_FORM = "//button[@id = '%s']";
+
+        // Click on the button to open the confirmAlert
+        String btnConfirmAlertXPath = String.format(XPATH_BUTTON_FORM, "confirmAlert");
+        WebElement btnConfirmAlertEle = mWebDriver.findElement(By.xpath(btnConfirmAlertXPath));
+        btnConfirmAlertEle.click();
+        // Confirm Alert btn
+        Alert confirmAlert = mWebDriver.switchTo().alert();
+        System.out.println("Simple Alert text value: " + confirmAlert.getText());
+        confirmAlert.accept();
+
+        // Click on the button to open the promptAlert
+        String btnPromptAlertXPath = String.format(XPATH_BUTTON_FORM, "promptAlert");
+        WebElement btnPromptAlertEle = mWebDriver.findElement(By.xpath(btnPromptAlertXPath));
+        btnPromptAlertEle.click();
+        // Prompt Alert
+        Alert promptAlert = mWebDriver.switchTo().alert();
+        System.out.println("Prompt Alert text value: " + promptAlert.getText());
+        promptAlert.sendKeys("Testek alert");
+        waitForDebug(2000);
+        promptAlert.accept();
     }
 
      /**
