@@ -6,12 +6,15 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
 import static java.lang.Thread.sleep;
 
@@ -161,5 +164,21 @@ public class JavaScriptsTest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Test(description = "Thuc hanh 01: JavaScript")
+    public void testJavaScript() {
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+
+        // Init Java Script
+        JavascriptExecutor javaScripts = (JavascriptExecutor) mWebDriver;
+
+        WebDriverWait wait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
+        String firstNameXPath = "//input[@id='name']";
+
+        // Wait until button is clickable, then click
+        WebElement firstNameEle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(firstNameXPath)));
+        javaScripts.executeScript("arguments[0].value = 'Lien Bi';", firstNameEle);
+        javaScripts.executeScript("arguments[0].style.border='3px solid red'", firstNameEle);
     }
 }

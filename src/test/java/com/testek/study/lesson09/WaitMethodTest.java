@@ -161,4 +161,20 @@ public class WaitMethodTest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test(description = "ExplicitWait")
+    public void testExplicitWait() {
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+
+        WebDriverWait wait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
+        String firstNameXPath = "//input[@id='name']";
+        // Wait until textbox first name visible
+        WebElement firstNameEle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstNameXPath)));
+
+        // Wait until button is clickable, then click
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(firstNameXPath)));
+        firstNameEle.click();
+
+        System.out.println("Clicked the text box successfully.");
+    }
 }
