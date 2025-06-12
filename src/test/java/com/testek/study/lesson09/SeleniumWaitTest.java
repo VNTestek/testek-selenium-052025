@@ -2,10 +2,7 @@ package com.testek.study.lesson09;
 
 import com.testek.study.common.Menu;
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,6 +37,25 @@ public class SeleniumWaitTest {
             mWebDriver.quit();
             mWebDriver = null;
         }
+    }
+
+    @Test
+    public void testClickButton() {
+        gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
+        // Init wait
+        WebDriverWait wait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
+
+        String btnSubmitId = "submit-button";
+        WebElement btnSubmitEle = mWebDriver.findElement(By.id(btnSubmitId));
+
+        // Wait for your element to ready click
+        wait.until(ExpectedConditions.visibilityOf(btnSubmitEle));
+        wait.until(ExpectedConditions.elementToBeClickable(btnSubmitEle));
+
+        btnSubmitEle.click();
+
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) mWebDriver;
+        javascriptExecutor.executeScript("argument[0].click();", btnSubmitEle);
     }
 
     /**
@@ -83,7 +99,7 @@ public class SeleniumWaitTest {
      * Init Fluent Wait
      */
     @Test
-    public void initFluentWait(){
+    public void initFluentWait() {
         gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
 
         // Waiting 30 seconds for an element to be present on the page, checking

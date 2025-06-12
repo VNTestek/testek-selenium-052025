@@ -1,6 +1,7 @@
 package com.testek.study.lesson09;
 
 import com.testek.study.common.Menu;
+import io.cucumber.java.et.Ja;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -69,6 +70,21 @@ public class JavaScriptsTest {
             file.mkdirs();
         }
         takeSnapShot(mWebDriver, file.getAbsolutePath() + "/" + System.currentTimeMillis() + ".png");
+    }
+
+    @Test
+    public void testJS() {
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
+
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) mWebDriver;
+
+        String fullNameXPath = "//input[@test-id='textbox-form-input-name']";
+        WebElement fullNameEle = mWebDriver.findElement(By.xpath(fullNameXPath));
+        javascriptExecutor.executeScript("arguments[0].value = 'ToanTK';", fullNameEle);
+        javascriptExecutor.executeScript("arguments[0].style.border='3px solid red'", fullNameEle);
+
+        System.out.println("1");
+
     }
 
     @Test(description = "Thuc hanh 01: JavaScript")
