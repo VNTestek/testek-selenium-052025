@@ -61,21 +61,29 @@ public class SeleniumWaitTest {
      */
     @Test
     public void initExplicitWait() {
-        gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
 
         // Init WebDriverWait with 10s; Default interval time: 500ms
         WebDriverWait wait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
 
-        String firstNameXPath = "//input[@placeholder='Enter your first name']";
-        // Wait for the element to be visible
-        WebElement firstNameEle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstNameXPath)));
-        log.info("ID :{}", firstNameEle.getAttribute("id"));
+        String btnSubmitXPath = "//button[@test-id = 'textbox-form-submit']";
+        // WebElement btnSubmitEle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(btnSubmitXPath)));
+        WebElement btnSubmitEle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(btnSubmitXPath)));
+        btnSubmitEle.click();
 
-        // Send keys to the element
-        firstNameEle.sendKeys("Vincent");
+        log.info(btnSubmitEle.getText());
 
-        WebDriverWait seleniumWait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
-        seleniumWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstNameXPath)));
+
+//        String firstNameXPath = "//input[@placeholder='Enter your first name']";
+//        // Wait for the element to be visible
+//        WebElement firstNameEle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstNameXPath)));
+//        log.info("ID :{}", firstNameEle.getAttribute("id"));
+//
+//        // Send keys to the element
+//        firstNameEle.sendKeys("Vincent");
+//
+//        WebDriverWait seleniumWait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
+//        seleniumWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstNameXPath)));
     }
 
 
