@@ -28,6 +28,7 @@ public class SeleniumWaitTest {
 
     @BeforeMethod
     public void beforeTestMethod() {
+
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--remote-allow-origins=*");
@@ -61,18 +62,20 @@ public class SeleniumWaitTest {
      */
     @Test
     public void initExplicitWait() {
-        gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
 
         // Init WebDriverWait with 10s; Default interval time: 500ms
         WebDriverWait wait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
 
-        String firstNameXPath = "//input[@placeholder='Enter your first name']";
+        String firstNameXPath = "//button[@test-id='textbox-form-submit']";
         // Wait for the element to be visible
-        WebElement firstNameEle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstNameXPath)));
-        log.info("ID :{}", firstNameEle.getAttribute("id"));
+//        WebElement btnSendInfo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstNameXPath)));
+        WebElement btnSendInfo = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(firstNameXPath)));
+
+        btnSendInfo.click();
 
         // Send keys to the element
-        firstNameEle.sendKeys("Vincent");
+        btnSendInfo.sendKeys("Vincent");
 
         WebDriverWait seleniumWait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
         seleniumWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstNameXPath)));
@@ -83,7 +86,7 @@ public class SeleniumWaitTest {
      * Init Fluent Wait
      */
     @Test
-    public void initFluentWait(){
+    public void initFluentWait() {
         gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
 
         // Waiting 30 seconds for an element to be present on the page, checking

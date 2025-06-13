@@ -29,3 +29,5 @@ bin/
 .DS_Store
 /target/
 /testek-selenium-052025.iml
+.idea/
+.idea/*

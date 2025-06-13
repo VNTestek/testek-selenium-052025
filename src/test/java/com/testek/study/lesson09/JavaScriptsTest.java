@@ -21,6 +21,7 @@ public class JavaScriptsTest {
 
     @BeforeMethod
     public void beforeTestMethod() {
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--remote-allow-origins=*");
@@ -75,6 +76,19 @@ public class JavaScriptsTest {
     public void testPracticeJavaScript() {
         gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
 
+//        // Init Java Script
+//        JavascriptExecutor javaScripts = (JavascriptExecutor) mWebDriver;
+//
+//        String DYNAMIC_INPUT_PLACEHOLDER_FORM = "//input[@placeholder='%s']";
+//        // Send Key Full Name
+//        String fullNameXPath = String.format(DYNAMIC_INPUT_PLACEHOLDER_FORM, "Nhập họ tên");
+//        WebElement fullNameEle = mWebDriver.findElement(By.xpath(fullNameXPath));
+//        javaScripts.executeScript("arguments[0].value = 'Vincent';", fullNameEle);
+//        String text = (String) javaScripts.executeScript("return arguments[0].value;", fullNameEle);
+//        log.info("Full Name: {}", text);
+
+
+
         // Init Java Script
         JavascriptExecutor javaScripts = (JavascriptExecutor) mWebDriver;
 
@@ -82,15 +96,19 @@ public class JavaScriptsTest {
         // Send Key Full Name
         String fullNameXPath = String.format(DYNAMIC_INPUT_PLACEHOLDER_FORM, "Nhập họ tên");
         WebElement fullNameEle = mWebDriver.findElement(By.xpath(fullNameXPath));
-        javaScripts.executeScript("arguments[0].value = 'Vincent';", fullNameEle);
+        javaScripts.executeScript("arguments[0].value = 'Ngoc Anh Nguyen';", fullNameEle);
+        javaScripts.executeScript("arguments[0].style.border='3px solid red'", fullNameEle);
+
         String text = (String) javaScripts.executeScript("return arguments[0].value;", fullNameEle);
         log.info("Full Name: {}", text);
+
+        System.out.println(fullNameEle.getText());
 
 
         // Send Key Full Name
         String emailXPath = String.format(DYNAMIC_INPUT_PLACEHOLDER_FORM, "Nhập email");
         WebElement emailEle = mWebDriver.findElement(By.xpath(emailXPath));
-        javaScripts.executeScript("arguments[0].value = 'vincent@gmail.com';", emailEle);
+        javaScripts.executeScript("arguments[0].value = 'ngocanh@gmail.com';", emailEle);
         String email = (String) javaScripts.executeScript("return arguments[0].value;", emailEle);
         log.info("Email : {}", email);
 
@@ -98,14 +116,14 @@ public class JavaScriptsTest {
         // Input phone number
         String edtPhoneXPath = String.format(DYNAMIC_INPUT_PLACEHOLDER_FORM, "Nhập số điện thoại");
         WebElement edtPhoneEle = mWebDriver.findElement(By.xpath(edtPhoneXPath));
-        javaScripts.executeScript("arguments[0].value = '0832868822';", edtPhoneEle);
+        javaScripts.executeScript("arguments[0].value = '0123456';", edtPhoneEle);
         String currentAdd = (String) javaScripts.executeScript("return arguments[0].value;", edtPhoneEle);
         log.info("Phone Number : {}", currentAdd);
 
         // Input address
         String edtAddressXPath = String.format(DYNAMIC_INPUT_PLACEHOLDER_FORM, "Nhập địa chỉ");
         WebElement edtAddressEle = mWebDriver.findElement(By.xpath(edtAddressXPath));
-        javaScripts.executeScript("arguments[0].value = 'Q. Cầu Giấy, TP Hà Nội';", edtAddressEle);
+        javaScripts.executeScript("arguments[0].value = 'Q. Nam Tu Liem, TP Hà Nội';", edtAddressEle);
         String permanent = (String) javaScripts.executeScript("return arguments[0].value;", edtAddressEle);
         log.info("Address : {}", permanent);
 
