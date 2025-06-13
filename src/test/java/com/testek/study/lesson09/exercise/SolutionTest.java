@@ -60,7 +60,7 @@ public class SolutionTest {
 
         // Define the locator format
         String XPATH_H3_TITLE_FORM = "//h3[@id = '%s']";
-        String XPATH_LBL_FORM = "//label[@for = '%s']";
+        String XPATH_LBL_FORM = "//label[@test-id = '%s']";
         String XPATH_INPUT_TEXT_FORM = "//input[@placeholder = '%s']";
         String XPATH_RADIO_FORM = "//input[@type = 'radio' and @id = '%s']";
         String XPATH_DATE_FORM = "//input[@type = 'date' and @id = '%s']";
@@ -78,30 +78,28 @@ public class SolutionTest {
         waitForElement(By.xpath(lblFormTitleXPath));
 
         //First Name lbl
-        String lblFirstNameXPath = String.format(XPATH_LBL_FORM, "firstName");
+        String lblFirstNameXPath = String.format(XPATH_LBL_FORM, "label-firstName");
         waitForElement(By.xpath(lblFirstNameXPath));
         //First Name txt
         String txtFirstNameXPath = String.format(XPATH_INPUT_TEXT_FORM, "Enter your first name");
         sendKeysToElement(By.xpath(txtFirstNameXPath), "Trinh", true);
 
         //Last Name lbl
-        String lblLastNameXPath = String.format(XPATH_LBL_FORM, "lastName");
+        String lblLastNameXPath = String.format(XPATH_LBL_FORM, "label-lastName");
         waitForElement(By.xpath(lblLastNameXPath));
         //Last Name txt
         String txtLastNameXPath = String.format(XPATH_INPUT_TEXT_FORM, "Enter your last name");
         sendKeysToElement(By.xpath(txtLastNameXPath), "Toan", true);
 
         //Email lbl
-        String lblEmailXPath = String.format(XPATH_LBL_FORM, "email");
-        mWebDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(lblEmailXPath)));
-//        mWebDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(lblEmailXPath))); => fail
-//        waitForElement(By.xpath(lblEmailXPath));
+        String lblEmailXPath = String.format(XPATH_LBL_FORM, "label-email");
+        waitForElement(By.xpath(lblEmailXPath));
         //Email txt
         String txtEmailXPath = String.format(XPATH_INPUT_TEXT_FORM, "Enter your email");
         sendKeysToElement(By.xpath(txtEmailXPath), "toan@mail.com", true);
 
         //Gender lbl
-        String lblGenderXPath = String.format(XPATH_LBL_FORM, "gender");
+        String lblGenderXPath = String.format(XPATH_LBL_FORM, "label-gender");
         waitForElement(By.xpath(lblGenderXPath));
         //Male RDO
         String rdoMaleXPath = String.format(XPATH_RADIO_FORM, "male");
@@ -113,28 +111,28 @@ public class SolutionTest {
         actions.click(rdoMaleEle).perform();
 
         //Mobile lbl
-        String lblMobileXPath = String.format(XPATH_LBL_FORM, "mobile");
+        String lblMobileXPath = String.format(XPATH_LBL_FORM, "label-mobile");
         waitForElement(By.xpath(lblMobileXPath));
         //Mobile txt
         String txtMobileXPath = String.format(XPATH_INPUT_TEXT_FORM, "Enter your mobile number");
         sendKeysToElement(By.xpath(txtMobileXPath), "091098987", true);
 
         //Date of Birth lbl
-        String lblDobXPath = String.format(XPATH_LBL_FORM, "dob");
+        String lblDobXPath = String.format(XPATH_LBL_FORM, "label-dob");
         waitForElement(By.xpath(lblDobXPath));
         //Date of Birth input
         String dateDobXPath = String.format(XPATH_DATE_FORM, "dob");
         sendKeysToElement(By.xpath(dateDobXPath), "20102999", true);
 
         //Subjects lbl
-        String lblSubjectsXPath = String.format(XPATH_LBL_FORM, "subjects");
+        String lblSubjectsXPath = String.format(XPATH_LBL_FORM, "label-subjects");
         waitForElement(By.xpath(lblSubjectsXPath));
         //Subjects txt
         String txtSubjectsXPath = String.format(XPATH_INPUT_TEXT_FORM, "Enter your subjects");
         sendKeysToElement(By.xpath(txtSubjectsXPath), "Auto web by Selenium", true);
 
         //Hobbies lbl
-        String lblHobbiesXPath = String.format(XPATH_LBL_FORM, "hobbies");
+        String lblHobbiesXPath = String.format(XPATH_LBL_FORM, "label-hobbies");
         mWebDriver.findElement(By.xpath(lblHobbiesXPath));
         //Reading CHK
         String chkReadingXPath = String.format(XPATH_CHECKBOX_FORM, "reading");
@@ -160,9 +158,8 @@ public class SolutionTest {
         }
 
         //Address lbl
-        String lblAddressXPath = String.format(XPATH_LBL_FORM, "address");
-        mWebDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(lblAddressXPath)));
-//        waitForElement(By.xpath(lblAddressXPath));
+        String lblAddressXPath = String.format(XPATH_LBL_FORM, "label-address");
+        waitForElement(By.xpath(lblAddressXPath));
         //Address txt
         String txtAddressXPath = String.format(XPATH_TXT_AREA_FORM, "address");
         sendKeysToElement(By.xpath(txtAddressXPath), "VNM", true);
@@ -183,7 +180,6 @@ public class SolutionTest {
 
         waitForDebug(2000);
     }
-
 
     /**
      * Go to Test Website
