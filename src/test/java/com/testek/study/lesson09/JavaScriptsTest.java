@@ -82,10 +82,9 @@ public class JavaScriptsTest {
         // Send Key Full Name
         String fullNameXPath = String.format(DYNAMIC_INPUT_PLACEHOLDER_FORM, "Nhập họ tên");
         WebElement fullNameEle = mWebDriver.findElement(By.xpath(fullNameXPath));
-        javaScripts.executeScript("arguments[0].value = 'Vincent';", fullNameEle);
+        javaScripts.executeScript("arguments[0].value = 'Kim Chi';", fullNameEle);
         String text = (String) javaScripts.executeScript("return arguments[0].value;", fullNameEle);
         log.info("Full Name: {}", text);
-
 
         // Send Key Full Name
         String emailXPath = String.format(DYNAMIC_INPUT_PLACEHOLDER_FORM, "Nhập email");
@@ -113,6 +112,9 @@ public class JavaScriptsTest {
         String btnSubmitXPath = "//button[@test-id='textbox-form-submit']";
         WebElement btnSubmitEle = mWebDriver.findElement(By.xpath(btnSubmitXPath));
         javaScripts.executeScript("arguments[0].click()", btnSubmitEle);
+
+        // Draw border for element
+        javaScripts.executeScript("arguments[0].style.border='3px solid red'", fullNameEle);
         waitForDebug(5000);
     }
 
