@@ -61,21 +61,23 @@ public class SeleniumWaitTest {
      */
     @Test
     public void initExplicitWait() {
-        gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
+        gotoTestWebsite(Menu.ELEMENTS, Menu.TEXT_BOX);
 
         // Init WebDriverWait with 10s; Default interval time: 500ms
         WebDriverWait wait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
 
-        String firstNameXPath = "//input[@placeholder='Enter your first name']";
+        String btnSubmitXPath = "//button[contains(text(),'Gửi thông tin')]";
+
         // Wait for the element to be visible
-        WebElement firstNameEle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstNameXPath)));
+        WebElement firstNameEle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(btnSubmitXPath)));
+
         log.info("ID :{}", firstNameEle.getAttribute("id"));
 
         // Send keys to the element
         firstNameEle.sendKeys("Vincent");
 
         WebDriverWait seleniumWait = new WebDriverWait(mWebDriver, Duration.ofSeconds(10));
-        seleniumWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstNameXPath)));
+        seleniumWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(btnSubmitXPath)));
     }
 
 
@@ -83,7 +85,7 @@ public class SeleniumWaitTest {
      * Init Fluent Wait
      */
     @Test
-    public void initFluentWait(){
+    public void initFluentWait() {
         gotoTestWebsite(Menu.FORM, Menu.STUDENT_FORM);
 
         // Waiting 30 seconds for an element to be present on the page, checking
