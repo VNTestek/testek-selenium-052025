@@ -102,7 +102,7 @@ public class SolutionTest {
 
         WebElement btnAddEle = mWebDriver.findElement(By.xpath("//span[normalize-space()='Thêm']"));
         btnAddEle.click();
-        waitForDebug(6000);
+        waitForDebug(5000);
 
         WebElement txnProductIDEle = mWebDriver.findElement(By.xpath("//input[@placeholder='Mã sản phẩm']"));
         System.out.println("Mã sản phẩm: " + txnProductIDEle.getText());
